@@ -1,0 +1,187 @@
+# Sample GraphQL Queries for Testing
+
+## Test Basic Connection
+```graphql
+query {
+  posts {
+    nodes {
+      title
+      content
+    }
+  }
+}
+```
+
+## Test Homepage Data
+```graphql
+query GetHomepage {
+  page(id: "home", idType: URI) {
+    id
+    title
+    content
+    customFields {
+      heroTitle
+      heroSubtitle
+      heroVideo
+      heroWords {
+        word
+      }
+    }
+  }
+}
+```
+
+## Test Services
+```graphql
+query GetServices {
+  services {
+    nodes {
+      id
+      title
+      content
+      excerpt
+      featuredImage {
+        node {
+          sourceUrl
+          altText
+        }
+      }
+      customFields {
+        serviceIcon {
+          sourceUrl
+          altText
+        }
+        servicePrice
+        serviceFeatures {
+          feature
+        }
+      }
+    }
+  }
+}
+```
+
+## Test Testimonials
+```graphql
+query GetTestimonials {
+  testimonials {
+    nodes {
+      id
+      title
+      content
+      customFields {
+        clientName
+        clientPosition
+        clientCompany
+        rating
+        clientImage {
+          sourceUrl
+          altText
+        }
+      }
+    }
+  }
+}
+```
+
+## Test Clients
+```graphql
+query GetClients {
+  clients {
+    nodes {
+      id
+      title
+      featuredImage {
+        node {
+          sourceUrl
+          altText
+        }
+      }
+      customFields {
+        clientLogo {
+          sourceUrl
+          altText
+        }
+        clientUrl
+      }
+    }
+  }
+}
+```
+
+## Test Trust Features
+```graphql
+query GetTrustFeatures {
+  trustFeatures {
+    nodes {
+      id
+      title
+      content
+      customFields {
+        icon {
+          sourceUrl
+          altText
+        }
+        highlightWords
+      }
+    }
+  }
+}
+```
+
+## Test Menu
+```graphql
+query GetMenu($location: MenuLocationEnum!) {
+  menuItems(where: { location: $location }) {
+    nodes {
+      id
+      label
+      url
+      path
+      parentId
+      cssClasses
+      description
+      target
+      title
+    }
+  }
+}
+```
+
+## Test All Data at Once
+```graphql
+query GetAllData {
+  page(id: "home", idType: URI) {
+    customFields {
+      heroTitle
+      heroSubtitle
+    }
+  }
+  
+  services {
+    nodes {
+      title
+      customFields {
+        servicePrice
+      }
+    }
+  }
+  
+  testimonials {
+    nodes {
+      title
+      customFields {
+        clientName
+        rating
+      }
+    }
+  }
+  
+  menuItems(where: { location: PRIMARY }) {
+    nodes {
+      label
+      url
+    }
+  }
+}
+```

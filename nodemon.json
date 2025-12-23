@@ -1,0 +1,8 @@
+{
+  "watch": ["server.ts", "src/**/*", "payload.config.ts"],
+  "ext": "ts,js,json",
+  "exec": "ts-node -r dotenv/config server.ts",
+  "env": {
+    "NODE_ENV": "development"
+  }
+} 

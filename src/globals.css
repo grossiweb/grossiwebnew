@@ -1,0 +1,255 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: #6c6c6c;
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 66px;
+}
+
+h2 {
+  font-size: 42px;
+}
+
+h3 {
+  font-size: 32px;
+}
+
+h4 {
+  font-size: 22px;
+}
+
+h5 {
+  font-size: 20px;
+}
+
+p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s ease-out;
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 448px) {
+  h2 {
+    font-size: 24px !important;
+    font-weight: 700 !important;
+  }
+  
+  h3 {
+    font-size: 20px !important;
+  }
+  
+  h5 {
+    font-size: 16px !important;
+    font-weight: 700 !important;
+  }
+  
+  p {
+    font-size: 16px !important;
+  }
+  
+  .driven-container {
+    font-size: 36px;
+    text-align: center;
+    justify-content: center;
+  }
+  
+  .slider-heading {
+    font-size: 36px !important;
+    text-align: center;
+  }
+}
+
+/* Form styles */
+.gfield_label,
+input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]):not([type="button"]):not([type="image"]):not([type="file"]),
+textarea {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  opacity: 0.5;
+  font-family: 'Poppins', sans-serif !important;
+  color: #fff;
+}
+
+/* Contact form specific styles */
+.contact-form input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]):not([type="button"]):not([type="image"]):not([type="file"]),
+.contact-form textarea {
+  background: #14183e;
+  border-right: none !important;
+  color: #fff !important;
+  border-color: #fff;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  padding-left: 0;
+}
+
+.contact-form input:focus-visible,
+.contact-form textarea:focus-visible {
+  outline: none !important;
+}
+
+.contact-form .required {
+  color: #fff;
+  margin-left: 2px;
+}
+
+.contact-form label {
+  font-weight: 500;
+  color: #fff;
+}
+
+.contact-form button[type="submit"] {
+  font-size: 1em;
+  background: #287194;
+  color: #fff;
+  width: 100%;
+  border-radius: 5px;
+  padding: 20px 12px;
+  border: none;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Testimonial styles */
+.testimonial-slide {
+  background: #fff;
+  border-radius: 10px;
+  padding: 25px !important;
+  margin: 0 10px;
+  min-height: 425px;
+}
+
+/* Border left styles for headings */
+.border-left-light-blue {
+  border-left: 4px solid #287194;
+  padding-left: 25px;
+}
+
+/* Links */
+a {
+  text-decoration: none !important;
+}
+
+a:hover {
+  text-decoration: none !important;
+}
+
+/* No margins/padding utilities */
+.no-margin-all {
+  margin: 0 !important;
+}
+
+.no-margin-top {
+  margin-top: 0 !important;
+}
+
+.no-margin-bottom {
+  margin-bottom: 0 !important;
+}
+
+/* Header positioning */
+header {
+  position: absolute;
+  width: 100%;
+  z-index: 50;
+}
+
+/* Full width utilities */
+.full-width {
+  width: 100% !important;
+  max-width: 100%;
+}
+
+/* Service section specific styles */
+.service .reverse-col {
+  flex-direction: column-reverse;
+}
+
+@media (max-width: 768px) {
+  .service .reverse-col {
+    flex-direction: column-reverse;
+  }
+} 
