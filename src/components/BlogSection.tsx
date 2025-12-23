@@ -24,8 +24,14 @@ const GET_BLOG_POSTS = gql`
   }
 `;
 
+type BlogCardPost = {
+  title: string
+  image: string
+  slug: string
+}
+
 // Fallback blog posts
-const fallbackPosts = [
+const fallbackPosts: BlogCardPost[] = [
   {
     title: 'Grossi Web opens its new offices across from Piedmont Park',
     image: 'https://newdesign.grossiweb.com/wp-content/uploads/2023/10/Rectangle-97-1.webp',
@@ -54,7 +60,7 @@ export default function BlogSection() {
   });
 
   // Use WordPress data if available, otherwise fallback
-  const blogPosts = data?.posts?.nodes?.map((post: any) => ({
+  const blogPosts: BlogCardPost[] = data?.posts?.nodes?.map((post: any) => ({
     title: post.title,
     image: post.featuredImage?.node?.sourceUrl || fallbackPosts[0].image,
     slug: post.slug
@@ -76,7 +82,7 @@ export default function BlogSection() {
         <div className="max-w-6xl mx-auto">
           {/* First Row */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-            {blogPosts.slice(0, 2).map((post, index) => (
+            {blogPosts.slice(0, 2).map((post: BlogCardPost, index: number) => (
               <Link key={index} href={`/blog/${post.slug}`}>
                 <div 
                   className="relative bg-cover bg-center rounded-lg overflow-hidden cursor-pointer hover:transform hover:scale-105 transition-transform"
@@ -104,7 +110,7 @@ export default function BlogSection() {
           
           {/* Second Row */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {blogPosts.slice(2).map((post, index) => (
+            {blogPosts.slice(2).map((post: BlogCardPost, index: number) => (
               <Link key={index + 2} href={`/blog/${post.slug}`}>
                 <div 
                   className="relative bg-cover bg-center rounded-lg overflow-hidden cursor-pointer hover:transform hover:scale-105 transition-transform"
