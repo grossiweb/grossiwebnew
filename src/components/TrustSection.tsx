@@ -20,8 +20,15 @@ const GET_TRUST_FEATURES = gql`
   }
 `;
 
+type TrustFeatureCard = {
+  icon: string
+  title: string
+  description: string
+  highlightWords: string[]
+}
+
 // Fallback trust features
-const fallbackFeatures = [
+const fallbackFeatures: TrustFeatureCard[] = [
   {
     icon: 'https://newdesign.grossiweb.com/wp-content/uploads/2023/10/Frame-3.png',
     title: 'We ensure ROI',
@@ -52,11 +59,11 @@ export default function TrustSection() {
   const { data, loading, error } = useQuery(GET_TRUST_FEATURES);
 
   // Use WordPress data if available, otherwise fallback
-  const trustFeatures = data?.trustFeatures?.nodes?.map((feature: any) => ({
+  const trustFeatures: TrustFeatureCard[] = data?.trustFeatures?.nodes?.map((feature: any): TrustFeatureCard => ({
     icon: feature.customFields?.icon || fallbackFeatures[0].icon,
     title: feature.title,
     description: feature.content?.replace(/<[^>]*>/g, '') || '', // Strip HTML tags
-    highlightWords: feature.customFields?.highlightWords || []
+    highlightWords: (feature.customFields?.highlightWords as string[] | undefined) || []
   })) || fallbackFeatures;
 
   const renderTitle = (title: string, highlightWords: string[]) => {
@@ -80,7 +87,7 @@ export default function TrustSection() {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-          {trustFeatures.slice(0, 2).map((feature, index) => (
+          {trustFeatures.slice(0, 2).map((feature: TrustFeatureCard, index: number) => (
             <div 
               key={index}
               className="bg-gray-100 rounded-lg p-8"
@@ -105,7 +112,7 @@ export default function TrustSection() {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {trustFeatures.slice(2).map((feature, index) => (
+          {trustFeatures.slice(2).map((feature: TrustFeatureCard, index: number) => (
             <div 
               key={index + 2}
               className="bg-gray-100 rounded-lg p-8"
