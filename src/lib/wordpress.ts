@@ -27,10 +27,13 @@ export const apolloClient = new ApolloClient({
 });
 
 // WordPress API functions
-export async function getWordPressData(query: string | DocumentNode, variables?: any) {
+export async function getWordPressData<T = any>(
+  query: string | DocumentNode,
+  variables?: any
+): Promise<T> {
   try {
     const queryString = typeof query === 'string' ? query : print(query);
-    const data = await graphqlClient.request(queryString, variables);
+    const data = await graphqlClient.request<T>(queryString, variables);
     return data;
   } catch (error) {
     console.error('WordPress GraphQL Error:', error);
