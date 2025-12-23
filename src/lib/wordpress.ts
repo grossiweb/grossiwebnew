@@ -1,4 +1,6 @@
 import { GraphQLClient } from 'graphql-request';
+import type { DocumentNode } from 'graphql';
+import { print } from 'graphql';
 
 // Use local API proxy to bypass CORS issues
 const WORDPRESS_API_URL = typeof window === 'undefined' 
@@ -25,9 +27,10 @@ export const apolloClient = new ApolloClient({
 });
 
 // WordPress API functions
-export async function getWordPressData(query: string, variables?: any) {
+export async function getWordPressData(query: string | DocumentNode, variables?: any) {
   try {
-    const data = await graphqlClient.request(query, variables);
+    const queryString = typeof query === 'string' ? query : print(query);
+    const data = await graphqlClient.request(queryString, variables);
     return data;
   } catch (error) {
     console.error('WordPress GraphQL Error:', error);
