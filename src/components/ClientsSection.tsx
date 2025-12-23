@@ -40,7 +40,7 @@ export default function ClientsSection() {
   const { data, loading, error } = useQuery(GET_CLIENTS);
 
   // Use WordPress data if available, otherwise fallback to hardcoded logos
-  const clientLogos = data?.clients?.nodes?.map((client: any) => 
+  const clientLogos: string[] = data?.clients?.nodes?.map((client: any) => 
     client.customFields?.clientLogo || client.featuredImage?.node?.sourceUrl
   ).filter(Boolean) || fallbackLogos;
 
@@ -61,7 +61,7 @@ export default function ClientsSection() {
         <div className="bg-gray-100 py-16" style={{backgroundColor: '#ebebeb'}}>
           <div className="overflow-hidden">
             <div className="flex animate-scroll space-x-12 items-center justify-center">
-              {clientLogos.concat(clientLogos).map((logo, index) => (
+              {clientLogos.concat(clientLogos).map((logo: string, index: number) => (
                 <div key={index} className="flex-shrink-0 flex items-center justify-center h-20">
                   <img 
                     src={logo}
