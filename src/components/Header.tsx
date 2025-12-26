@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useQuery } from '@apollo/client'
 import { GET_MENU } from '@/lib/queries'
@@ -52,6 +52,24 @@ export default function Header() {
     }
   }
 
+  useEffect(() => {
+    if (!isMenuOpen) return
+
+    const prevOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setIsMenuOpen(false)
+    }
+
+    window.addEventListener('keydown', onKeyDown)
+
+    return () => {
+      document.body.style.overflow = prevOverflow
+      window.removeEventListener('keydown', onKeyDown)
+    }
+  }, [isMenuOpen])
+
   return (
     <header className="absolute top-0 left-0 right-0 z-50 w-full">
       <div className="container mx-auto px-6 py-4">
@@ -85,6 +103,7 @@ export default function Header() {
               className="text-white p-2"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
+              aria-expanded={isMenuOpen}
             >
               <svg width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {isMenuOpen ? (
@@ -96,38 +115,76 @@ export default function Header() {
             </button>
           </div>
         </div>
+      </div>
 
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="absolute top-full left-0 right-0 bg-blue-900 shadow-lg">
-            <div className="container mx-auto px-6 py-8">
-              <div className="flex flex-col space-y-6">
-                <div className="mb-6">
-                  <img 
-                    src="https://newdesign.grossiweb.com/wp-content/uploads/2023/10/Group_6_1_.png"
-                    alt="Grossiweb"
-                    width={149}
-                    height={34}
-                    className="h-8 w-auto"
-                  />
-                </div>
-                
+      {/* Full-screen Menu Overlay */}
+      {isMenuOpen && (
+        <div
+          className="fixed inset-0 z-[60] bg-blue-900"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Site menu"
+        >
+          {/* Backdrop click closes */}
+          <button
+            type="button"
+            className="absolute inset-0 cursor-default"
+            aria-label="Close menu"
+            onClick={() => setIsMenuOpen(false)}
+          />
+
+          <div className="relative h-full w-full">
+            <div className="container mx-auto px-6 py-6">
+              <div className="flex items-center justify-between">
+                <img 
+                  src="https://newdesign.grossiweb.com/wp-content/uploads/2023/10/Group_6_1_.png"
+                  alt="Grossiweb"
+                  width={149}
+                  height={34}
+                  className="h-8 w-auto"
+                />
+
+                {/* Explicit X close button */}
+                <button
+                  type="button"
+                  className="text-white p-2"
+                  aria-label="Close menu"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <svg width="48" height="48" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+
+              <nav className="mt-12 flex flex-col space-y-7">
                 {menuItems.map((item: MenuNode, index: number) => (
                   <Link 
                     key={item.id || `${item.label}-${index}`}
                     href={normalizeHref(item)}
-                    className="text-white text-2xl font-medium hover:text-blue-300 transition-colors"
+                    className="text-white text-3xl md:text-4xl font-semibold hover:text-blue-200 transition-colors"
                     style={{fontFamily: 'Poppins, sans-serif'}}
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.label}
                   </Link>
                 ))}
+              </nav>
+
+              <div className="mt-14">
+                <Link
+                  href="#contact"
+                  className="inline-flex border-2 border-white text-white px-7 py-3 rounded-md hover:bg-white hover:text-blue-900 transition-all duration-300 font-semibold"
+                  style={{ fontFamily: 'Poppins, sans-serif' }}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Schedule a call →
+                </Link>
               </div>
             </div>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </header>
   )
 } 
