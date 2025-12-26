@@ -58,15 +58,15 @@ export default function ClientsSection() {
         </p>
         
         {/* Client Logos */}
-        <div className="bg-gray-100 py-16" style={{backgroundColor: '#ebebeb'}}>
+        <div className="bg-white py-16">
           <div className="overflow-hidden">
-            <div className="flex animate-scroll space-x-12 items-center justify-center">
+            <div className="flex animate-scroll space-x-16 items-center justify-center">
               {clientLogos.concat(clientLogos).map((logo: string, index: number) => (
-                <div key={index} className="flex-shrink-0 flex items-center justify-center h-20">
+                <div key={index} className="flex-shrink-0 flex items-center justify-center h-28">
                   <img 
                     src={logo}
                     alt={`Client ${index + 1}`}
-                    className="max-h-16 w-auto opacity-60 hover:opacity-100 transition-opacity"
+                    className="max-h-24 w-auto opacity-100"
                   />
                 </div>
               ))}

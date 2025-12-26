@@ -1,66 +1,147 @@
 import React from 'react'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
+import Link from 'next/link'
+import { gql } from '@apollo/client'
+import { getWordPressData } from '@/lib/wordpress'
 
-const blogPosts = [
-  {
-    title: 'Grossi Web opens its new offices across from Piedmont Park',
-    excerpt: 'We are excited to announce our new location in Atlanta, positioned perfectly across from the beautiful Piedmont Park.',
-    date: 'December 15, 2024',
-    slug: 'new-offices-piedmont-park'
-  },
-  {
-    title: 'The Future is Digital Distribution',
-    excerpt: 'Exploring how digital distribution is reshaping the way businesses connect with their customers in 2025.',
-    date: 'December 10, 2024', 
-    slug: 'future-digital-distribution'
-  },
-  {
-    title: 'The Organ of Sight',
-    excerpt: 'Understanding visual design principles and how they impact user experience in the digital age.',
-    date: 'December 5, 2024',
-    slug: 'organ-of-sight'
-  },
-  {
-    title: 'Manifesting your Reality',
-    excerpt: 'How to turn your business vision into reality through strategic planning and execution.',
-    date: 'November 30, 2024',
-    slug: 'manifesting-your-reality'
+const GET_BLOG_INDEX = gql`
+  query GetBlogIndex($first: Int = 24) {
+    posts(
+      first: $first
+      where: { status: PUBLISH, orderby: { field: DATE, order: DESC } }
+    ) {
+      nodes {
+        id
+        title
+        excerpt
+        slug
+        date
+        featuredImage {
+          node {
+            sourceUrl
+            altText
+          }
+        }
+        categories {
+          nodes {
+            name
+            slug
+          }
+        }
+      }
+    }
   }
-]
+`
 
-export default function BlogPage() {
+function stripHtml(html?: string) {
+  return (html || '').replace(/<[^>]*>/g, '').trim()
+}
+
+type BlogIndexPost = {
+  id: string
+  title: string
+  excerpt?: string
+  slug: string
+  date?: string
+  featuredImage?: { node?: { sourceUrl?: string; altText?: string } }
+  categories?: { nodes?: Array<{ name: string; slug: string }> }
+}
+
+export default async function BlogPage() {
+  const defaultHeroImageUrl = process.env.NEXT_PUBLIC_DEFAULT_HERO_IMAGE_URL || '/waterfall.webp'
+  let posts: BlogIndexPost[] = []
+
+  try {
+    const data = await getWordPressData<any>(GET_BLOG_INDEX, { first: 24 })
+    const rawPosts: BlogIndexPost[] = data?.posts?.nodes || []
+
+    // Exclude internal "category-as-CPT" content if those categories exist.
+    posts = rawPosts.filter((p) => {
+      const cats = p.categories?.nodes?.map((c) => c.slug) || []
+      return !cats.includes('services') && !cats.includes('testimonials')
+    })
+  } catch {
+    posts = []
+  }
+
   return (
     <div className="min-h-screen">
-      <Header />
-      
-      <main className="pt-24 pb-16">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-8">Blog</h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+      {/* Hero header (matches contact/about style so the global Header is readable) */}
+      <section className="relative min-h-[50vh] md:min-h-[65vh] overflow-hidden bg-gradient-to-r from-blue-900 to-blue-700 flex items-center">
+        {defaultHeroImageUrl ? (
+          <>
+            <img
+              src={defaultHeroImageUrl}
+              alt="Blog"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-black/35"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/35 to-transparent"></div>
+          </>
+        ) : (
+          <>
+            <div className="absolute inset-0 bg-black/25"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent"></div>
+          </>
+        )}
+
+        <div className="relative z-10 container mx-auto px-6 pt-24 md:pt-28 pb-16 md:pb-24">
+          <div className="max-w-3xl">
+            <h1
+              className="text-[42px] md:text-[56px] font-bold text-white leading-[1.05]"
+              style={{ fontFamily: 'Poppins, sans-serif' }}
+            >
+              Blog
+            </h1>
+            <p
+              className="mt-6 md:mt-8 text-lg md:text-2xl text-white/90 max-w-2xl leading-relaxed"
+              style={{ fontFamily: 'Poppins, sans-serif' }}
+            >
               Stay updated with the latest insights, trends, and news from the world of digital marketing and web development.
             </p>
           </div>
-          
+        </div>
+      </section>
+
+      <main className="py-16 bg-white">
+        <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map((post, index) => (
-              <article key={index} className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
-                <div className="p-6">
-                  <div className="text-sm text-blue-600 font-medium mb-2">{post.date}</div>
-                  <h2 className="text-xl font-bold text-gray-900 mb-3">{post.title}</h2>
-                  <p className="text-gray-600 mb-4">{post.excerpt}</p>
-                  <button className="text-blue-600 font-medium hover:text-blue-700 transition-colors">
-                    Read More →
-                  </button>
-                </div>
-              </article>
-            ))}
+            {posts.map((post) => {
+              const dateLabel = post.date ? new Date(post.date).toLocaleDateString() : ''
+              const excerpt = stripHtml(post.excerpt).slice(0, 160)
+              const imageUrl = post.featuredImage?.node?.sourceUrl
+
+              return (
+                <Link
+                  key={post.id}
+                  href={`/blog/${post.slug}`}
+                  className="group bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden block"
+                >
+                  {imageUrl ? (
+                    <div className="h-48 w-full overflow-hidden bg-gray-100">
+                      <img
+                        src={imageUrl}
+                        alt={post.featuredImage?.node?.altText || post.title}
+                        className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                      />
+                    </div>
+                  ) : null}
+
+                  <div className="p-6">
+                    {dateLabel ? (
+                      <div className="text-sm text-blue-600 font-medium mb-2">{dateLabel}</div>
+                    ) : null}
+                    <h2 className="text-xl font-bold text-gray-900 mb-3">{post.title}</h2>
+                    {excerpt ? <p className="text-gray-600 mb-4">{excerpt}…</p> : null}
+                    <div className="text-blue-600 font-medium group-hover:text-blue-700 transition-colors">
+                      Read More →
+                    </div>
+                  </div>
+                </Link>
+              )
+            })}
           </div>
         </div>
       </main>
-      
-      <Footer />
     </div>
   )
 } 

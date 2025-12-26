@@ -2,17 +2,12 @@
 import React, { useMemo } from 'react'
 import { useQuery } from '@apollo/client'
 import { GET_CONTENT_BY_SLUG, GET_PAGE } from '@/lib/queries'
-import { useParams } from 'next/navigation'
 
-export default function DynamicPage() {
-  const params = useParams()
-  const defaultHeroImageUrl = process.env.NEXT_PUBLIC_DEFAULT_HERO_IMAGE_URL || '/waterfall.webp'
-  
-  // Convert slug array to string path
-  const slug = Array.isArray(params.slug) 
-    ? params.slug.join('/') 
-    : params.slug || ''
+type DynamicWpPageProps = {
+  slug: string
+}
 
+export default function DynamicWpPage({ slug }: DynamicWpPageProps) {
   // First try to get content by slug (works for most WordPress setups)
   const { data: slugData, loading: slugLoading, error: slugError } = useQuery(GET_CONTENT_BY_SLUG, {
     variables: { slug },
@@ -25,7 +20,7 @@ export default function DynamicPage() {
       id: `/${slug}/`,
       idType: 'URI'
     },
-    skip: !slugError && (slugData?.pages?.nodes?.length > 0 || slugData?.posts?.nodes?.length > 0), // Skip if we already found content
+    skip: !slugError && (slugData?.pages?.nodes?.length > 0 || slugData?.posts?.nodes?.length > 0),
     errorPolicy: 'all'
   })
 
@@ -37,7 +32,6 @@ export default function DynamicPage() {
   const isPost = !!foundPost && !foundPage
 
   // IMPORTANT: Hooks must run in the same order on every render.
-  // Use safe fallbacks so `useMemo` is always called, even during loading/404 states.
   const rawHtml = content?.content || ''
   const excerptHtml = content?.excerpt || ''
 
@@ -52,7 +46,6 @@ export default function DynamicPage() {
       }
     }
 
-    // DOMParser exists in the browser; guard just in case.
     if (typeof DOMParser === 'undefined') {
       return {
         coverImageUrl: undefined,
@@ -77,24 +70,22 @@ export default function DynamicPage() {
         return {
           coverImageUrl: undefined,
           coverImageAlt: undefined,
-          coverHeadingHtml: undefined,
+          coverTitleHtml: undefined,
+          coverSubtitleLines: undefined,
           contentHtmlWithoutCover: rawHtml
         }
       }
 
-      // Prefer the dedicated cover background image tag if present.
       const coverImg = cover.querySelector('img.wp-block-cover__image-background') as HTMLImageElement | null
       const imgSrc = coverImg?.getAttribute('src') || undefined
       const imgAlt = coverImg?.getAttribute('alt') || undefined
 
-      // Fallback to inline background-image styles.
       const bgFromCover = extractCssUrl(cover.getAttribute('style'))
       const bgEl = cover.querySelector('.wp-block-cover__background') as HTMLElement | null
       const bgFromOverlay = extractCssUrl(bgEl?.getAttribute('style'))
 
       const imageUrl = imgSrc || bgFromCover || bgFromOverlay
 
-      // Extract structured hero text from the cover block (title + subtitle lines).
       const inner = cover.querySelector('.wp-block-cover__inner-container')
       const innerClone = inner?.cloneNode(true) as HTMLElement | null
 
@@ -106,20 +97,17 @@ export default function DynamicPage() {
         titleHtml = headingEl?.innerHTML?.trim() || undefined
         if (headingEl) headingEl.remove()
 
-        // Collect text from remaining <p> blocks as subtitle lines (no <p> rendered in header).
         const pEls = Array.from(innerClone.querySelectorAll('p')) as HTMLElement[]
         subtitle = pEls
           .map((p) => (p.textContent || '').trim())
           .filter(Boolean)
 
-        // If no <p>, fall back to any remaining text content.
         if (!subtitle.length) {
           const remainingText = (innerClone.textContent || '').trim()
           if (remainingText) subtitle = [remainingText]
         }
       }
 
-      // Remove the cover block from the body HTML to avoid duplicating hero in the content render.
       cover.remove()
       const cleanedHtml = doc.body.innerHTML
 
@@ -141,11 +129,8 @@ export default function DynamicPage() {
     }
   }, [rawHtml])
 
-  // Extract excerpt or create a short description from content (prefer content WITHOUT cover block)
   const pageDescription = useMemo(() => {
-    if (excerptHtml) {
-      return excerptHtml.replace(/<[^>]*>/g, '').trim()
-    }
+    if (excerptHtml) return excerptHtml.replace(/<[^>]*>/g, '').trim()
 
     if (contentHtmlWithoutCover) {
       const firstParagraph = contentHtmlWithoutCover.match(/<p[^>]*>(.*?)<\/p>/i)
@@ -153,7 +138,6 @@ export default function DynamicPage() {
         return firstParagraph[1].replace(/<[^>]*>/g, '').trim().substring(0, 150) + '...'
       }
     }
-
     return ''
   }, [excerptHtml, contentHtmlWithoutCover])
 
@@ -176,9 +160,7 @@ export default function DynamicPage() {
           <p className="text-gray-600">Page not found</p>
           <p className="text-sm text-gray-400 mt-2">Looking for: /{slug}</p>
           {(slugError || uriError) && (
-            <p className="text-xs text-red-400 mt-1">
-              Error: {slugError?.message || uriError?.message}
-            </p>
+            <p className="text-xs text-red-400 mt-1">Error: {slugError?.message || uriError?.message}</p>
           )}
         </div>
       </div>
@@ -187,12 +169,12 @@ export default function DynamicPage() {
 
   return (
     <div className="min-h-screen">
-      {/* Header / Banner Section (dynamic image from CMS when available) */}
+      {/* Header / Banner Section (Cover Block style) */}
       <section className="relative min-h-[60vh] md:min-h-[80vh] overflow-hidden bg-gradient-to-r from-blue-900 to-blue-700 flex items-center">
-        {(coverImageUrl || content.featuredImage?.node?.sourceUrl || defaultHeroImageUrl) && (
+        {(coverImageUrl || content.featuredImage?.node?.sourceUrl) && (
           <>
             <img
-              src={coverImageUrl || content.featuredImage?.node?.sourceUrl || defaultHeroImageUrl}
+              src={coverImageUrl || content.featuredImage.node.sourceUrl}
               alt={coverImageAlt || content.featuredImage?.node?.altText || content.title}
               className="absolute inset-0 w-full h-full object-cover"
             />
@@ -237,17 +219,11 @@ export default function DynamicPage() {
       {/* Content Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-6">
-
-          {/* Post Meta (if it's a post) */}
           {isPost && (
             <div className="max-w-6xl mx-auto mb-12 text-center">
               <div className="flex flex-wrap justify-center items-center text-sm text-gray-500 space-x-4">
-                {content.author?.node?.name && (
-                  <span>By {content.author.node.name}</span>
-                )}
-                {content.date && (
-                  <span>{new Date(content.date).toLocaleDateString()}</span>
-                )}
+                {content.author?.node?.name && <span>By {content.author.node.name}</span>}
+                {content.date && <span>{new Date(content.date).toLocaleDateString()}</span>}
                 {content.categories?.nodes?.length > 0 && (
                   <span>in {content.categories.nodes.map((cat: any) => cat.name).join(', ')}</span>
                 )}
@@ -255,9 +231,8 @@ export default function DynamicPage() {
             </div>
           )}
 
-          {/* Main Content - styled to match Grossiweb */}
           <div className="max-w-6xl mx-auto">
-            <div 
+            <div
               className="prose max-w-none text-[18px]
                          prose-headings:font-bold prose-headings:text-[#6c6c6c]
                          prose-h1:text-4xl prose-h1:mb-6 prose-h1:mt-12
@@ -270,14 +245,14 @@ export default function DynamicPage() {
                          prose-strong:text-[#6c6c6c] prose-strong:font-semibold
                          prose-ul:mb-6 prose-ol:mb-6
                          prose-li:mb-2"
-              style={{fontFamily: 'Poppins, sans-serif'}}
+              style={{ fontFamily: 'Poppins, sans-serif' }}
               dangerouslySetInnerHTML={{ __html: contentHtmlWithoutCover }}
             />
           </div>
-
-          {/* Debug Info removed */}
         </div>
       </section>
     </div>
   )
 }
+
+

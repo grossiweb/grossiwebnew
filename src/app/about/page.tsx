@@ -2,12 +2,12 @@
 import React, { useState } from 'react'
 
 const teamMembers = [
-  { name: 'Ginseppe', role: 'Graphic Designer', image: '/api/placeholder/200/200' },
-  { name: 'Xiadei', role: 'Developer', image: '/api/placeholder/200/200' },
-  { name: 'Micah', role: 'Graphic Designer', image: '/api/placeholder/200/200' },
-  { name: 'Michael', role: 'Copywriter', image: '/api/placeholder/200/200' },
-  { name: 'Bhawini', role: 'Developer/Project Manager', image: '/api/placeholder/200/200' },
-  { name: 'Stefeno', role: 'Business Developer', image: '/api/placeholder/200/200' }
+  { name: 'Ginseppe', role: 'Graphic Designer', image: '/team/Ginseppe.webp' },
+  { name: 'Xiadei', role: 'Developer', image: '/team/Xiadei.webp' },
+  { name: 'Micah', role: 'Graphic Designer', image: '/team/Micah.jpg' },
+  { name: 'Michael', role: 'Copywriter', image: '/team/Michael.webp' },
+  { name: 'Bhawini', role: 'Developer/Project Manager', image: '/team/Bhawini.webp' },
+  { name: 'Stefeno', role: 'Business Developer', image: '/team/Stefeno.webp' }
 ]
 
 const testimonials = [
@@ -44,6 +44,8 @@ const testimonials = [
 ]
 
 export default function AboutPage() {
+  const defaultHeroImageUrl = process.env.NEXT_PUBLIC_DEFAULT_HERO_IMAGE_URL || '/waterfall.webp'
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -67,16 +69,27 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-blue-900 to-blue-800 text-white py-32">
-        {/* Background pattern or image can be added here */}
-        <div className="absolute inset-0 bg-blue-900 opacity-90"></div>
-        
-        <div className="relative container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6" style={{fontFamily: 'Poppins, sans-serif'}}>
+      <section className="relative min-h-[60vh] md:min-h-[80vh] overflow-hidden bg-gradient-to-r from-blue-900 to-blue-700 flex items-center">
+        <img
+          src={defaultHeroImageUrl}
+          alt="About Us"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/35"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/35 to-transparent"></div>
+
+        <div className="relative z-10 container mx-auto px-6 pt-24 md:pt-28 pb-16 md:pb-24">
+          <div className="max-w-3xl">
+            <h1
+              className="text-[42px] font-bold text-white leading-[1.05]"
+              style={{ fontFamily: 'Poppins, sans-serif' }}
+            >
               About Us
             </h1>
-            <p className="text-xl md:text-2xl font-light" style={{fontFamily: 'Poppins, sans-serif'}}>
+            <p
+              className="mt-6 md:mt-8 text-lg md:text-2xl text-white/90 max-w-xl leading-relaxed"
+              style={{ fontFamily: 'Poppins, sans-serif' }}
+            >
               Elevating standards through building relationships.
             </p>
           </div>

@@ -7,12 +7,20 @@ import Link from 'next/link';
 
 const GET_BLOG_POSTS = gql`
   query GetBlogPosts($first: Int = 4) {
-    posts(first: $first) {
+    posts(
+      first: $first
+      where: { status: PUBLISH, orderby: { field: DATE, order: DESC } }
+    ) {
       nodes {
         id
         title
         excerpt
         slug
+        categories {
+          nodes {
+            slug
+          }
+        }
         featuredImage {
           node {
             sourceUrl
@@ -60,11 +68,19 @@ export default function BlogSection() {
   });
 
   // Use WordPress data if available, otherwise fallback
-  const blogPosts: BlogCardPost[] = data?.posts?.nodes?.map((post: any) => ({
-    title: post.title,
-    image: post.featuredImage?.node?.sourceUrl || fallbackPosts[0].image,
-    slug: post.slug
-  })) || fallbackPosts;
+  const blogPosts: BlogCardPost[] = (data?.posts?.nodes || [])
+    .filter((post: any) => {
+      const cats = post?.categories?.nodes?.map((c: any) => c.slug) || []
+      return !cats.includes('services') && !cats.includes('testimonials')
+    })
+    .slice(0, 4)
+    .map((post: any) => ({
+      title: post.title,
+      image: post.featuredImage?.node?.sourceUrl || fallbackPosts[0].image,
+      slug: post.slug,
+    }))
+
+  const displayPosts = blogPosts.length ? blogPosts : fallbackPosts;
 
   return (
     <section className="py-20 bg-white">
@@ -82,7 +98,7 @@ export default function BlogSection() {
         <div className="max-w-6xl mx-auto">
           {/* First Row */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-            {blogPosts.slice(0, 2).map((post: BlogCardPost, index: number) => (
+            {displayPosts.slice(0, 2).map((post: BlogCardPost, index: number) => (
               <Link key={index} href={`/blog/${post.slug}`}>
                 <div 
                   className="relative bg-cover bg-center rounded-lg overflow-hidden cursor-pointer hover:transform hover:scale-105 transition-transform"
@@ -110,7 +126,7 @@ export default function BlogSection() {
           
           {/* Second Row */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {blogPosts.slice(2).map((post: BlogCardPost, index: number) => (
+            {displayPosts.slice(2).map((post: BlogCardPost, index: number) => (
               <Link key={index + 2} href={`/blog/${post.slug}`}>
                 <div 
                   className="relative bg-cover bg-center rounded-lg overflow-hidden cursor-pointer hover:transform hover:scale-105 transition-transform"

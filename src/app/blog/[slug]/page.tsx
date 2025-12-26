@@ -1,12 +1,11 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getWordPressData } from '@/lib/wordpress';
-import { GET_PAGE, GET_ALL_PAGES } from '@/lib/queries';
 import { gql } from '@apollo/client';
 
 const GET_POST_BY_SLUG = gql`
-  query GetPostBySlug($slug: String!) {
-    postBy(slug: $slug) {
+  query GetPostBySlug($slug: ID!) {
+    post(id: $slug, idType: SLUG) {
       id
       title
       content
@@ -27,10 +26,6 @@ const GET_POST_BY_SLUG = gql`
         nodes {
           name
         }
-      }
-      seo {
-        title
-        metaDesc
       }
     }
   }
@@ -65,7 +60,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
     const data = await getWordPressData(GET_POST_BY_SLUG, { slug: params.slug });
-    const post = data.postBy;
+    const post = data.post;
 
     if (!post) {
       return {
@@ -73,12 +68,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       };
     }
 
+    const plainExcerpt = post.excerpt?.replace(/<[^>]*>/g, '').trim() || ''
+    const description = plainExcerpt ? plainExcerpt.slice(0, 160) : undefined
+
     return {
-      title: post.seo?.title || post.title,
-      description: post.seo?.metaDesc || post.excerpt?.replace(/<[^>]*>/g, '').slice(0, 160),
+      title: post.title,
+      description,
       openGraph: {
         title: post.title,
-        description: post.excerpt?.replace(/<[^>]*>/g, '').slice(0, 160),
+        description,
         images: post.featuredImage?.node?.sourceUrl ? [post.featuredImage.node.sourceUrl] : [],
       },
     };
@@ -92,7 +90,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function BlogPost({ params }: Props) {
   try {
     const data = await getWordPressData(GET_POST_BY_SLUG, { slug: params.slug });
-    const post = data.postBy;
+    const post = data.post;
 
     if (!post) {
       notFound();
@@ -100,53 +98,64 @@ export default async function BlogPost({ params }: Props) {
 
     return (
       <div className="min-h-screen bg-white">
-        <div className="container mx-auto px-6 py-20">
-          {/* Featured Image */}
-          {post.featuredImage?.node?.sourceUrl && (
-            <div className="mb-8">
+        {/* Hero header (matches contact/about style so the global Header is readable) */}
+        <section className="relative min-h-[55vh] md:min-h-[70vh] overflow-hidden bg-gradient-to-r from-blue-900 to-blue-700 flex items-center">
+          {post.featuredImage?.node?.sourceUrl ? (
+            <>
               <img
                 src={post.featuredImage.node.sourceUrl}
                 alt={post.featuredImage.node.altText || post.title}
-                className="w-full h-96 object-cover rounded-lg"
+                className="absolute inset-0 w-full h-full object-cover"
               />
-            </div>
+              <div className="absolute inset-0 bg-black/40"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/35 to-transparent"></div>
+            </>
+          ) : (
+            <>
+              <div className="absolute inset-0 bg-black/25"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent"></div>
+            </>
           )}
 
-          {/* Post Header */}
-          <header className="mb-8">
-            <h1 
-              className="text-4xl md:text-5xl font-bold text-blue-900 mb-4"
-              style={{fontFamily: 'Poppins, sans-serif', color: '#191e4e'}}
-            >
-              {post.title}
-            </h1>
-            
-            <div className="flex flex-wrap items-center gap-4 text-gray-600 mb-4">
-              {post.author?.node?.name && (
-                <span>By {post.author.node.name}</span>
-              )}
-              {post.date && (
-                <span>{new Date(post.date).toLocaleDateString()}</span>
-              )}
-              {post.categories?.nodes?.length > 0 && (
-                <div className="flex gap-2">
-                  {post.categories.nodes.map((category: any, index: number) => (
-                    <span key={index} className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">
-                      {category.name}
-                    </span>
-                  ))}
-                </div>
-              )}
-            </div>
-          </header>
+          <div className="relative z-10 container mx-auto px-6 pt-24 md:pt-28 pb-16 md:pb-24">
+            <div className="max-w-4xl">
+              <h1
+                className="text-[36px] md:text-[54px] font-bold text-white leading-[1.05]"
+                style={{ fontFamily: 'Poppins, sans-serif' }}
+              >
+                {post.title}
+              </h1>
 
-          {/* Post Content */}
-          <article 
-            className="prose prose-lg max-w-none"
-            style={{fontFamily: 'Poppins, sans-serif'}}
-            dangerouslySetInnerHTML={{ __html: post.content }}
-          />
-        </div>
+              <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 text-white/85">
+                {post.author?.node?.name ? <span>By {post.author.node.name}</span> : null}
+                {post.date ? <span>{new Date(post.date).toLocaleDateString()}</span> : null}
+                {post.categories?.nodes?.length ? (
+                  <div className="flex flex-wrap gap-2">
+                    {post.categories.nodes.map((category: any, index: number) => (
+                      <span
+                        key={index}
+                        className="bg-white/15 text-white px-3 py-1 rounded-full text-xs tracking-wide"
+                      >
+                        {category.name}
+                      </span>
+                    ))}
+                  </div>
+                ) : null}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <main className="py-16">
+          <div className="container mx-auto px-6">
+            {/* Post Content */}
+            <article
+              className="prose prose-lg max-w-none"
+              style={{ fontFamily: 'Poppins, sans-serif' }}
+              dangerouslySetInnerHTML={{ __html: post.content }}
+            />
+          </div>
+        </main>
       </div>
     );
   } catch (error) {
