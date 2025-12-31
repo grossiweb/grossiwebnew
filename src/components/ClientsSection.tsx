@@ -45,28 +45,28 @@ export default function ClientsSection() {
   ).filter(Boolean) || fallbackLogos;
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-16 md:py-20 bg-white">
       <div className="container mx-auto px-6 text-center">
         <h2 
-          className="text-4xl md:text-5xl font-bold text-blue-900 mb-4 border-l-4 border-blue-500 pl-6 inline-block"
+          className="text-3xl md:text-4xl font-bold text-blue-900 mb-3 border-l-4 border-blue-500 pl-6 inline-block"
           style={{fontFamily: 'Poppins, sans-serif', color: '#191e4e'}}
         >
           Our Clients
         </h2>
-        <p className="text-lg mb-12" style={{fontFamily: 'Poppins, sans-serif'}}>
+        <p className="text-base md:text-lg mb-10" style={{fontFamily: 'Poppins, sans-serif'}}>
           From world leading brands to local super stars.
         </p>
         
         {/* Client Logos */}
-        <div className="bg-white py-16">
+        <div className="bg-white py-10 md:py-12">
           <div className="overflow-hidden">
             <div className="flex animate-scroll space-x-16 items-center justify-center">
               {clientLogos.concat(clientLogos).map((logo: string, index: number) => (
-                <div key={index} className="flex-shrink-0 flex items-center justify-center h-28">
+                <div key={index} className="flex-shrink-0 flex items-center justify-center h-24">
                   <img 
                     src={logo}
                     alt={`Client ${index + 1}`}
-                    className="max-h-24 w-auto opacity-100"
+                    className="max-h-20 w-auto opacity-100"
                   />
                 </div>
               ))}
@@ -74,9 +74,9 @@ export default function ClientsSection() {
           </div>
         </div>
         
-        <div className="mt-8">
+        <div className="mt-6">
           <button 
-            className="text-blue-600 font-bold text-lg hover:text-blue-700 transition-colors"
+            className="text-blue-600 font-bold text-base md:text-lg hover:text-blue-700 transition-colors"
             style={{fontFamily: 'Poppins, sans-serif', color: '#287194'}}
           >
             Explore Our Work &gt;

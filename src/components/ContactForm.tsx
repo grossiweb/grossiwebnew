@@ -63,7 +63,7 @@ export default function ContactForm() {
   }
 
   return (
-    <section id="contact" className="py-20 bg-white">
+    <section id="contact" className="py-16 md:py-20 bg-white">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           {/* Two Column Layout */}
@@ -71,7 +71,7 @@ export default function ContactForm() {
             {/* Left Column - 60% */}
             <div className="lg:col-span-3 space-y-8">
               <h2 
-                className="text-4xl md:text-5xl font-bold text-blue-900 border-l-4 border-blue-500 pl-6 leading-tight"
+                className="text-3xl md:text-4xl font-bold text-blue-900 border-l-4 border-blue-500 pl-6 leading-tight"
                 style={{fontFamily: 'Poppins, sans-serif', color: '#191e4e'}}
               >
                 What happens after you{' '}
@@ -97,7 +97,7 @@ export default function ContactForm() {
                         className="border-l-2 pl-4 text-gray-700"
                         style={{borderColor: '#14183e'}}
                       >
-                        <p style={{fontFamily: 'Poppins, sans-serif', fontSize: '18px'}}>
+                        <p className="text-base md:text-lg leading-relaxed" style={{fontFamily: 'Poppins, sans-serif'}}>
                           We will schedule a quick 15-minute call with you to understand what you need to unlock the full potential of your business.
                         </p>
                       </div>
@@ -120,7 +120,7 @@ export default function ContactForm() {
                         Project Proposal
                       </p>
                       <div className="border-l-2 border-transparent pl-4 text-gray-700">
-                        <p style={{fontFamily: 'Poppins, sans-serif', fontSize: '18px'}}>
+                        <p className="text-base md:text-lg leading-relaxed" style={{fontFamily: 'Poppins, sans-serif'}}>
                           After we got every output from you, we will prepare a proposal for you. If you agree with our pricing and timeline, we are all set to take off.
                         </p>
                       </div>

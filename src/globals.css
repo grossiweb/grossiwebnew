@@ -108,6 +108,29 @@ html {
   animation: scroll 30s linear infinite;
 }
 
+/* Testimonials marquee (infinite loop carousel) */
+.testimonial-marquee {
+  animation: scroll 45s linear infinite;
+  width: max-content;
+  will-change: transform;
+}
+
+.testimonial-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Soft edge fade to match Figma screenshot */
+.testimonial-mask {
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .testimonial-marquee {
+    animation: none;
+  }
+}
+
 /* Mobile responsive adjustments */
 @media (max-width: 448px) {
   h2 {

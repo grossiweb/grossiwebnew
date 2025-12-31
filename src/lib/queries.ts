@@ -36,6 +36,28 @@ export const GET_MENU = gql`
   }
 `;
 
+// Menu query by database ID (when a menu isn't assigned to a theme location)
+export const GET_MENU_BY_ID = gql`
+  query GetMenuById($id: ID!) {
+    menu(id: $id, idType: DATABASE_ID) {
+      id
+      menuItems(first: 200) {
+        nodes {
+          id
+          label
+          url
+          path
+          parentId
+          cssClasses
+          description
+          target
+          title
+        }
+      }
+    }
+  }
+`;
+
 // Services query - simplified to work without custom fields
 export const GET_SERVICES = gql`
   query GetServices {

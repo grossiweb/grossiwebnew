@@ -63,7 +63,7 @@ export default function Hero({ homepageData }: HeroProps) {
               className="inline-block text-white font-bold hover:text-blue-300 transition-colors"
               style={{fontFamily: 'Poppins, sans-serif'}}
             >
-              | SCROLL TO EXPLORE: Home
+              | SCROLL TO EXPLORE
             </Link>
           </div>
           

@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useQuery } from '@apollo/client'
-import { GET_MENU } from '@/lib/queries'
+import { GET_MENU, GET_MENU_BY_ID } from '@/lib/queries'
 
 type MenuNode = {
   id?: string
@@ -17,10 +17,20 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   
   const menuLocation = process.env.NEXT_PUBLIC_WP_MENU_LOCATION || 'PRIMARY'
+  const menuId = process.env.NEXT_PUBLIC_WP_MENU_ID
 
-  const { data: menuData } = useQuery(GET_MENU, {
+  // Prefer fetching by Menu database ID when provided (e.g. "3")
+  const { data: menuByIdData } = useQuery(GET_MENU_BY_ID, {
+    variables: { id: menuId as string },
+    skip: !menuId,
+    errorPolicy: 'ignore',
+  })
+
+  // Otherwise, fall back to fetching by theme location (PRIMARY, etc.)
+  const { data: menuByLocationData } = useQuery(GET_MENU, {
     variables: { location: menuLocation },
-    errorPolicy: 'ignore'
+    skip: !!menuId,
+    errorPolicy: 'ignore',
   })
 
   // Fallback menu items
@@ -32,7 +42,8 @@ export default function Header() {
     { label: 'Blog', url: '/blog/' }
   ]
 
-  const wpMenuItems: MenuNode[] | undefined = menuData?.menuItems?.nodes
+  const wpMenuItems: MenuNode[] | undefined =
+    menuByIdData?.menu?.menuItems?.nodes || menuByLocationData?.menuItems?.nodes
   const menuItems: MenuNode[] = wpMenuItems?.length ? wpMenuItems : fallbackMenuItems
 
   const normalizeHref = (item: MenuNode): string => {

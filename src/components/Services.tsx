@@ -38,17 +38,17 @@ export default function Services() {
     <section id="services" className="py-16">
       {/* Hero Background with Cover */}
       <div 
-        className="relative py-16 mb-16 bg-cover bg-center"
+        className="relative mb-16 md:mb-20 bg-cover bg-center flex items-center"
         style={{
           backgroundImage: 'url(https://newdesign.grossiweb.com/wp-content/uploads/2023/10/maskgroup.webp)',
-          minHeight: '590px'
+          minHeight: '540px'
         }}
       >
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative z-10 container mx-auto px-6">
           <div className="flex justify-center">
             <h2 
-              className="text-4xl md:text-5xl font-bold text-white border-l-4 border-blue-500 pl-6"
+              className="text-3xl md:text-4xl font-bold text-white border-l-4 border-blue-500 pl-6"
               style={{fontFamily: 'Poppins, sans-serif'}}
             >
               We focus on growing your business
@@ -58,9 +58,9 @@ export default function Services() {
       </div>
 
       {/* Services Title */}
-      <div className="container mx-auto px-6 text-center mb-16">
+      <div className="container mx-auto px-6 text-center mb-12 md:mb-14">
         <h2 
-          className="text-4xl md:text-5xl font-bold text-blue-900 border-l-4 border-blue-500 pl-6 inline-block"
+          className="text-3xl md:text-4xl font-bold text-blue-900 border-l-4 border-blue-500 pl-6 inline-block"
           style={{fontFamily: 'Poppins, sans-serif', color: '#191e4e'}}
         >
           Our Services
@@ -75,7 +75,7 @@ export default function Services() {
             className={`${index % 2 === 1 ? 'bg-gray-100' : 'bg-white'}`}
             style={{backgroundColor: index % 2 === 1 ? '#ebebeb' : '#ffffff'}}
           >
-            <div className="container mx-auto px-6 py-16">
+            <div className="container mx-auto px-6 py-14 md:py-16">
               <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:grid-flow-dense' : ''}`}>
                 {/* Image */}
                 <div className={`${index % 2 === 1 ? 'lg:col-start-2' : ''} flex justify-center lg:justify-start`}>
@@ -90,22 +90,22 @@ export default function Services() {
                 {/* Content */}
                 <div className={`${index % 2 === 1 ? 'lg:col-start-1 lg:pr-12' : 'lg:pl-12'} text-center lg:text-left`}>
                   <h3 
-                    className="text-3xl md:text-4xl font-bold mb-6"
+                    className="text-2xl md:text-3xl font-bold mb-5"
                     style={{fontFamily: 'Poppins, sans-serif', color: '#191e4f'}}
                   >
                     {service.title}
                   </h3>
                   
                   <p 
-                    className="text-lg mb-8 leading-relaxed"
-                    style={{fontFamily: 'Poppins, sans-serif', fontSize: '18px'}}
+                    className="text-base md:text-lg mb-7 leading-relaxed"
+                    style={{fontFamily: 'Poppins, sans-serif'}}
                   >
                     {service.shortDescription}
                   </p>
                   
                   <Link 
                     href={`/services/${service.slug}`}
-                    className="inline-block text-blue-600 font-bold text-lg hover:text-blue-700 transition-colors"
+                    className="inline-block text-blue-600 font-bold text-base md:text-lg hover:text-blue-700 transition-colors"
                     style={{fontFamily: 'Poppins, sans-serif', color: '#287194'}}
                   >
                     View more &gt;

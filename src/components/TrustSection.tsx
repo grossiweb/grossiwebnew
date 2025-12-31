@@ -75,11 +75,11 @@ export default function TrustSection() {
   };
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-16 md:py-20 bg-white">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12 md:mb-14">
           <h2 
-            className="text-4xl md:text-5xl font-bold text-blue-900 border-l-4 border-blue-500 pl-6 inline-block"
+            className="text-3xl md:text-4xl font-bold text-blue-900 border-l-4 border-blue-500 pl-6 inline-block"
             style={{fontFamily: 'Poppins, sans-serif', color: '#191e4e'}}
           >
             Trust is our foundation
@@ -104,7 +104,7 @@ export default function TrustSection() {
               >
                 {renderTitle(feature.title, feature.highlightWords)}
               </h5>
-              <p style={{fontFamily: 'Poppins, sans-serif', fontSize: '18px'}}>
+              <p className="text-base leading-relaxed" style={{fontFamily: 'Poppins, sans-serif'}}>
                 {feature.description}
               </p>
             </div>
@@ -129,7 +129,7 @@ export default function TrustSection() {
               >
                 {renderTitle(feature.title, feature.highlightWords)}
               </h5>
-              <p style={{fontFamily: 'Poppins, sans-serif', fontSize: '18px'}}>
+              <p className="text-base leading-relaxed" style={{fontFamily: 'Poppins, sans-serif'}}>
                 {feature.description}
               </p>
             </div>
