@@ -44,11 +44,20 @@ export async function POST(request: NextRequest) {
     const endpoint = `${wpBaseUrl.replace(/\/+$/, '')}/wp-json/gf/v2/forms/${formId}/submissions`
     const auth = Buffer.from(`${gfUsername}:${gfPassword}`).toString('base64')
 
-    const toGfInputKey = (fieldId: string) => {
-      const trimmed = String(fieldId).trim()
-      // Gravity Forms expects keys like "input_1" or "input_1.3" (for multi-input fields).
-      return trimmed.startsWith('input_') ? trimmed : `input_${trimmed}`
+    // Per Gravity Forms REST API v2 documentation:
+    // https://docs.gravityforms.com/submitting-forms-with-rest-api-v2/
+    // Payload should contain flat input_X keys (e.g. input_1, input_3, etc.)
+    const gfPayload: Record<string, string> = {
+      [`input_${fieldName}`]: String(name),
+      [`input_${fieldEmail}`]: String(email),
+      [`input_${fieldPhone}`]: String(phone || ''),
+      [`input_${fieldEnquiry}`]: String(enquiry),
     }
+
+    console.log('Submitting to Gravity Forms:', {
+      endpoint,
+      payload: gfPayload,
+    })
 
     const gfResponse = await fetch(endpoint, {
       method: 'POST',
@@ -56,23 +65,23 @@ export async function POST(request: NextRequest) {
         'Content-Type': 'application/json',
         Authorization: `Basic ${auth}`,
       },
-      body: JSON.stringify({
-        input_values: {
-          [toGfInputKey(fieldName)]: String(name),
-          [toGfInputKey(fieldEmail)]: String(email),
-          [toGfInputKey(fieldPhone)]: String(phone || ''),
-          [toGfInputKey(fieldEnquiry)]: String(enquiry),
-        },
-      }),
+      body: JSON.stringify(gfPayload),
     })
 
     const gfJson = await gfResponse.json().catch(() => null)
+
+    console.log('Gravity Forms response:', {
+      status: gfResponse.status,
+      ok: gfResponse.ok,
+      body: gfJson,
+    })
 
     if (!gfResponse.ok) {
       return NextResponse.json(
         {
           error: 'Failed to save submission to Gravity Forms',
           details: gfJson,
+          status: gfResponse.status,
         },
         { status: 502 }
       )
@@ -84,6 +93,7 @@ export async function POST(request: NextRequest) {
         {
           error: 'Gravity Forms validation failed',
           details: gfJson,
+          message: 'Check that field IDs match your Gravity Form configuration',
         },
         { status: 400 }
       )

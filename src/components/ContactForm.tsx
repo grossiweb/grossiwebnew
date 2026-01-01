@@ -132,14 +132,14 @@ export default function ContactForm() {
 
             {/* Right Column - 40% */}
             <div 
-              className="lg:col-span-2 contact-form rounded-xl p-10 md:p-12"
+              className="lg:col-span-2 contact-form rounded-lg p-8"
               style={{backgroundColor: '#14183e'}}
             >
-              <form onSubmit={handleSubmit} className="space-y-10">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label 
                     htmlFor="name" 
-                    className="block text-lg font-semibold text-white mb-3"
+                    className="block text-sm font-medium text-white mb-2"
                     style={{fontFamily: 'Poppins, sans-serif'}}
                   >
                     Your Name<span className="required">*</span>
@@ -151,7 +151,7 @@ export default function ContactForm() {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-0 py-2.5 bg-transparent border-0 border-b border-white/70 text-white placeholder-white/50 focus:ring-0 focus:border-white transition-colors text-lg"
+                    className="w-full px-0 py-3 bg-transparent border-0 border-b border-white text-white placeholder-white/70 focus:ring-0 focus:border-white transition-colors"
                     style={{fontFamily: 'Poppins, sans-serif'}}
                     placeholder="Type your full name"
                   />
@@ -160,7 +160,7 @@ export default function ContactForm() {
                 <div>
                   <label 
                     htmlFor="email" 
-                    className="block text-lg font-semibold text-white mb-3"
+                    className="block text-sm font-medium text-white mb-2"
                     style={{fontFamily: 'Poppins, sans-serif'}}
                   >
                     Email<span className="required">*</span>
@@ -172,7 +172,7 @@ export default function ContactForm() {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-0 py-2.5 bg-transparent border-0 border-b border-white/70 text-white placeholder-white/50 focus:ring-0 focus:border-white transition-colors text-lg"
+                    className="w-full px-0 py-3 bg-transparent border-0 border-b border-white text-white placeholder-white/70 focus:ring-0 focus:border-white transition-colors"
                     style={{fontFamily: 'Poppins, sans-serif'}}
                     placeholder="Type your email address"
                   />
@@ -181,7 +181,7 @@ export default function ContactForm() {
                 <div>
                   <label 
                     htmlFor="phone" 
-                    className="block text-lg font-semibold text-white mb-3"
+                    className="block text-sm font-medium text-white mb-2"
                     style={{fontFamily: 'Poppins, sans-serif'}}
                   >
                     Phone Number<span className="required">*</span>
@@ -193,7 +193,7 @@ export default function ContactForm() {
                     required
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-0 py-2.5 bg-transparent border-0 border-b border-white/70 text-white placeholder-white/50 focus:ring-0 focus:border-white transition-colors text-lg"
+                    className="w-full px-0 py-3 bg-transparent border-0 border-b border-white text-white placeholder-white/70 focus:ring-0 focus:border-white transition-colors"
                     style={{fontFamily: 'Poppins, sans-serif'}}
                     placeholder="Type your phone number"
                   />
@@ -202,7 +202,7 @@ export default function ContactForm() {
                 <div>
                   <label 
                     htmlFor="enquiry" 
-                    className="block text-lg font-semibold text-white mb-3"
+                    className="block text-sm font-medium text-white mb-2"
                     style={{fontFamily: 'Poppins, sans-serif'}}
                   >
                     Your Enquiry<span className="required">*</span>
@@ -214,20 +214,22 @@ export default function ContactForm() {
                     rows={4}
                     value={formData.enquiry}
                     onChange={handleChange}
-                    className="w-full px-0 py-2.5 bg-transparent border-0 border-b border-white/70 text-white placeholder-white/50 focus:ring-0 focus:border-white transition-colors resize-none text-lg"
+                    className="w-full px-0 py-3 bg-transparent border-0 border-b border-white text-white placeholder-white/70 focus:ring-0 focus:border-white transition-colors resize-none"
                     style={{fontFamily: 'Poppins, sans-serif'}}
                     placeholder="Type the reason for your enquiry"
                   />
                 </div>
                 
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full mt-6 h-16 rounded-lg text-white disabled:opacity-50 disabled:cursor-not-allowed transition-colors font-semibold text-lg bg-[#287194] hover:bg-[#2f7fa1]"
-                  style={{fontFamily: 'Poppins, sans-serif'}}
-                >
-                  {isSubmitting ? 'Sending...' : 'Submit'}
-                </button>
+                <div className="mt-8">
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full bg-blue-600 text-white px-12 py-4 rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 font-medium text-lg"
+                    style={{fontFamily: 'Poppins, sans-serif', backgroundColor: '#287194'}}
+                  >
+                    {isSubmitting ? 'Sending...' : 'Submit'}
+                  </button>
+                </div>
               </form>
             </div>
           </div>
