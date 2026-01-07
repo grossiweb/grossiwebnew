@@ -23,14 +23,16 @@ export default function Header() {
   const { data: menuByIdData } = useQuery(GET_MENU_BY_ID, {
     variables: { id: menuId as string },
     skip: !menuId,
-    errorPolicy: 'ignore',
+    errorPolicy: 'ignore', // Ignore errors and use fallback menu
+    fetchPolicy: 'cache-first', // Use cache to avoid repeated failures
   })
 
   // Otherwise, fall back to fetching by theme location (PRIMARY, etc.)
   const { data: menuByLocationData } = useQuery(GET_MENU, {
     variables: { location: menuLocation },
     skip: !!menuId,
-    errorPolicy: 'ignore',
+    errorPolicy: 'ignore', // Ignore errors and use fallback menu
+    fetchPolicy: 'cache-first', // Use cache to avoid repeated failures
   })
 
   // Fallback menu items
@@ -45,6 +47,19 @@ export default function Header() {
   const wpMenuItems: MenuNode[] | undefined =
     menuByIdData?.menu?.menuItems?.nodes || menuByLocationData?.menuItems?.nodes
   const menuItems: MenuNode[] = wpMenuItems?.length ? wpMenuItems : fallbackMenuItems
+
+  // Log menu source for debugging (only in development)
+  useEffect(() => {
+    if (process.env.NODE_ENV === 'development') {
+      if (menuByIdData?.menu?.menuItems?.nodes?.length) {
+        console.log(`✅ Menu loaded from WordPress ID ${menuId}:`, menuByIdData.menu.menuItems.nodes)
+      } else if (menuByLocationData?.menuItems?.nodes?.length) {
+        console.log(`✅ Menu loaded from WordPress location ${menuLocation}:`, menuByLocationData.menuItems.nodes)
+      } else {
+        console.log('⚠️ Using fallback menu items (WordPress menu not found)')
+      }
+    }
+  }, [menuByIdData, menuByLocationData, menuId, menuLocation])
 
   const normalizeHref = (item: MenuNode): string => {
     const raw = item.path || item.url || '/'

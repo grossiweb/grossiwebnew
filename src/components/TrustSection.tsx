@@ -56,7 +56,9 @@ const fallbackFeatures: TrustFeatureCard[] = [
 ];
 
 export default function TrustSection() {
-  const { data, loading, error } = useQuery(GET_TRUST_FEATURES);
+  const { data, loading, error } = useQuery(GET_TRUST_FEATURES, {
+    errorPolicy: 'ignore', // Gracefully ignore errors and use fallback data
+  });
 
   // Use WordPress data if available, otherwise fallback
   const trustFeatures: TrustFeatureCard[] = data?.trustFeatures?.nodes?.map((feature: any): TrustFeatureCard => ({

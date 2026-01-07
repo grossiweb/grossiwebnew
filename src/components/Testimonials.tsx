@@ -46,9 +46,9 @@ const fallbackTestimonials: Array<{
 ]
 
 export default function Testimonials() {
-  const { data, loading, error } = useQuery(GET_TESTIMONIALS);
-
-  if (loading) return <div className="py-20 text-center">Loading testimonials...</div>;
+  const { data, loading, error } = useQuery(GET_TESTIMONIALS, {
+    errorPolicy: 'ignore', // Gracefully ignore errors and use fallback data
+  });
 
   // Prefer WordPress testimonials if available; otherwise fall back to the static set.
   const testimonials: TestimonialNode[] = data?.testimonials?.nodes || [];

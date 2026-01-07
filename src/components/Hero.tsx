@@ -5,9 +5,10 @@ import { WordPressPage } from '@/types/wordpress'
 
 interface HeroProps {
   homepageData?: WordPressPage;
+  loading?: boolean;
 }
 
-export default function Hero({ homepageData }: HeroProps) {
+export default function Hero({ homepageData, loading = false }: HeroProps) {
   const [currentWord, setCurrentWord] = useState('Strategy')
   const words = ['Strategy', 'Design', 'Development', 'Results']
   
@@ -44,7 +45,7 @@ export default function Hero({ homepageData }: HeroProps) {
           {/* Left Content */}
           <div className="lg:col-span-2">
             <h2 className="text-4xl md:text-6xl font-bold mb-4" style={{fontFamily: 'Poppins, sans-serif', lineHeight: '0.1'}}>
-              {homepageData?.title || "We are"}
+              {!loading && homepageData?.title ? homepageData.title : "We are"}
             </h2>
             
             <div className="flex items-center text-4xl md:text-6xl font-bold mb-8" style={{fontFamily: 'Poppins, sans-serif'}}>

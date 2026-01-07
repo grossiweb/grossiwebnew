@@ -12,14 +12,16 @@ import TrustSection from '@/components/TrustSection'
 import { GET_HOMEPAGE } from '@/lib/queries'
 
 export default function HomePage() {
-  const { data, loading, error } = useQuery(GET_HOMEPAGE);
+  // Fetch WordPress data but don't block rendering on errors
+  const { data, loading, error } = useQuery(GET_HOMEPAGE, {
+    errorPolicy: 'ignore', // Ignore GraphQL errors and use fallback data
+    fetchPolicy: 'cache-first', // Use cache if available
+  });
 
-  if (loading) return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
-  if (error) return <div className="min-h-screen flex items-center justify-center">Error: {error.message}</div>;
-
+  // Always render the page - components will handle their own fallbacks
   return (
     <div className="min-h-screen">
-      <Hero homepageData={data?.page} />
+      <Hero homepageData={data?.page} loading={loading} />
       <ClientsSection />
       <TrustSection />
       <Services />

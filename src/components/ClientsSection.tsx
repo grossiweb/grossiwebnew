@@ -37,7 +37,9 @@ const fallbackLogos = [
 ];
 
 export default function ClientsSection() {
-  const { data, loading, error } = useQuery(GET_CLIENTS);
+  const { data, loading, error } = useQuery(GET_CLIENTS, {
+    errorPolicy: 'ignore', // Gracefully ignore errors and use fallback data
+  });
 
   // Use WordPress data if available, otherwise fallback to hardcoded logos
   const clientLogos: string[] = data?.clients?.nodes?.map((client: any) => 

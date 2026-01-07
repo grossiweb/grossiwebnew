@@ -70,7 +70,8 @@ const fallbackPosts: BlogCardPost[] = [
 
 export default function BlogSection() {
   const { data, loading, error } = useQuery(GET_BLOG_POSTS, {
-    variables: { first: 4 }
+    variables: { first: 4 },
+    errorPolicy: 'ignore', // Gracefully ignore errors and use fallback data
   });
 
   // Use WordPress data if available, otherwise fallback
