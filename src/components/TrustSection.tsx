@@ -30,25 +30,25 @@ type TrustFeatureCard = {
 // Fallback trust features
 const fallbackFeatures: TrustFeatureCard[] = [
   {
-    icon: 'https://newdesign.grossiweb.com/wp-content/uploads/2023/10/Frame-3.png',
+    icon: '/images/icons/Frame-3.png',
     title: 'We ensure ROI',
     description: 'Everything we do will come back to you as business growth, which means we grow our client\'s revenue by a minimum of 20% year on year. Our talented team makes sure you produce amazing quantifiable results.',
     highlightWords: ['ROI']
   },
   {
-    icon: 'https://newdesign.grossiweb.com/wp-content/uploads/2023/10/Frame-4.png',
+    icon: '/images/icons/Frame-4.png',
     title: 'Your happiness is ours',
     description: 'Your happiness matters to us! That\'s why if you\'re creating a business, brand, or service, our team takes care of not only building satisfactory experiences but also making you part of our community.',
     highlightWords: ['happiness']
   },
   {
-    icon: 'https://newdesign.grossiweb.com/wp-content/uploads/2023/10/Frame-5.png',
+    icon: '/images/icons/Frame-5.png',
     title: 'We dare to be different',
     description: 'Innovation is the keyword for our work, we are not afraid of taking risks in order to provide the best solutions for you. Best of all, our clients have been spectators of our growth and success, we are passionate about what we do!',
     highlightWords: ['different']
   },
   {
-    icon: 'https://newdesign.grossiweb.com/wp-content/uploads/2023/10/Frame-6.png',
+    icon: '/images/icons/Frame-6.png',
     title: 'We keep you company in your process',
     description: 'We\'ll be with you through thick and thin, constantly guiding you into new strategies and processes that are ideally suited to your business. So we\'ll keep you company at every step to obtain the best results.',
     highlightWords: ['process']

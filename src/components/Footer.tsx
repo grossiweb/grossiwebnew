@@ -10,7 +10,7 @@ export default function Footer() {
           <div className="md:col-span-6">
             <div className="mb-6">
               <img
-                src="https://newdesign.grossiweb.com/wp-content/uploads/2023/10/Group_6_1_.png"
+                src="/images/logos/grossi-logo.png"
                 alt="Grossiweb"
                 width={164}
                 height={38}

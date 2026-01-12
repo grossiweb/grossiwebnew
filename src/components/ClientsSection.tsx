@@ -27,13 +27,13 @@ const GET_CLIENTS = gql`
 
 // Fallback client logos (keeping existing ones as backup)
 const fallbackLogos = [
-  'https://newdesign.grossiweb.com/wp-content/uploads/2025/03/logo_-buckhead.png',
-  'https://newdesign.grossiweb.com/wp-content/uploads/2025/03/logo_-eastman.png',
-  'https://newdesign.grossiweb.com/wp-content/uploads/2025/03/logo_-ebay.png',
-  'https://newdesign.grossiweb.com/wp-content/uploads/2025/03/logo_-jj.png',
-  'https://newdesign.grossiweb.com/wp-content/uploads/2025/03/logo_-reviewsright.png',
-  'https://newdesign.grossiweb.com/wp-content/uploads/2025/03/logo_-sugercoat.png',
-  'https://newdesign.grossiweb.com/wp-content/uploads/2025/05/logo_-ultramet.png'
+  '/images/logos/buckhead.png',
+  '/images/logos/eastman.png',
+  '/images/logos/ebay.png',
+  '/images/logos/jj.png',
+  '/images/logos/reviewsright.png',
+  '/images/logos/sugercoat.png',
+  '/images/logos/ultramet.png'
 ];
 
 export default function ClientsSection() {

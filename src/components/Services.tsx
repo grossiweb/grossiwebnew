@@ -7,28 +7,28 @@ const services = [
     id: '1',
     title: 'Strategy',
     shortDescription: 'We come up with a master plan to help you grow, create, and reach your dream future with your clients.',
-    icon: 'https://newdesign.grossiweb.com/wp-content/uploads/2023/10/Strategy.png',
+    icon: '/images/icons/Strategy.png',
     slug: 'interactive-marketing-strategy'
   },
   {
     id: '2',
     title: 'Design',
     shortDescription: 'We build awesome and memorable design experiences tailor-made for you and your clients.',
-    icon: 'https://newdesign.grossiweb.com/wp-content/uploads/2023/10/design.png',
+    icon: '/images/icons/design.png',
     slug: 'atlanta-web-design'
   },
   {
     id: '3',
     title: 'Development',
     shortDescription: 'Turn your ideas into life! Through coding and development we make sure your project becomes a memorable reality.',
-    icon: 'https://newdesign.grossiweb.com/wp-content/uploads/2023/10/Development.png',
+    icon: '/images/icons/Development.png',
     slug: 'web-development'
   },
   {
     id: '4',
     title: 'Marketing',
     shortDescription: 'Winning results for your business is our goal. We help you build your ideal audience through high quality content.',
-    icon: 'https://newdesign.grossiweb.com/wp-content/uploads/2023/10/Marketing.png',
+    icon: '/images/icons/Marketing.png',
     slug: 'digital-marketing'
   }
 ]
@@ -40,7 +40,7 @@ export default function Services() {
       <div
         className="relative mb-12 md:mb-16 bg-cover bg-center flex items-center"
         style={{
-          backgroundImage: 'url(https://newdesign.grossiweb.com/wp-content/uploads/2023/10/maskgroup.webp)',
+          backgroundImage: 'url(/images/services-bg.webp)',
           minHeight: '400px'
         }}
       >

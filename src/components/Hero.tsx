@@ -88,7 +88,7 @@ export default function Hero({ homepageData, loading = false }: HeroProps) {
               <div className="divide-y-2" style={{borderColor: '#191E4F'}}>
                 <Link href="/interactive-marketing-strategy/" className="flex items-center space-x-4 px-6 py-5 transition-colors group" style={{width: '85%', borderColor: '#191E4F',margin: '0 auto'}}>
                   <img
-                    src="https://newdesign.grossiweb.com/wp-content/uploads/2023/10/Group-1.png"
+                    src="/images/icons/Group-1.png"
                     alt="Strategy"
                     className="w-6 h-7"
                   />
@@ -97,7 +97,7 @@ export default function Hero({ homepageData, loading = false }: HeroProps) {
 
                 <Link href="/atlanta-web-design/" className="flex items-center space-x-4 px-6 py-5 transition-colors group" style={{width: '85%', borderColor: '#191E4F',margin: '0 auto'}}>
                   <img
-                    src="https://newdesign.grossiweb.com/wp-content/uploads/2023/10/Frame-1.png"
+                    src="/images/icons/Frame-1.png"
                     alt="Design"
                     className="w-9 h-6"
                   />
@@ -106,7 +106,7 @@ export default function Hero({ homepageData, loading = false }: HeroProps) {
 
                 <Link href="/web-development/" className="flex items-center space-x-4 px-6 py-5 transition-colors group" style={{width: '85%', borderColor: '#191E4F',margin: '0 auto'}}>
                   <img
-                    src="https://newdesign.grossiweb.com/wp-content/uploads/2023/10/development-icon.png"
+                    src="/images/icons/development-icon.png"
                     alt="Development"
                     className="w-8 h-8"
                   />
@@ -115,7 +115,7 @@ export default function Hero({ homepageData, loading = false }: HeroProps) {
 
                 <Link href="/internet-marketing/" className="flex items-center space-x-4 px-6 py-5 transition-colors group" style={{width: '85%', borderColor: '#191E4F',margin: '0 auto'}}>
                   <img
-                    src="https://newdesign.grossiweb.com/wp-content/uploads/2023/10/Frame-2.png"
+                    src="/images/icons/Frame-2.png"
                     alt="Marketing"
                     className="w-7 h-7"
                   />

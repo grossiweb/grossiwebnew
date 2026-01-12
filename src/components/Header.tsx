@@ -104,7 +104,7 @@ export default function Header() {
           <div className="flex items-center">
             <Link href="/" className="inline-block">
               <img 
-                src="https://newdesign.grossiweb.com/wp-content/uploads/2023/10/Group_6_1_.png"
+                src="/images/logos/grossi-logo.png"
                 alt="Grossiweb"
                 width={164}
                 height={38}
@@ -164,7 +164,7 @@ export default function Header() {
             <div className="container mx-auto px-6 py-6">
               <div className="flex items-center justify-between">
                 <img 
-                  src="https://newdesign.grossiweb.com/wp-content/uploads/2023/10/Group_6_1_.png"
+                  src="/images/logos/grossi-logo.png"
                   alt="Grossiweb"
                   width={149}
                   height={34}
