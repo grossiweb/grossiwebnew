@@ -3,83 +3,102 @@ import Link from 'next/link'
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-12" style={{backgroundColor: '#191e4f'}}>
+    <footer className="bg-[#14183E] text-white py-16">
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Company Info */}
-          <div className="md:col-span-2">
-            <h3 
-              className="text-2xl font-bold mb-4"
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-12">
+          {/* Company Info - Left Column */}
+          <div className="md:col-span-6">
+            <h3
+              className="text-3xl font-bold mb-6"
               style={{fontFamily: 'Poppins, sans-serif'}}
             >
-              Grossiweb
+              Grossi
             </h3>
-            <p 
-              className="text-gray-300 mb-6 leading-relaxed"
-              style={{fontFamily: 'Poppins, sans-serif', fontSize: '14px'}}
+            <p
+              className="text-gray-300 mb-8 leading-relaxed max-w-xl"
+              style={{fontFamily: 'Poppins, sans-serif', fontSize: '15px'}}
             >
-              GrossiWeb Consulting delivers emotion driven interactive marketing to maximize your brand online. 
-              Successful Internet marketing is a continuous and adaptive process and to achieve maximum results 
-              we implement a comprehensive approach with seamless web applications and unforgettable design to 
-              produce quantifiable results.
+              GrossiWeb Consulting delivers emotion driven interactive marketing to maximize your brand online. Successful Internet marketing is a continuous and adaptive process and to achieve maximum results we implement a comprehensive approach with seamless web applications and unforgettable design to produce quantifiable results.
             </p>
-            <div className="space-y-2">
-              <p 
-                className="text-gray-300"
-                style={{fontFamily: 'Poppins, sans-serif', fontSize: '14px'}}
+
+            <div className="space-y-3">
+              <p
+                className="text-white font-semibold"
+                style={{fontFamily: 'Poppins, sans-serif', fontSize: '15px'}}
+              >
+                350 Peters St SW Suite 20
+              </p>
+              <p
+                className="text-white"
+                style={{fontFamily: 'Poppins, sans-serif', fontSize: '15px'}}
+              >
+                Atlanta, GA 30313
+              </p>
+              <p
+                className="text-white mt-4"
+                style={{fontFamily: 'Poppins, sans-serif', fontSize: '15px'}}
               >
                 404-228-8694
               </p>
-              <p 
-                className="text-gray-300"
-                style={{fontFamily: 'Poppins, sans-serif', fontSize: '14px'}}
+              <p
+                className="text-white"
+                style={{fontFamily: 'Poppins, sans-serif', fontSize: '15px'}}
               >
                 888-476-7741
+              </p>
+              <p
+                className="text-white mt-4"
+                style={{fontFamily: 'Poppins, sans-serif', fontSize: '15px'}}
+              >
+                support@grossiweb.com
               </p>
             </div>
           </div>
 
-          {/* Services */}
-          <div>
-            <h4 
-              className="text-lg font-bold mb-4"
-              style={{fontFamily: 'Poppins, sans-serif'}}
-            >
-              SERVICES
-            </h4>
-            <ul className="space-y-2">
+          {/* Services Column */}
+          <div className="md:col-span-3">
+            <div className="flex items-start mb-6">
+              <div className="w-1 h-6 bg-blue-400 mr-3"></div>
+              <h4
+                className="text-lg font-bold uppercase"
+                style={{fontFamily: 'Poppins, sans-serif'}}
+              >
+                SERVICES
+              </h4>
+            </div>
+            <ul className="space-y-3">
               <li>
-                <Link 
-                  href="/interactive-marketing-strategy/" 
-                  className="text-gray-300 hover:text-white transition-colors"
-                  style={{fontFamily: 'Poppins, sans-serif', fontSize: '14px'}}
+                <Link
+                  href="/interactive-marketing-strategy/"
+                  className="text-white hover:text-blue-300 transition-colors"
+                  style={{fontFamily: 'Poppins, sans-serif', fontSize: '16px'}}
                 >
                   Strategy
                 </Link>
               </li>
               <li>
-                <Link 
-                  href="/atlanta-web-design/" 
-                  className="text-gray-300 hover:text-white transition-colors"
-                  style={{fontFamily: 'Poppins, sans-serif', fontSize: '14px'}}
+                <Link
+                  href="/atlanta-web-design/"
+                  className="text-white hover:text-blue-300 transition-colors"
+                  style={{fontFamily: 'Poppins, sans-serif', fontSize: '16px'}}
                 >
                   Design
                 </Link>
               </li>
               <li>
-                <Link 
-                  href="/web-development/" 
-                  className="text-gray-300 hover:text-white transition-colors"
-                  style={{fontFamily: 'Poppins, sans-serif', fontSize: '14px'}}
+                <Link
+                  href="/web-development/"
+                  className="text-white hover:text-blue-300 transition-colors"
+                  style={{fontFamily: 'Poppins, sans-serif', fontSize: '16px'}}
                 >
                   Development
                 </Link>
               </li>
               <li>
-                <Link 
-                  href="/internet-marketing/" 
-                  className="text-gray-300 hover:text-white transition-colors"
-                  style={{fontFamily: 'Poppins, sans-serif', fontSize: '14px'}}
+                <Link
+                  href="/internet-marketing/"
+                  className="text-white hover:text-blue-300 transition-colors"
+                  style={{fontFamily: 'Poppins, sans-serif', fontSize: '16px'}}
                 >
                   Marketing
                 </Link>
@@ -87,56 +106,59 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Other Links */}
-          <div>
-            <h4 
-              className="text-lg font-bold mb-4"
-              style={{fontFamily: 'Poppins, sans-serif'}}
-            >
-              OTHER LINKS
-            </h4>
-            <ul className="space-y-2">
+          {/* Other Links Column */}
+          <div className="md:col-span-3">
+            <div className="flex items-start mb-6">
+              <div className="w-1 h-6 bg-blue-400 mr-3"></div>
+              <h4
+                className="text-lg font-bold uppercase"
+                style={{fontFamily: 'Poppins, sans-serif'}}
+              >
+                OTHER LINKS
+              </h4>
+            </div>
+            <ul className="space-y-3">
               <li>
-                <Link 
-                  href="/" 
-                  className="text-gray-300 hover:text-white transition-colors"
-                  style={{fontFamily: 'Poppins, sans-serif', fontSize: '14px'}}
+                <Link
+                  href="/"
+                  className="text-white hover:text-blue-300 transition-colors"
+                  style={{fontFamily: 'Poppins, sans-serif', fontSize: '16px'}}
                 >
                   Home
                 </Link>
               </li>
               <li>
-                <Link 
-                  href="/about" 
-                  className="text-gray-300 hover:text-white transition-colors"
-                  style={{fontFamily: 'Poppins, sans-serif', fontSize: '14px'}}
+                <Link
+                  href="/about"
+                  className="text-white hover:text-blue-300 transition-colors"
+                  style={{fontFamily: 'Poppins, sans-serif', fontSize: '16px'}}
                 >
                   About Us
                 </Link>
               </li>
               <li>
-                <Link 
-                  href="/contact" 
-                  className="text-gray-300 hover:text-white transition-colors"
-                  style={{fontFamily: 'Poppins, sans-serif', fontSize: '14px'}}
+                <Link
+                  href="/contact"
+                  className="text-white hover:text-blue-300 transition-colors"
+                  style={{fontFamily: 'Poppins, sans-serif', fontSize: '16px'}}
                 >
                   Contact Us
                 </Link>
               </li>
               <li>
-                <Link 
-                  href="/blog" 
-                  className="text-gray-300 hover:text-white transition-colors"
-                  style={{fontFamily: 'Poppins, sans-serif', fontSize: '14px'}}
+                <Link
+                  href="/blog"
+                  className="text-white hover:text-blue-300 transition-colors"
+                  style={{fontFamily: 'Poppins, sans-serif', fontSize: '16px'}}
                 >
                   Blog
                 </Link>
               </li>
               <li>
-                <Link 
-                  href="/careers" 
-                  className="text-gray-300 hover:text-white transition-colors"
-                  style={{fontFamily: 'Poppins, sans-serif', fontSize: '14px'}}
+                <Link
+                  href="/careers"
+                  className="text-white hover:text-blue-300 transition-colors"
+                  style={{fontFamily: 'Poppins, sans-serif', fontSize: '16px'}}
                 >
                   Careers
                 </Link>
@@ -146,47 +168,48 @@ export default function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-gray-700 mt-12 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p 
-              className="text-gray-400 text-sm mb-4 md:mb-0"
+        <div className="border-t border-gray-600 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p
+              className="text-white text-sm"
               style={{fontFamily: 'Poppins, sans-serif', fontSize: '14px'}}
             >
-              © 2025 Grossi Consulting LLC. All rights reserved
+              © 2020 Grossi Consulting LLC. All rights reserved
             </p>
-            
+
+            <Link
+              href="/privacy"
+              className="text-white hover:text-blue-300 transition-colors text-sm flex items-center"
+              style={{fontFamily: 'Poppins, sans-serif', fontSize: '14px'}}
+            >
+              <span className="mr-2">•</span>
+              Privacy Policies
+            </Link>
+
             {/* Social Links */}
-            <div className="flex items-center space-x-6">
-              <Link href="#" className="text-gray-400 hover:text-white transition-colors">
+            <div className="flex items-center space-x-4">
+              <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-300 transition-colors">
                 <span className="sr-only">Facebook</span>
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M20 10c0-5.523-4.477-10-10-10S0 4.477 0 10c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V10h2.54V7.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V10h2.773l-.443 2.89h-2.33v6.988C16.343 19.128 20 14.991 20 10z" clipRule="evenodd" />
+                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                 </svg>
               </Link>
-              <Link href="#" className="text-gray-400 hover:text-white transition-colors">
+              <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-300 transition-colors">
                 <span className="sr-only">Twitter</span>
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84" />
+                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
                 </svg>
               </Link>
-              <Link href="#" className="text-gray-400 hover:text-white transition-colors">
+              <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-300 transition-colors">
                 <span className="sr-only">LinkedIn</span>
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" clipRule="evenodd" />
+                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                 </svg>
               </Link>
             </div>
-
-            <Link 
-              href="/privacy" 
-              className="text-gray-400 hover:text-white transition-colors text-sm"
-              style={{fontFamily: 'Poppins, sans-serif', fontSize: '14px'}}
-            >
-              Privacy Policies: Home
-            </Link>
           </div>
         </div>
       </div>
     </footer>
   )
-} 
+}

@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Link from 'next/link'
 import { WordPressPage } from '@/types/wordpress'
 
@@ -9,19 +9,6 @@ interface HeroProps {
 }
 
 export default function Hero({ homepageData, loading = false }: HeroProps) {
-  const [currentWord, setCurrentWord] = useState('Strategy')
-  const words = ['Strategy', 'Design', 'Development', 'Results']
-  
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentWord(prev => {
-        const currentIndex = words.indexOf(prev)
-        return words[(currentIndex + 1) % words.length]
-      })
-    }, 4000)
-    
-    return () => clearInterval(interval)
-  }, [])
 
   return (
     <section className="relative w-full min-h-screen flex items-center overflow-hidden">
@@ -44,24 +31,21 @@ export default function Hero({ homepageData, loading = false }: HeroProps) {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center min-h-[80vh]">
           {/* Left Content */}
           <div className="lg:col-span-2">
-            <h2 className="text-4xl md:text-6xl font-bold mb-4" style={{fontFamily: 'Poppins, sans-serif', lineHeight: '0.1'}}>
-              {!loading && homepageData?.title ? homepageData.title : "We are"}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-2 leading-tight" style={{fontFamily: 'Poppins, sans-serif'}}>
+              We are
+            </h1>
+
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight" style={{fontFamily: 'Poppins, sans-serif'}}>
+              Digitally Driven
             </h2>
-            
-            <div className="flex items-center text-4xl md:text-6xl font-bold mb-8" style={{fontFamily: 'Poppins, sans-serif'}}>
-              <div className="inline-block overflow-hidden transition-all duration-300 ease-in-out">
-                <div className="animate-fade-in">{currentWord}</div>
-              </div>
-              <span className="ml-4">Driven</span>
-            </div>
-            
-            <p className="text-lg md:text-xl mb-8 max-w-2xl" style={{fontFamily: 'Poppins, sans-serif'}}>
+
+            <p className="text-base md:text-lg mb-6 max-w-xl" style={{fontFamily: 'Poppins, sans-serif'}}>
               We have the development aptitude to build exactly what you need.
             </p>
-            
-            <Link 
+
+            <Link
               href="#services"
-              className="inline-block text-white font-bold hover:text-blue-300 transition-colors"
+              className="inline-block text-white text-sm font-medium hover:text-blue-300 transition-colors"
               style={{fontFamily: 'Poppins, sans-serif'}}
             >
               | SCROLL TO EXPLORE
@@ -70,42 +54,42 @@ export default function Hero({ homepageData, loading = false }: HeroProps) {
           
           {/* Right Navigation Panel */}
           <div className="lg:col-span-1">
-            <div className="bg-white/90 backdrop-blur-sm rounded-lg p-6">
-              <div className="space-y-4">
-                <Link href="/interactive-marketing-strategy/" className="flex items-center space-x-4 py-3 border-b-2 border-blue-900 hover:bg-gray-50 transition-colors">
-                  <img 
-                    src="https://newdesign.grossiweb.com/wp-content/uploads/2023/10/Group-1.png" 
+            <div className="bg-white rounded-lg p-5 shadow-lg">
+              <div className="space-y-0">
+                <Link href="/interactive-marketing-strategy/" className="flex items-center space-x-3 py-4 border-b border-gray-200 hover:bg-gray-50 transition-colors group">
+                  <img
+                    src="https://newdesign.grossiweb.com/wp-content/uploads/2023/10/Group-1.png"
                     alt="Strategy"
-                    className="w-6 h-8"
+                    className="w-5 h-6"
                   />
-                  <span className="text-blue-900 font-bold" style={{fontFamily: 'Poppins, sans-serif'}}>Strategy</span>
+                  <span className="text-gray-800 font-semibold text-base" style={{fontFamily: 'Poppins, sans-serif'}}>Strategy</span>
                 </Link>
-                
-                <Link href="/atlanta-web-design/" className="flex items-center space-x-4 py-3 border-b-2 border-blue-900 hover:bg-gray-50 transition-colors">
-                  <img 
-                    src="https://newdesign.grossiweb.com/wp-content/uploads/2023/10/Frame-1.png" 
+
+                <Link href="/atlanta-web-design/" className="flex items-center space-x-3 py-4 border-b border-gray-200 hover:bg-gray-50 transition-colors group">
+                  <img
+                    src="https://newdesign.grossiweb.com/wp-content/uploads/2023/10/Frame-1.png"
                     alt="Design"
-                    className="w-10 h-6"
+                    className="w-8 h-5"
                   />
-                  <span className="text-blue-900 font-bold" style={{fontFamily: 'Poppins, sans-serif'}}>Design</span>
+                  <span className="text-gray-800 font-semibold text-base" style={{fontFamily: 'Poppins, sans-serif'}}>Design</span>
                 </Link>
-                
-                <Link href="/web-development/" className="flex items-center space-x-4 py-3 border-b-2 border-blue-900 hover:bg-gray-50 transition-colors">
-                  <img 
-                    src="https://newdesign.grossiweb.com/wp-content/uploads/2023/10/development-icon.png" 
+
+                <Link href="/web-development/" className="flex items-center space-x-3 py-4 border-b border-gray-200 hover:bg-gray-50 transition-colors group">
+                  <img
+                    src="https://newdesign.grossiweb.com/wp-content/uploads/2023/10/development-icon.png"
                     alt="Development"
-                    className="w-9 h-9"
+                    className="w-7 h-7"
                   />
-                  <span className="text-blue-900 font-bold" style={{fontFamily: 'Poppins, sans-serif'}}>Development</span>
+                  <span className="text-gray-800 font-semibold text-base" style={{fontFamily: 'Poppins, sans-serif'}}>Development</span>
                 </Link>
-                
-                <Link href="/internet-marketing/" className="flex items-center space-x-4 py-3 hover:bg-gray-50 transition-colors">
-                  <img 
-                    src="https://newdesign.grossiweb.com/wp-content/uploads/2023/10/Frame-2.png" 
+
+                <Link href="/internet-marketing/" className="flex items-center space-x-3 py-4 hover:bg-gray-50 transition-colors group">
+                  <img
+                    src="https://newdesign.grossiweb.com/wp-content/uploads/2023/10/Frame-2.png"
                     alt="Marketing"
-                    className="w-8 h-8"
+                    className="w-6 h-6"
                   />
-                  <span className="text-blue-900 font-bold" style={{fontFamily: 'Poppins, sans-serif'}}>Marketing</span>
+                  <span className="text-gray-800 font-semibold text-base" style={{fontFamily: 'Poppins, sans-serif'}}>Marketing</span>
                 </Link>
               </div>
             </div>

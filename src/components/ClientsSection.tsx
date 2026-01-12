@@ -47,15 +47,15 @@ export default function ClientsSection() {
   ).filter(Boolean) || fallbackLogos;
 
   return (
-    <section className="py-16 md:py-20 bg-white">
+    <section className="py-12 md:py-16 bg-white">
       <div className="container mx-auto px-6 text-center">
-        <h2 
-          className="text-3xl md:text-4xl font-bold text-blue-900 mb-3 border-l-4 border-blue-500 pl-6 inline-block"
+        <h2
+          className="text-2xl md:text-3xl font-bold mb-2 border-l-4 border-blue-500 pl-4 inline-block"
           style={{fontFamily: 'Poppins, sans-serif', color: '#191e4e'}}
         >
           Our Clients
         </h2>
-        <p className="text-base md:text-lg mb-10" style={{fontFamily: 'Poppins, sans-serif'}}>
+        <p className="text-sm md:text-base mb-8 text-gray-600" style={{fontFamily: 'Poppins, sans-serif'}}>
           From world leading brands to local super stars.
         </p>
         
@@ -76,12 +76,12 @@ export default function ClientsSection() {
           </div>
         </div>
         
-        <div className="mt-6">
-          <button 
-            className="text-blue-600 font-bold text-base md:text-lg hover:text-blue-700 transition-colors"
+        <div className="mt-4">
+          <button
+            className="text-sm font-semibold hover:underline transition-colors"
             style={{fontFamily: 'Poppins, sans-serif', color: '#287194'}}
           >
-            Explore Our Work &gt;
+            Explore our work
           </button>
         </div>
       </div>

@@ -101,11 +101,11 @@ export default function BlogSection() {
   }
 
   return (
-    <section className="py-16 md:py-20 bg-white">
+    <section className="py-12 md:py-16 bg-white">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-12 md:mb-14">
-          <h2 
-            className="text-3xl md:text-4xl font-bold text-blue-900 border-l-4 border-blue-500 pl-6 inline-block"
+        <div className="text-center mb-8 md:mb-10">
+          <h2
+            className="text-2xl md:text-3xl font-bold border-l-4 border-blue-500 pl-4 inline-block"
             style={{fontFamily: 'Poppins, sans-serif', color: '#191e4e'}}
           >
             Blog
@@ -122,7 +122,7 @@ export default function BlogSection() {
                   className="relative bg-cover bg-center rounded-md overflow-hidden cursor-pointer shadow-[0_18px_50px_rgba(0,0,0,0.12)]"
                   style={{
                     backgroundImage: `url(${post.image})`,
-                    minHeight: '325px'
+                    minHeight: '280px'
                   }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
@@ -153,7 +153,7 @@ export default function BlogSection() {
                   className="relative bg-cover bg-center rounded-md overflow-hidden cursor-pointer shadow-[0_18px_50px_rgba(0,0,0,0.12)]"
                   style={{
                     backgroundImage: `url(${post.image})`,
-                    minHeight: '325px'
+                    minHeight: '280px'
                   }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
@@ -177,13 +177,13 @@ export default function BlogSection() {
           </div>
         </div>
         
-        <div className="text-center mt-10">
+        <div className="text-center mt-8">
           <Link href="/blog">
-            <button 
-              className="text-blue-600 font-bold text-base md:text-lg hover:text-blue-700 transition-colors"
+            <button
+              className="text-sm font-semibold hover:underline transition-colors"
               style={{fontFamily: 'Poppins, sans-serif', color: '#287194'}}
             >
-              View more &gt;
+              View more
             </button>
           </Link>
         </div>

@@ -77,61 +77,36 @@ export default function TrustSection() {
   };
 
   return (
-    <section className="py-16 md:py-20 bg-white">
+    <section className="py-12 md:py-16 bg-white">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-12 md:mb-14">
-          <h2 
-            className="text-3xl md:text-4xl font-bold text-blue-900 border-l-4 border-blue-500 pl-6 inline-block"
+        <div className="text-center mb-8 md:mb-10">
+          <h2
+            className="text-2xl md:text-3xl font-bold border-l-4 border-blue-500 pl-4 inline-block"
             style={{fontFamily: 'Poppins, sans-serif', color: '#191e4e'}}
           >
             Trust is our foundation
           </h2>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-          {trustFeatures.slice(0, 2).map((feature: TrustFeatureCard, index: number) => (
-            <div 
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {trustFeatures.map((feature: TrustFeatureCard, index: number) => (
+            <div
               key={index}
-              className="bg-gray-100 rounded-lg p-8"
-              style={{backgroundColor: '#ebebeb'}}
+              className="bg-gray-50 rounded-lg p-6 md:p-8"
+              style={{backgroundColor: '#f8f9fa'}}
             >
-              <img 
+              <img
                 src={feature.icon}
                 alt={feature.title}
-                className="w-20 h-20 mb-6"
+                className="w-14 h-14 mb-4"
               />
-              <h5 
-                className="text-xl font-bold mb-4 text-blue-900"
+              <h5
+                className="text-lg font-bold mb-3"
                 style={{fontFamily: 'Poppins, sans-serif', color: '#191e4f'}}
               >
                 {renderTitle(feature.title, feature.highlightWords)}
               </h5>
-              <p className="text-base leading-relaxed" style={{fontFamily: 'Poppins, sans-serif'}}>
-                {feature.description}
-              </p>
-            </div>
-          ))}
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {trustFeatures.slice(2).map((feature: TrustFeatureCard, index: number) => (
-            <div 
-              key={index + 2}
-              className="bg-gray-100 rounded-lg p-8"
-              style={{backgroundColor: '#ebebeb'}}
-            >
-              <img 
-                src={feature.icon}
-                alt={feature.title}
-                className="w-20 h-20 mb-6"
-              />
-              <h5 
-                className="text-xl font-bold mb-4 text-blue-900"
-                style={{fontFamily: 'Poppins, sans-serif', color: '#191e4f'}}
-              >
-                {renderTitle(feature.title, feature.highlightWords)}
-              </h5>
-              <p className="text-base leading-relaxed" style={{fontFamily: 'Poppins, sans-serif'}}>
+              <p className="text-sm leading-relaxed text-gray-700" style={{fontFamily: 'Poppins, sans-serif'}}>
                 {feature.description}
               </p>
             </div>

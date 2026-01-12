@@ -63,41 +63,41 @@ export default function ContactForm() {
   }
 
   return (
-    <section id="contact" className="py-16 md:py-20 bg-white">
+    <section id="contact" className="py-12 md:py-16 bg-white">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           {/* Two Column Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
             {/* Left Column - 60% */}
-            <div className="lg:col-span-3 space-y-8">
-              <h2 
-                className="text-3xl md:text-4xl font-bold text-blue-900 border-l-4 border-blue-500 pl-6 leading-tight"
+            <div className="lg:col-span-3 space-y-6">
+              <h2
+                className="text-2xl md:text-3xl font-bold border-l-4 border-blue-500 pl-4 leading-tight"
                 style={{fontFamily: 'Poppins, sans-serif', color: '#191e4e'}}
               >
                 What happens after you{' '}
                 <span style={{color: '#287194'}}>contact us?</span>
               </h2>
               
-              <div className="space-y-8">
+              <div className="space-y-6">
                 {/* 15 minutes consultation */}
                 <div>
-                  <div className="flex items-start space-x-4">
-                    <div 
-                      className="w-3 h-3 rounded-full mt-2 flex-shrink-0"
+                  <div className="flex items-start space-x-3">
+                    <div
+                      className="w-2.5 h-2.5 rounded-full mt-2 flex-shrink-0"
                       style={{backgroundColor: '#14183e'}}
                     ></div>
                     <div>
-                      <p 
-                        className="text-xl font-bold mb-2"
+                      <p
+                        className="text-lg font-bold mb-2"
                         style={{fontFamily: 'Poppins, sans-serif', color: '#14183e'}}
                       >
                         <span style={{color: '#287194'}}>15 minutes</span> consultation
                       </p>
-                      <div 
-                        className="border-l-2 pl-4 text-gray-700"
+                      <div
+                        className="border-l-2 pl-3 text-gray-700"
                         style={{borderColor: '#14183e'}}
                       >
-                        <p className="text-base md:text-lg leading-relaxed" style={{fontFamily: 'Poppins, sans-serif'}}>
+                        <p className="text-sm leading-relaxed" style={{fontFamily: 'Poppins, sans-serif'}}>
                           We will schedule a quick 15-minute call with you to understand what you need to unlock the full potential of your business.
                         </p>
                       </div>
@@ -107,20 +107,20 @@ export default function ContactForm() {
 
                 {/* Project Proposal */}
                 <div>
-                  <div className="flex items-start space-x-4">
-                    <div 
-                      className="w-3 h-3 rounded-full mt-2 flex-shrink-0"
+                  <div className="flex items-start space-x-3">
+                    <div
+                      className="w-2.5 h-2.5 rounded-full mt-2 flex-shrink-0"
                       style={{backgroundColor: '#14183e'}}
                     ></div>
                     <div>
-                      <p 
-                        className="text-xl font-bold mb-2"
+                      <p
+                        className="text-lg font-bold mb-2"
                         style={{fontFamily: 'Poppins, sans-serif', color: '#14183e'}}
                       >
                         Project Proposal
                       </p>
-                      <div className="border-l-2 border-transparent pl-4 text-gray-700">
-                        <p className="text-base md:text-lg leading-relaxed" style={{fontFamily: 'Poppins, sans-serif'}}>
+                      <div className="border-l-2 border-transparent pl-3 text-gray-700">
+                        <p className="text-sm leading-relaxed" style={{fontFamily: 'Poppins, sans-serif'}}>
                           After we got every output from you, we will prepare a proposal for you. If you agree with our pricing and timeline, we are all set to take off.
                         </p>
                       </div>
@@ -131,11 +131,11 @@ export default function ContactForm() {
             </div>
 
             {/* Right Column - 40% */}
-            <div 
-              className="lg:col-span-2 contact-form rounded-lg p-8"
+            <div
+              className="lg:col-span-2 contact-form rounded-lg p-6 md:p-8"
               style={{backgroundColor: '#14183e'}}
             >
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-5">
                 <div>
                   <label 
                     htmlFor="name" 
@@ -220,11 +220,11 @@ export default function ContactForm() {
                   />
                 </div>
                 
-                <div className="mt-8">
+                <div className="mt-6">
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-blue-600 text-white px-12 py-4 rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 font-medium text-lg"
+                    className="w-full bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 font-medium text-base"
                     style={{fontFamily: 'Poppins, sans-serif', backgroundColor: '#287194'}}
                   >
                     {isSubmitting ? 'Sending...' : 'Submit'}
