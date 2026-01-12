@@ -35,14 +35,14 @@ export default function Hero({ homepageData, loading = false }: HeroProps) {
   return (
     <section className="relative w-full min-h-screen flex items-center overflow-hidden">
       {/* Video Background */}
-      <video 
+      <video
         className="absolute top-0 left-0 w-full h-full object-cover z-0"
-        autoPlay 
-        muted 
-        loop 
+        autoPlay
+        muted
+        loop
         playsInline
       >
-        <source src="https://newdesign.grossiweb.com/wp-content/uploads/2025/03/1-3.mp4" type="video/mp4" />
+        <source src="/hero-video.mp4" type="video/mp4" />
       </video>
       
       {/* Overlay */}
