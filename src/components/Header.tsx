@@ -146,7 +146,8 @@ export default function Header() {
       {/* Full-screen Menu Overlay */}
       {isMenuOpen && (
         <div
-          className="fixed inset-0 z-[60] bg-blue-900"
+          className="fixed inset-0 z-[60]"
+          style={{backgroundColor: '#191E4F'}}
           role="dialog"
           aria-modal="true"
           aria-label="Site menu"

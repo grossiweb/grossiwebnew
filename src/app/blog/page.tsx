@@ -2,6 +2,8 @@ import React from 'react'
 import Link from 'next/link'
 import { gql } from '@apollo/client'
 import { getWordPressData } from '@/lib/wordpress'
+import FocusSection from '@/components/FocusSection'
+import ContactForm from '@/components/ContactForm'
 
 const GET_BLOG_INDEX = gql`
   query GetBlogIndex($first: Int = 24) {
@@ -142,6 +144,12 @@ export default async function BlogPage() {
           </div>
         </div>
       </main>
+
+      {/* Focus Section */}
+      <FocusSection />
+
+      {/* Contact Form Section */}
+      <ContactForm />
     </div>
   )
 } 

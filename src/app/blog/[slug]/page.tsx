@@ -2,6 +2,8 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getWordPressData } from '@/lib/wordpress';
 import { gql } from '@apollo/client';
+import FocusSection from '@/components/FocusSection';
+import ContactForm from '@/components/ContactForm';
 
 const GET_POST_BY_SLUG = gql`
   query GetPostBySlug($slug: ID!) {
@@ -156,6 +158,12 @@ export default async function BlogPost({ params }: Props) {
             />
           </div>
         </main>
+
+        {/* Focus Section */}
+        <FocusSection />
+
+        {/* Contact Form Section */}
+        <ContactForm />
       </div>
     );
   } catch (error) {

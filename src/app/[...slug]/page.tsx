@@ -3,6 +3,8 @@ import React, { useMemo } from 'react'
 import { useQuery } from '@apollo/client'
 import { GET_CONTENT_BY_SLUG, GET_PAGE } from '@/lib/queries'
 import { useParams } from 'next/navigation'
+import FocusSection from '@/components/FocusSection'
+import ContactForm from '@/components/ContactForm'
 
 export default function DynamicPage() {
   const params = useParams()
@@ -278,6 +280,12 @@ export default function DynamicPage() {
           {/* Debug Info removed */}
         </div>
       </section>
+
+      {/* Focus Section */}
+      <FocusSection />
+
+      {/* Contact Form Section */}
+      <ContactForm />
     </div>
   )
 }

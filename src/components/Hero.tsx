@@ -84,9 +84,9 @@ export default function Hero({ homepageData, loading = false }: HeroProps) {
           
           {/* Right Navigation Panel */}
           <div className="lg:col-span-1">
-            <div className="bg-white bg-opacity-80 rounded-lg shadow-lg overflow-hidden">
+            <div className="bg-white bg-opacity-80 rounded-lg shadow-lg overflow-hidden mx-auto" >
               <div className="divide-y-2" style={{borderColor: '#191E4F'}}>
-                <Link href="/interactive-marketing-strategy/" className="flex items-center space-x-4 px-6 py-5 hover:bg-gray-50 transition-colors group">
+                <Link href="/interactive-marketing-strategy/" className="flex items-center space-x-4 px-6 py-5 transition-colors group" style={{width: '85%', borderColor: '#191E4F',margin: '0 auto'}}>
                   <img
                     src="https://newdesign.grossiweb.com/wp-content/uploads/2023/10/Group-1.png"
                     alt="Strategy"
@@ -95,7 +95,7 @@ export default function Hero({ homepageData, loading = false }: HeroProps) {
                   <span className="text-gray-900 font-semibold text-lg" style={{fontFamily: 'Poppins, sans-serif'}}>Strategy</span>
                 </Link>
 
-                <Link href="/atlanta-web-design/" className="flex items-center space-x-4 px-6 py-5 hover:bg-gray-50 transition-colors group">
+                <Link href="/atlanta-web-design/" className="flex items-center space-x-4 px-6 py-5 transition-colors group" style={{width: '85%', borderColor: '#191E4F',margin: '0 auto'}}>
                   <img
                     src="https://newdesign.grossiweb.com/wp-content/uploads/2023/10/Frame-1.png"
                     alt="Design"
@@ -104,7 +104,7 @@ export default function Hero({ homepageData, loading = false }: HeroProps) {
                   <span className="text-gray-900 font-semibold text-lg" style={{fontFamily: 'Poppins, sans-serif'}}>Design</span>
                 </Link>
 
-                <Link href="/web-development/" className="flex items-center space-x-4 px-6 py-5 hover:bg-gray-50 transition-colors group">
+                <Link href="/web-development/" className="flex items-center space-x-4 px-6 py-5 transition-colors group" style={{width: '85%', borderColor: '#191E4F',margin: '0 auto'}}>
                   <img
                     src="https://newdesign.grossiweb.com/wp-content/uploads/2023/10/development-icon.png"
                     alt="Development"
@@ -113,7 +113,7 @@ export default function Hero({ homepageData, loading = false }: HeroProps) {
                   <span className="text-gray-900 font-semibold text-lg" style={{fontFamily: 'Poppins, sans-serif'}}>Development</span>
                 </Link>
 
-                <Link href="/internet-marketing/" className="flex items-center space-x-4 px-6 py-5 hover:bg-gray-50 transition-colors group">
+                <Link href="/internet-marketing/" className="flex items-center space-x-4 px-6 py-5 transition-colors group" style={{width: '85%', borderColor: '#191E4F',margin: '0 auto'}}>
                   <img
                     src="https://newdesign.grossiweb.com/wp-content/uploads/2023/10/Frame-2.png"
                     alt="Marketing"

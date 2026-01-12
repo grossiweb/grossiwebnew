@@ -8,12 +8,15 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-12">
           {/* Company Info - Left Column */}
           <div className="md:col-span-6">
-            <h3
-              className="text-3xl font-bold mb-6"
-              style={{fontFamily: 'Poppins, sans-serif'}}
-            >
-              Grossi
-            </h3>
+            <div className="mb-6">
+              <img
+                src="https://newdesign.grossiweb.com/wp-content/uploads/2023/10/Group_6_1_.png"
+                alt="Grossiweb"
+                width={164}
+                height={38}
+                className="h-10 w-auto"
+              />
+            </div>
             <p
               className="text-gray-300 mb-8 leading-relaxed max-w-xl"
               style={{fontFamily: 'Poppins, sans-serif', fontSize: '15px'}}

@@ -2,6 +2,8 @@
 import React, { useMemo } from 'react'
 import { useQuery } from '@apollo/client'
 import { GET_CONTENT_BY_SLUG, GET_PAGE } from '@/lib/queries'
+import FocusSection from '@/components/FocusSection'
+import ContactForm from '@/components/ContactForm'
 
 type DynamicWpPageProps = {
   slug: string
@@ -251,6 +253,12 @@ export default function DynamicWpPage({ slug }: DynamicWpPageProps) {
           </div>
         </div>
       </section>
+
+      {/* Focus Section */}
+      <FocusSection />
+
+      {/* Contact Form Section */}
+      <ContactForm />
     </div>
   )
 }
