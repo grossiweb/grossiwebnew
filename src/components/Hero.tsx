@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { WordPressPage } from '@/types/wordpress'
 
@@ -9,6 +9,28 @@ interface HeroProps {
 }
 
 export default function Hero({ homepageData, loading = false }: HeroProps) {
+  const [currentWord, setCurrentWord] = useState('Development')
+  const [fadeClass, setFadeClass] = useState('opacity-100')
+  const words = ['Development', 'Design', 'Strategy', 'Results']
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      // Fade out
+      setFadeClass('opacity-0')
+
+      // Change word after fade out
+      setTimeout(() => {
+        setCurrentWord(prev => {
+          const currentIndex = words.indexOf(prev)
+          return words[(currentIndex + 1) % words.length]
+        })
+        // Fade in
+        setFadeClass('opacity-100')
+      }, 500)
+    }, 3000)
+
+    return () => clearInterval(interval)
+  }, [])
 
   return (
     <section className="relative w-full min-h-screen flex items-center overflow-hidden">
@@ -35,9 +57,17 @@ export default function Hero({ homepageData, loading = false }: HeroProps) {
               We are
             </h1>
 
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight" style={{fontFamily: 'Poppins, sans-serif'}}>
-              Digitally Driven
-            </h2>
+            <div className="flex items-baseline mb-6">
+              <h2
+                className={`text-4xl md:text-5xl lg:text-6xl font-bold leading-tight transition-opacity duration-500 ${fadeClass}`}
+                style={{fontFamily: 'Poppins, sans-serif', display: 'inline-block'}}
+              >
+                {currentWord}
+              </h2>
+              <span className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight ml-4" style={{fontFamily: 'Poppins, sans-serif'}}>
+                Driven
+              </span>
+            </div>
 
             <p className="text-base md:text-lg mb-6 max-w-xl" style={{fontFamily: 'Poppins, sans-serif'}}>
               We have the development aptitude to build exactly what you need.
@@ -54,42 +84,42 @@ export default function Hero({ homepageData, loading = false }: HeroProps) {
           
           {/* Right Navigation Panel */}
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-lg p-5 shadow-lg">
-              <div className="space-y-0">
-                <Link href="/interactive-marketing-strategy/" className="flex items-center space-x-3 py-4 border-b border-gray-200 hover:bg-gray-50 transition-colors group">
+            <div className="bg-white bg-opacity-80 rounded-lg shadow-lg overflow-hidden">
+              <div className="divide-y-2" style={{borderColor: '#191E4F'}}>
+                <Link href="/interactive-marketing-strategy/" className="flex items-center space-x-4 px-6 py-5 hover:bg-gray-50 transition-colors group">
                   <img
                     src="https://newdesign.grossiweb.com/wp-content/uploads/2023/10/Group-1.png"
                     alt="Strategy"
-                    className="w-5 h-6"
+                    className="w-6 h-7"
                   />
-                  <span className="text-gray-800 font-semibold text-base" style={{fontFamily: 'Poppins, sans-serif'}}>Strategy</span>
+                  <span className="text-gray-900 font-semibold text-lg" style={{fontFamily: 'Poppins, sans-serif'}}>Strategy</span>
                 </Link>
 
-                <Link href="/atlanta-web-design/" className="flex items-center space-x-3 py-4 border-b border-gray-200 hover:bg-gray-50 transition-colors group">
+                <Link href="/atlanta-web-design/" className="flex items-center space-x-4 px-6 py-5 hover:bg-gray-50 transition-colors group">
                   <img
                     src="https://newdesign.grossiweb.com/wp-content/uploads/2023/10/Frame-1.png"
                     alt="Design"
-                    className="w-8 h-5"
+                    className="w-9 h-6"
                   />
-                  <span className="text-gray-800 font-semibold text-base" style={{fontFamily: 'Poppins, sans-serif'}}>Design</span>
+                  <span className="text-gray-900 font-semibold text-lg" style={{fontFamily: 'Poppins, sans-serif'}}>Design</span>
                 </Link>
 
-                <Link href="/web-development/" className="flex items-center space-x-3 py-4 border-b border-gray-200 hover:bg-gray-50 transition-colors group">
+                <Link href="/web-development/" className="flex items-center space-x-4 px-6 py-5 hover:bg-gray-50 transition-colors group">
                   <img
                     src="https://newdesign.grossiweb.com/wp-content/uploads/2023/10/development-icon.png"
                     alt="Development"
-                    className="w-7 h-7"
+                    className="w-8 h-8"
                   />
-                  <span className="text-gray-800 font-semibold text-base" style={{fontFamily: 'Poppins, sans-serif'}}>Development</span>
+                  <span className="text-gray-900 font-semibold text-lg" style={{fontFamily: 'Poppins, sans-serif'}}>Development</span>
                 </Link>
 
-                <Link href="/internet-marketing/" className="flex items-center space-x-3 py-4 hover:bg-gray-50 transition-colors group">
+                <Link href="/internet-marketing/" className="flex items-center space-x-4 px-6 py-5 hover:bg-gray-50 transition-colors group">
                   <img
                     src="https://newdesign.grossiweb.com/wp-content/uploads/2023/10/Frame-2.png"
                     alt="Marketing"
-                    className="w-6 h-6"
+                    className="w-7 h-7"
                   />
-                  <span className="text-gray-800 font-semibold text-base" style={{fontFamily: 'Poppins, sans-serif'}}>Marketing</span>
+                  <span className="text-gray-900 font-semibold text-lg" style={{fontFamily: 'Poppins, sans-serif'}}>Marketing</span>
                 </Link>
               </div>
             </div>
