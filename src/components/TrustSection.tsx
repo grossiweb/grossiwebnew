@@ -98,7 +98,7 @@ export default function TrustSection() {
               <img
                 src={feature.icon}
                 alt={feature.title}
-                className="w-14 h-14 mb-4"
+                className="h-14 w-auto mb-4 object-contain"
               />
               <h5
                 className="text-lg font-bold mb-3"

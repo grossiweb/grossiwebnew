@@ -76,19 +76,19 @@ export default function Services() {
             style={{backgroundColor: index % 2 === 1 ? '#f8f9fa' : '#ffffff'}}
           >
             <div className="container mx-auto px-6 py-10 md:py-12">
-              <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 items-center ${index % 2 === 1 ? 'lg:grid-flow-dense' : ''}`}>
+              <div className={`grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-4 items-center max-w-5xl mx-auto ${index % 2 === 1 ? 'lg:grid-flow-dense' : ''}`}>
                 {/* Image */}
-                <div className={`${index % 2 === 1 ? 'lg:col-start-2' : ''} flex justify-center lg:justify-start`}>
+                <div className={`${index % 2 === 1 ? 'lg:col-start-2' : ''} flex justify-center ${index % 2 === 1 ? 'lg:justify-end' : 'lg:justify-start'}`}>
                   <img
                     src={service.icon}
                     alt={service.title}
                     className="max-w-full h-auto"
-                    style={{maxWidth: '250px'}}
+                    style={{maxWidth: '220px'}}
                   />
                 </div>
 
                 {/* Content */}
-                <div className={`${index % 2 === 1 ? 'lg:col-start-1 lg:pr-8' : 'lg:pl-8'} text-center lg:text-left`}>
+                <div className={`${index % 2 === 1 ? 'lg:col-start-1' : ''} text-center lg:text-left`}>
                   <h3
                     className="text-xl md:text-2xl font-bold mb-4"
                     style={{fontFamily: 'Poppins, sans-serif', color: '#191e4f'}}
@@ -105,8 +105,20 @@ export default function Services() {
 
                   <Link
                     href={`/services/${service.slug}`}
-                    className="inline-block text-sm font-semibold hover:underline transition-colors"
-                    style={{fontFamily: 'Poppins, sans-serif', color: '#287194'}}
+                    className="inline-block border-2 px-6 py-2 rounded-md transition-all duration-300 font-semibold"
+                    style={{
+                      fontFamily: 'Poppins, sans-serif',
+                      borderColor: '#287194',
+                      color: '#287194'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.backgroundColor = '#287194';
+                      e.currentTarget.style.color = 'white';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = 'transparent';
+                      e.currentTarget.style.color = '#287194';
+                    }}
                   >
                     View more
                   </Link>

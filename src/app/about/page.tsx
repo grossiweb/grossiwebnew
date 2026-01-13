@@ -1,5 +1,6 @@
 'use client'
-import React, { useState } from 'react'
+import React from 'react'
+import ContactForm from '@/components/ContactForm'
 
 const teamMembers = [
   { name: 'Ginseppe', role: 'Graphic Designer', image: '/team/Ginseppe.webp' },
@@ -45,26 +46,6 @@ const testimonials = [
 
 export default function AboutPage() {
   const defaultHeroImageUrl = process.env.NEXT_PUBLIC_DEFAULT_HERO_IMAGE_URL || '/waterfall.webp'
-
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    enquiry: ''
-  })
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Handle form submission
-    console.log('Form submitted:', formData)
-  }
 
   return (
     <div className="min-h-screen bg-white">
@@ -178,98 +159,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Process Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl font-bold text-gray-900 mb-16" style={{fontFamily: 'Poppins, sans-serif'}}>
-              What happens after you contact us?
-            </h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
-              <div className="text-left">
-                <h3 className="text-xl font-bold text-gray-900 mb-4" style={{fontFamily: 'Poppins, sans-serif'}}>
-                  15 minutes consultation
-                </h3>
-                <p className="text-gray-600" style={{fontFamily: 'Poppins, sans-serif'}}>
-                  We will schedule a quick 15-minute call with you to understand what you need to unlock the full potential of your business.
-                </p>
-              </div>
-              <div className="text-left">
-                <h3 className="text-xl font-bold text-gray-900 mb-4" style={{fontFamily: 'Poppins, sans-serif'}}>
-                  Project Proposal
-                </h3>
-                <p className="text-gray-600" style={{fontFamily: 'Poppins, sans-serif'}}>
-                  After we got every output from you, we will prepare a proposal for you. If you agree with our pricing and timeline, we are all set to take off.
-                </p>
-              </div>
-            </div>
-
-            {/* Contact Form */}
-            <div className="bg-gray-50 rounded-lg p-8">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <input
-                      type="text"
-                      name="name"
-                      placeholder="Your Name*"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      style={{fontFamily: 'Poppins, sans-serif'}}
-                    />
-                  </div>
-                  <div>
-                    <input
-                      type="email"
-                      name="email"
-                      placeholder="Email*"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      style={{fontFamily: 'Poppins, sans-serif'}}
-                    />
-                  </div>
-                </div>
-                <div>
-                  <input
-                    type="tel"
-                    name="phone"
-                    placeholder="Phone Number*"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    style={{fontFamily: 'Poppins, sans-serif'}}
-                  />
-                </div>
-                <div>
-                  <textarea
-                    name="enquiry"
-                    placeholder="Your Enquiry*"
-                    value={formData.enquiry}
-                    onChange={handleInputChange}
-                    required
-                    rows={4}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    style={{fontFamily: 'Poppins, sans-serif'}}
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="bg-blue-600 text-white px-8 py-3 rounded-md hover:bg-blue-700 transition-colors font-semibold"
-                  style={{fontFamily: 'Poppins, sans-serif'}}
-                >
-                  Send Message
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Contact Form Section */}
+      <ContactForm />
     </div>
   )
 } 

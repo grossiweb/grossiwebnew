@@ -180,8 +180,21 @@ export default function BlogSection() {
         <div className="text-center mt-8">
           <Link href="/blog">
             <button
-              className="text-sm font-semibold hover:underline transition-colors"
-              style={{fontFamily: 'Poppins, sans-serif', color: '#287194'}}
+              className="border-2 px-6 py-2 rounded-md transition-all duration-300 font-semibold"
+              style={{
+                fontFamily: 'Poppins, sans-serif',
+                borderColor: '#287194',
+                color: '#287194',
+                backgroundColor: 'transparent'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#287194';
+                e.currentTarget.style.color = 'white';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = 'transparent';
+                e.currentTarget.style.color = '#287194';
+              }}
             >
               View more
             </button>

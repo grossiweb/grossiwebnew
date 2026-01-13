@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import Link from 'next/link'
 import { WordPressPage } from '@/types/wordpress'
 
@@ -12,6 +12,7 @@ export default function Hero({ homepageData, loading = false }: HeroProps) {
   const [currentWord, setCurrentWord] = useState('Development')
   const [fadeClass, setFadeClass] = useState('opacity-100')
   const words = ['Development', 'Design', 'Strategy', 'Results']
+  const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -32,15 +33,28 @@ export default function Hero({ homepageData, loading = false }: HeroProps) {
     return () => clearInterval(interval)
   }, [])
 
+  // Force video to play on mount (Safari fix)
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play().catch(error => {
+        console.log('Video autoplay failed:', error)
+      })
+    }
+  }, [])
+
   return (
     <section className="relative w-full min-h-screen flex items-center overflow-hidden">
       {/* Video Background */}
       <video
+        ref={videoRef}
         className="absolute top-0 left-0 w-full h-full object-cover z-0"
         autoPlay
         muted
         loop
         playsInline
+        preload="auto"
+        webkit-playsinline="true"
+        x-webkit-airplay="allow"
       >
         <source src="/hero-video.mp4" type="video/mp4" />
       </video>

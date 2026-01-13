@@ -9,7 +9,6 @@ import ContactForm from '@/components/ContactForm'
 import BlogSection from '@/components/BlogSection'
 import ClientsSection from '@/components/ClientsSection'
 import TrustSection from '@/components/TrustSection'
-import FocusSection from '@/components/FocusSection'
 import { GET_HOMEPAGE } from '@/lib/queries'
 
 export default function HomePage() {
@@ -28,7 +27,6 @@ export default function HomePage() {
       <Services />
       <Testimonials />
       <BlogSection />
-      <FocusSection />
       <ContactForm />
     </div>
   )

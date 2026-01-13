@@ -78,7 +78,7 @@ export default function ContactForm() {
                 <span style={{color: '#287194'}}>contact us?</span>
               </h2>
               
-              <div className="space-y-6">
+              <div className="space-y-6 pl-4">
                 {/* 15 minutes consultation */}
                 <div>
                   <div className="flex items-start space-x-3">
@@ -86,7 +86,7 @@ export default function ContactForm() {
                       className="w-2.5 h-2.5 rounded-full mt-2 flex-shrink-0"
                       style={{backgroundColor: '#14183e'}}
                     ></div>
-                    <div>
+                    <div className="flex-1">
                       <p
                         className="text-lg font-bold mb-2"
                         style={{fontFamily: 'Poppins, sans-serif', color: '#14183e'}}
@@ -95,7 +95,7 @@ export default function ContactForm() {
                       </p>
                       <div
                         className="border-l-2 pl-3 text-gray-700"
-                        style={{borderColor: '#14183e'}}
+                        style={{borderColor: '#14183e', marginLeft: '-14px'}}
                       >
                         <p className="text-sm leading-relaxed" style={{fontFamily: 'Poppins, sans-serif'}}>
                           We will schedule a quick 15-minute call with you to understand what you need to unlock the full potential of your business.
@@ -112,14 +112,17 @@ export default function ContactForm() {
                       className="w-2.5 h-2.5 rounded-full mt-2 flex-shrink-0"
                       style={{backgroundColor: '#14183e'}}
                     ></div>
-                    <div>
+                    <div className="flex-1">
                       <p
                         className="text-lg font-bold mb-2"
                         style={{fontFamily: 'Poppins, sans-serif', color: '#14183e'}}
                       >
                         Project Proposal
                       </p>
-                      <div className="border-l-2 border-transparent pl-3 text-gray-700">
+                      <div
+                        className="border-l-2 pl-3 text-gray-700"
+                        style={{borderColor: '#14183e', marginLeft: '-14px'}}
+                      >
                         <p className="text-sm leading-relaxed" style={{fontFamily: 'Poppins, sans-serif'}}>
                           After we got every output from you, we will prepare a proposal for you. If you agree with our pricing and timeline, we are all set to take off.
                         </p>
@@ -224,8 +227,8 @@ export default function ContactForm() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 font-medium text-base"
-                    style={{fontFamily: 'Poppins, sans-serif', backgroundColor: '#287194'}}
+                    className="w-full border-2 border-white text-white px-8 py-3 rounded-md hover:bg-white hover:text-blue-900 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 font-semibold"
+                    style={{fontFamily: 'Poppins, sans-serif'}}
                   >
                     {isSubmitting ? 'Sending...' : 'Submit'}
                   </button>
