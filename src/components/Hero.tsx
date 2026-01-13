@@ -72,12 +72,12 @@ export default function Hero({ homepageData, loading = false }: HeroProps) {
             </h1>
 
             <div className="flex items-baseline mb-6">
-              <h2
+              <h1
                 className={`text-4xl md:text-5xl lg:text-6xl font-bold leading-tight transition-opacity duration-500 ${fadeClass}`}
-                style={{fontFamily: 'Poppins, sans-serif', display: 'inline-block'}}
+                style={{fontFamily: 'Poppins, sans-serif'}}
               >
                 {currentWord}
-              </h2>
+              </h1>
               <span className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight ml-4" style={{fontFamily: 'Poppins, sans-serif'}}>
                 Driven
               </span>
