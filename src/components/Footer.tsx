@@ -169,7 +169,7 @@ export default function Footer() {
             </p>
 
             <Link
-              href="/privacy"
+              href="/privacy-policy/"
               className="text-white hover:text-blue-300 transition-colors text-sm flex items-center"
               style={{fontFamily: 'Poppins, sans-serif', fontSize: '14px'}}
             >
