@@ -97,7 +97,7 @@ export default function ContactForm() {
                         className="border-l-2 pl-3 text-gray-700"
                         style={{borderColor: '#14183e', marginLeft: '-14px'}}
                       >
-                        <p className="text-sm leading-relaxed" style={{fontFamily: 'Poppins, sans-serif'}}>
+                        <p className="text-base leading-relaxed" style={{fontFamily: 'Poppins, sans-serif'}}>
                           We will schedule a quick 15-minute call with you to understand what you need to unlock the full potential of your business.
                         </p>
                       </div>
@@ -123,7 +123,7 @@ export default function ContactForm() {
                         className="border-l-2 pl-3 text-gray-700"
                         style={{borderColor: '#14183e', marginLeft: '-14px'}}
                       >
-                        <p className="text-sm leading-relaxed" style={{fontFamily: 'Poppins, sans-serif'}}>
+                        <p className="text-base leading-relaxed" style={{fontFamily: 'Poppins, sans-serif'}}>
                           After we got every output from you, we will prepare a proposal for you. If you agree with our pricing and timeline, we are all set to take off.
                         </p>
                       </div>

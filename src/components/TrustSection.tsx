@@ -106,7 +106,7 @@ export default function TrustSection() {
               >
                 {renderTitle(feature.title, feature.highlightWords)}
               </h5>
-              <p className="text-sm leading-relaxed text-gray-700" style={{fontFamily: 'Poppins, sans-serif'}}>
+              <p className="text-base leading-relaxed text-gray-700" style={{fontFamily: 'Poppins, sans-serif'}}>
                 {feature.description}
               </p>
             </div>
