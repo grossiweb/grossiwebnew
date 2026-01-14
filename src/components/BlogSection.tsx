@@ -113,7 +113,7 @@ export default function BlogSection() {
         </div>
         
         {/* Blog Grid - 2x2 Layout */}
-        <div className="max-w-6xl mx-auto">
+        <div className="w-full mx-auto">
           {/* First Row */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             {displayPosts.slice(0, 2).map((post: BlogCardPost, index: number) => (

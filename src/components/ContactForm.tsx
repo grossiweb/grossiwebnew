@@ -65,7 +65,7 @@ export default function ContactForm() {
   return (
     <section id="contact" className="py-12 md:py-16 bg-white">
       <div className="container mx-auto px-6">
-        <div className="max-w-6xl mx-auto">
+        <div className="w-full mx-auto">
           {/* Two Column Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
             {/* Left Column - 60% */}

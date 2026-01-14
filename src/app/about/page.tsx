@@ -48,7 +48,7 @@ export default function AboutPage() {
       {/* Team Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
-          <div className="max-w-6xl mx-auto">
+          <div className="w-full mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 text-center mb-4" style={{fontFamily: 'Poppins, sans-serif'}}>
               The Grossi Web Team
             </h2>
