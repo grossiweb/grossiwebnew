@@ -1,5 +1,6 @@
 'use client'
 import React, { useState } from 'react'
+import Image from 'next/image'
 
 export default function DolceSummitPage() {
   const [formData, setFormData] = useState({
@@ -104,10 +105,12 @@ export default function DolceSummitPage() {
       <div className="min-h-screen">
         {/* Hero Section */}
         <section className="relative min-h-[60vh] md:min-h-[80vh] overflow-hidden bg-gradient-to-r from-blue-900 to-blue-700 flex items-center">
-          <img
+          <Image
             src="/waterfall.webp"
             alt="Success"
-            className="absolute inset-0 w-full h-full object-cover"
+            fill
+            className="object-cover"
+            priority
           />
           <div className="absolute inset-0 bg-black/35"></div>
           <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/35 to-transparent"></div>
@@ -157,10 +160,12 @@ export default function DolceSummitPage() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative min-h-[60vh] md:min-h-[80vh] overflow-hidden bg-gradient-to-r from-blue-900 to-blue-700 flex items-center">
-        <img
+        <Image
           src="/waterfall.webp"
           alt="Dolce Summit"
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          className="object-cover"
+          priority
         />
         <div className="absolute inset-0 bg-black/35"></div>
         <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/35 to-transparent"></div>
@@ -177,7 +182,7 @@ export default function DolceSummitPage() {
               className="mt-6 md:mt-8 text-lg md:text-2xl text-white/90 max-w-xl leading-relaxed"
               style={{ fontFamily: 'Poppins, sans-serif' }}
             >
-              Discover what's helping (and hurting) your online conversions.
+              Discover what&apos;s helping (and hurting) your online conversions.
             </p>
           </div>
         </div>
