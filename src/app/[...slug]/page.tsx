@@ -242,7 +242,7 @@ export default function DynamicPage() {
 
           {/* Post Meta (if it's a post) */}
           {isPost && (
-            <div className="max-w-6xl mx-auto mb-12 text-center">
+            <div className="w-full mx-auto mb-12 text-center">
               <div className="flex flex-wrap justify-center items-center text-sm text-gray-500 space-x-4">
                 {content.author?.node?.name && (
                   <span>By {content.author.node.name}</span>
@@ -258,7 +258,7 @@ export default function DynamicPage() {
           )}
 
           {/* Main Content - styled to match Grossiweb */}
-          <div className="max-w-6xl mx-auto">
+          <div className="w-full mx-auto">
             <div 
               className="prose max-w-none text-[18px]
                          prose-headings:font-bold prose-headings:text-[#6c6c6c]

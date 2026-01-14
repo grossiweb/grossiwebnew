@@ -222,7 +222,7 @@ export default function DynamicWpPage({ slug }: DynamicWpPageProps) {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-6">
           {isPost && (
-            <div className="max-w-6xl mx-auto mb-12 text-center">
+            <div className="w-full mx-auto mb-12 text-center">
               <div className="flex flex-wrap justify-center items-center text-sm text-gray-500 space-x-4">
                 {content.author?.node?.name && <span>By {content.author.node.name}</span>}
                 {content.date && <span>{new Date(content.date).toLocaleDateString()}</span>}
@@ -233,7 +233,7 @@ export default function DynamicWpPage({ slug }: DynamicWpPageProps) {
             </div>
           )}
 
-          <div className="max-w-6xl mx-auto">
+          <div className="w-full mx-auto">
             <div
               className="prose max-w-none text-[18px]
                          prose-headings:font-bold prose-headings:text-[#6c6c6c]
