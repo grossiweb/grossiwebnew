@@ -1,6 +1,7 @@
 'use client'
 import React from 'react'
 import ContactForm from '@/components/ContactForm'
+import FocusSection from '@/components/FocusSection'
 
 const teamMembers = [
   { name: 'Ginseppe', role: 'Graphic Designer', image: '/team/Ginseppe.webp' },
@@ -9,39 +10,6 @@ const teamMembers = [
   { name: 'Michael', role: 'Copywriter', image: '/team/Michael.webp' },
   { name: 'Bhawini', role: 'Developer/Project Manager', image: '/team/Bhawini.webp' },
   { name: 'Stefeno', role: 'Business Developer', image: '/team/Stefeno.webp' }
-]
-
-const testimonials = [
-  {
-    name: 'Jason & Kelli',
-    company: 'Buckhead Imports',
-    text: 'We have recommended GrossiWeb to several people looking to build a useful, user friendly website. They were so helpful and had so many brilliant ideas! And the level of customer service is top notch. They are always just an email or phone call away. We highly recommend using their website services.'
-  },
-  {
-    name: 'Mike Lewis',
-    company: 'Modern Hook',
-    text: 'My working experience with Grossi Web was a very good one. I work with a lot of web development teams that have an easy time talking about what you want but not being able to pull it off. That was not the case with Grossi Web. There was good communication throughout the process and they were able to pull off what they promised.'
-  },
-  {
-    name: 'Michelle',
-    company: 'Beau Kaye & Associates',
-    text: 'I had been approached by multiple so called experts marketing legal websites, I decided to give Grossi Web Consulting a shot and they quickly designed a powerful and elegant presentation and best of all, I was on all the major search engines in a matter of days. Now the clients that are looking for us can easily find us.'
-  },
-  {
-    name: 'Rhia',
-    company: 'Athens Language Schoolhouse',
-    text: 'I am fortunate to have found Grossi Web to construct my website and help me realize my marketing strategy and look! Grossi Web listened to my ideas and created the perfect end result. The process was made easy for me allowing me creative freedom without stress. Grossi Web worked fast, producing a professional and stunning website. I am so pleased with Grossi Web!'
-  },
-  {
-    name: 'Thay',
-    company: 'Humes McCoy Aviation',
-    text: 'Thanks to the Talent and Professionalism of GrossiWeb, I have turned a dream into a successful aviation company. I continuously receive compliments on the corporate site and AirExpress® brand. GrossiWeb developed a highly targeted marketing campaign that has resulted in international exposure and attaining clients who were previously unreachable!'
-  },
-  {
-    name: 'Bob',
-    company: 'Dorfman Capital',
-    text: 'I had been courting a high profile business prospect, but after a few months my prospect was becoming increasingly distant. One morning after I had made some follow up calls, my prospect called me right back stating he had seen a news story about my company on Yahoo news. This is the type of instant gratification and credibility I have experienced working with Grossi Web.'
-  }
 ]
 
 export default function AboutPage() {
@@ -128,36 +96,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Focus Section */}
-      <section className="py-20 bg-blue-50">
-        <div className="container mx-auto px-6">
-          <div className="max-w-6xl mx-auto text-center">
-            <h2 className="text-4xl font-bold text-gray-900 mb-16" style={{fontFamily: 'Poppins, sans-serif'}}>
-              We focus on aspects that matter to your business<br />
-              <span className="text-blue-600">That&apos;s what makes our clients happy</span>
-            </h2>
-
-            {/* Testimonials Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {testimonials.map((testimonial, index) => (
-                <div key={index} className="bg-white p-6 rounded-lg shadow-md">
-                  <div className="text-left">
-                    <h4 className="font-bold text-lg text-gray-900 mb-1" style={{fontFamily: 'Poppins, sans-serif'}}>
-                      {testimonial.name}
-                    </h4>
-                    <p className="text-sm text-blue-600 mb-4 font-semibold" style={{fontFamily: 'Poppins, sans-serif'}}>
-                      {testimonial.company}
-                    </p>
-                    <p className="text-gray-600 text-sm leading-relaxed" style={{fontFamily: 'Poppins, sans-serif'}}>
-                      {testimonial.text}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Focus Section - Using standard component */}
+      <FocusSection />
 
       {/* Contact Form Section */}
       <ContactForm />
