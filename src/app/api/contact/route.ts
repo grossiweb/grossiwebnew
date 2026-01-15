@@ -3,41 +3,12 @@ import { NextRequest, NextResponse } from 'next/server'
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { name, email, phone, enquiry, captchaToken } = body
+    const { name, email, phone, enquiry } = body
 
     // Validate required fields
     if (!name || !email || !enquiry) {
       return NextResponse.json(
         { error: 'Missing required fields' },
-        { status: 400 }
-      )
-    }
-
-    // Verify reCAPTCHA
-    if (!captchaToken) {
-      return NextResponse.json(
-        { error: 'reCAPTCHA verification required' },
-        { status: 400 }
-      )
-    }
-
-    const recaptchaSecret = '6LctPkssAAAAAM3v-RyHY1ZLHBE1UuYcc9bNSHhk'
-    const recaptchaResponse = await fetch(
-      `https://www.google.com/recaptcha/api/siteverify`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: `secret=${recaptchaSecret}&response=${captchaToken}`,
-      }
-    )
-
-    const recaptchaData = await recaptchaResponse.json()
-
-    if (!recaptchaData.success) {
-      return NextResponse.json(
-        { error: 'reCAPTCHA verification failed' },
         { status: 400 }
       )
     }

@@ -1,6 +1,5 @@
 'use client'
-import React, { useState, useRef } from 'react'
-import ReCAPTCHA from 'react-google-recaptcha'
+import React, { useState } from 'react'
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -11,20 +10,9 @@ export default function ContactForm() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
-  const [captchaError, setCaptchaError] = useState(false)
-  const recaptchaRef = useRef<ReCAPTCHA>(null)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-
-    // Verify reCAPTCHA
-    const captchaToken = recaptchaRef.current?.getValue()
-    if (!captchaToken) {
-      setCaptchaError(true)
-      return
-    }
-
-    setCaptchaError(false)
     setIsSubmitting(true)
 
     try {
@@ -33,16 +21,12 @@ export default function ContactForm() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          ...formData,
-          captchaToken
-        }),
+        body: JSON.stringify(formData),
       })
 
       if (response.ok) {
         setSubmitted(true)
         setFormData({ name: '', email: '', phone: '', enquiry: '' })
-        recaptchaRef.current?.reset()
       }
     } catch (error) {
       console.error('Error submitting form:', error)
@@ -238,21 +222,6 @@ export default function ContactForm() {
                     placeholder="Type the reason for your enquiry"
                   />
                 </div>
-
-                {/* reCAPTCHA */}
-                <div className="mt-6 flex justify-center">
-                  <ReCAPTCHA
-                    ref={recaptchaRef}
-                    sitekey="6LctPkssAAAAALYdlaAxYLsc6Ccehchk1y3g3mGS"
-                    theme="dark"
-                    onChange={() => setCaptchaError(false)}
-                  />
-                </div>
-                {captchaError && (
-                  <p className="text-sm text-red-300 text-center" style={{fontFamily: 'Poppins, sans-serif'}}>
-                    Please complete the reCAPTCHA verification
-                  </p>
-                )}
 
                 <div className="mt-6">
                   <button
