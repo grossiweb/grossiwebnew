@@ -4,6 +4,7 @@ import { getWordPressData } from '@/lib/wordpress';
 import { gql } from '@apollo/client';
 import FocusSection from '@/components/FocusSection';
 import ContactForm from '@/components/ContactForm';
+import BlogPostContent from '@/components/BlogPostContent';
 
 const GET_POST_BY_SLUG = gql`
   query GetPostBySlug($slug: ID!) {
@@ -151,11 +152,7 @@ export default async function BlogPost({ params }: Props) {
         <main className="py-16">
           <div className="container mx-auto px-6">
             {/* Post Content */}
-            <article
-              className="prose prose-lg max-w-none"
-              style={{ fontFamily: 'Poppins, sans-serif' }}
-              dangerouslySetInnerHTML={{ __html: post.content }}
-            />
+            <BlogPostContent content={post.content} />
           </div>
         </main>
 

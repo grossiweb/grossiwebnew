@@ -1,5 +1,5 @@
 'use client'
-import React, { useMemo } from 'react'
+import React, { useMemo, useEffect } from 'react'
 import { useQuery } from '@apollo/client'
 import { GET_CONTENT_BY_SLUG, GET_PAGE } from '@/lib/queries'
 import { useParams } from 'next/navigation'
@@ -159,6 +159,24 @@ export default function DynamicPage() {
     return ''
   }, [excerptHtml, contentHtmlWithoutCover])
 
+  // Load wp-blocks.css for CMS pages
+  useEffect(() => {
+    if (content) {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = '/wp-blocks.css'
+      link.id = 'wp-blocks-css'
+      document.head.appendChild(link)
+
+      return () => {
+        const existingLink = document.getElementById('wp-blocks-css')
+        if (existingLink) {
+          existingLink.remove()
+        }
+      }
+    }
+  }, [content])
+
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -259,8 +277,8 @@ export default function DynamicPage() {
 
           {/* Main Content - styled to match Grossiweb */}
           <div className="w-full mx-auto">
-            <div 
-              className="prose max-w-none text-[18px]
+            <article
+              className="wp-content prose max-w-none text-[18px]
                          prose-headings:font-bold prose-headings:text-[#6c6c6c]
                          prose-h1:text-4xl prose-h1:mb-6 prose-h1:mt-12
                          prose-h2:text-3xl prose-h2:mb-4 prose-h2:mt-10

@@ -4,8 +4,7 @@ import Image from 'next/image'
 
 export default function DolceSummitPage() {
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
+    name: '',
     email: '',
     phone: '',
     businessName: '',
@@ -15,15 +14,26 @@ export default function DolceSummitPage() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
 
+  const formatPhoneNumber = (value: string): string => {
+    // Remove all non-numeric characters
+    const phoneNumber = value.replace(/\D/g, '')
+
+    // Format as (###) ###-####
+    if (phoneNumber.length <= 3) {
+      return phoneNumber
+    } else if (phoneNumber.length <= 6) {
+      return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3)}`
+    } else {
+      return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3, 6)}-${phoneNumber.slice(6, 10)}`
+    }
+  }
+
   const validateForm = (): boolean => {
     const newErrors: Record<string, string> = {}
 
     // Validate required fields
-    if (!formData.firstName.trim()) {
-      newErrors.firstName = 'First name is required'
-    }
-    if (!formData.lastName.trim()) {
-      newErrors.lastName = 'Last name is required'
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required'
     }
     if (!formData.email.trim()) {
       newErrors.email = 'Email is required'
@@ -35,8 +45,6 @@ export default function DolceSummitPage() {
     }
     if (!formData.websiteUrl.trim()) {
       newErrors.websiteUrl = 'Website URL is required'
-    } else if (!/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/.test(formData.websiteUrl)) {
-      newErrors.websiteUrl = 'Please enter a valid website URL'
     }
 
     setErrors(newErrors)
@@ -67,8 +75,7 @@ export default function DolceSummitPage() {
       if (response.ok) {
         setSubmitted(true)
         setFormData({
-          firstName: '',
-          lastName: '',
+          name: '',
           email: '',
           phone: '',
           businessName: '',
@@ -87,9 +94,13 @@ export default function DolceSummitPage() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
+
+    // Apply phone formatting for phone field
+    const formattedValue = name === 'phone' ? formatPhoneNumber(value) : value
+
     setFormData({
       ...formData,
-      [name]: value
+      [name]: formattedValue
     })
     // Clear error for this field when user starts typing
     if (errors[name]) {
@@ -194,57 +205,30 @@ export default function DolceSummitPage() {
           <div className="max-w-3xl mx-auto">
             <div className="bg-white rounded-lg shadow-lg p-8 md:p-12">
               <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Name Fields (First and Last) */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label
-                      htmlFor="firstName"
-                      className="block text-sm font-semibold text-gray-700 mb-2"
-                      style={{fontFamily: 'Poppins, sans-serif'}}
-                    >
-                      First Name<span className="text-red-600">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      id="firstName"
-                      name="firstName"
-                      value={formData.firstName}
-                      onChange={handleChange}
-                      className={`w-full px-4 py-3 border ${errors.firstName ? 'border-red-500' : 'border-gray-300'} rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors`}
-                      style={{fontFamily: 'Poppins, sans-serif'}}
-                      placeholder="Enter your first name"
-                    />
-                    {errors.firstName && (
-                      <p className="mt-1 text-sm text-red-600" style={{fontFamily: 'Poppins, sans-serif'}}>
-                        {errors.firstName}
-                      </p>
-                    )}
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="lastName"
-                      className="block text-sm font-semibold text-gray-700 mb-2"
-                      style={{fontFamily: 'Poppins, sans-serif'}}
-                    >
-                      Last Name<span className="text-red-600">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      id="lastName"
-                      name="lastName"
-                      value={formData.lastName}
-                      onChange={handleChange}
-                      className={`w-full px-4 py-3 border ${errors.lastName ? 'border-red-500' : 'border-gray-300'} rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors`}
-                      style={{fontFamily: 'Poppins, sans-serif'}}
-                      placeholder="Enter your last name"
-                    />
-                    {errors.lastName && (
-                      <p className="mt-1 text-sm text-red-600" style={{fontFamily: 'Poppins, sans-serif'}}>
-                        {errors.lastName}
-                      </p>
-                    )}
-                  </div>
+                {/* Name Field */}
+                <div>
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-semibold text-gray-700 mb-2"
+                    style={{fontFamily: 'Poppins, sans-serif'}}
+                  >
+                    Name<span className="text-red-600">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className={`w-full px-4 py-3 border ${errors.name ? 'border-red-500' : 'border-gray-300'} rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors`}
+                    style={{fontFamily: 'Poppins, sans-serif'}}
+                    placeholder="Enter your full name"
+                  />
+                  {errors.name && (
+                    <p className="mt-1 text-sm text-red-600" style={{fontFamily: 'Poppins, sans-serif'}}>
+                      {errors.name}
+                    </p>
+                  )}
                 </div>
 
                 {/* Email */}

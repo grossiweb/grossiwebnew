@@ -79,12 +79,14 @@ export default function Services() {
               <div className={`grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-4 items-center max-w-5xl mx-auto ${index % 2 === 1 ? 'lg:grid-flow-dense' : ''}`}>
                 {/* Image */}
                 <div className={`${index % 2 === 1 ? 'lg:col-start-2' : ''} flex justify-center ${index % 2 === 1 ? 'lg:justify-end' : 'lg:justify-start'}`}>
-                  <img
-                    src={service.icon}
-                    alt={service.title}
-                    className="max-w-full h-auto"
-                    style={{maxWidth: '220px'}}
-                  />
+                  <Link href={`/services/${service.slug}`} className="cursor-pointer transition-opacity hover:opacity-80">
+                    <img
+                      src={service.icon}
+                      alt={service.title}
+                      className="max-w-full h-auto"
+                      style={{maxWidth: '220px'}}
+                    />
+                  </Link>
                 </div>
 
                 {/* Content */}

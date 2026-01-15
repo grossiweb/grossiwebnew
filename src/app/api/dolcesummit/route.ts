@@ -3,10 +3,10 @@ import { NextRequest, NextResponse } from 'next/server'
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { firstName, lastName, email, phone, businessName, websiteUrl } = body
+    const { name, email, phone, businessName, websiteUrl } = body
 
     // Validate required fields
-    if (!firstName || !lastName || !email || !businessName || !websiteUrl) {
+    if (!name || !email || !businessName || !websiteUrl) {
       return NextResponse.json(
         { error: 'Missing required fields' },
         { status: 400 }
@@ -18,15 +18,6 @@ export async function POST(request: NextRequest) {
     if (!emailRegex.test(email)) {
       return NextResponse.json(
         { error: 'Invalid email format' },
-        { status: 400 }
-      )
-    }
-
-    // Validate URL format
-    const urlRegex = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/
-    if (!urlRegex.test(websiteUrl)) {
-      return NextResponse.json(
-        { error: 'Invalid website URL format' },
         { status: 400 }
       )
     }
@@ -53,23 +44,21 @@ export async function POST(request: NextRequest) {
     }
 
     // Field ID mapping for Dolce Summit form (Form ID: 3)
-    // Field 1: Name (with first and last name sub-fields)
+    // Field 9: Name (single field)
     // Field 2: Email
     // Field 4: Phone
     // Field 5: Business Name
-    // Field 6: Website URL
+    // Field 11: Website URL
     const endpoint = `${wpBaseUrl.replace(/\/+$/, '')}/wp-json/gf/v2/forms/${formId}/submissions`
     const auth = Buffer.from(`${gfUsername}:${gfPassword}`).toString('base64')
 
     // Build payload with proper field structure
-    // For Name field (compound field), use input_1.3 for first name and input_1.6 for last name
     const gfPayload: Record<string, string> = {
-      'input_1.3': String(firstName), // First Name subfield
-      'input_1.6': String(lastName),  // Last Name subfield
+      'input_9': String(name), // Name field
       'input_2': String(email),
       'input_4': String(phone || ''),
       'input_5': String(businessName),
-      'input_6': String(websiteUrl),
+      'input_11': String(websiteUrl),
     }
 
     console.log('Submitting to Gravity Forms (Dolce Summit):', {
