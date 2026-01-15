@@ -15,7 +15,8 @@
     "graphql-request": "^7.2.0",
     "next": "14.0.4",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-google-recaptcha": "^3.1.0"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.7",
@@ -23,6 +24,7 @@
     "@types/node": "^20.19.9",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/react-google-recaptcha": "^2.1.9",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",

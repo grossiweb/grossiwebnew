@@ -1,6 +1,7 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import Image from 'next/image'
+import ReCAPTCHA from 'react-google-recaptcha'
 
 export default function DolceSummitPage() {
   const [formData, setFormData] = useState({
@@ -13,6 +14,7 @@ export default function DolceSummitPage() {
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const recaptchaRef = useRef<ReCAPTCHA>(null)
 
   const formatPhoneNumber = (value: string): string => {
     // Remove all non-numeric characters
@@ -47,6 +49,12 @@ export default function DolceSummitPage() {
       newErrors.websiteUrl = 'Website URL is required'
     }
 
+    // Verify reCAPTCHA
+    const captchaToken = recaptchaRef.current?.getValue()
+    if (!captchaToken) {
+      newErrors.captcha = 'Please complete the reCAPTCHA verification'
+    }
+
     setErrors(newErrors)
     return Object.keys(newErrors).length === 0
   }
@@ -58,6 +66,8 @@ export default function DolceSummitPage() {
       return
     }
 
+    const captchaToken = recaptchaRef.current?.getValue()
+
     setIsSubmitting(true)
     setErrors({})
 
@@ -67,7 +77,10 @@ export default function DolceSummitPage() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          captchaToken
+        }),
       })
 
       const data = await response.json()
@@ -81,6 +94,7 @@ export default function DolceSummitPage() {
           businessName: '',
           websiteUrl: ''
         })
+        recaptchaRef.current?.reset()
       } else {
         setErrors({ submit: data.error || 'Failed to submit form. Please try again.' })
       }
@@ -337,6 +351,24 @@ export default function DolceSummitPage() {
                       {errors.submit}
                     </p>
                   </div>
+                )}
+
+                {/* reCAPTCHA */}
+                <div className="mt-8 flex justify-center">
+                  <ReCAPTCHA
+                    ref={recaptchaRef}
+                    sitekey="6LctPkssAAAAALYdlaAxYLsc6Ccehchk1y3g3mGS"
+                    onChange={() => {
+                      if (errors.captcha) {
+                        setErrors({ ...errors, captcha: '' })
+                      }
+                    }}
+                  />
+                </div>
+                {errors.captcha && (
+                  <p className="text-sm text-red-600 text-center" style={{fontFamily: 'Poppins, sans-serif'}}>
+                    {errors.captcha}
+                  </p>
                 )}
 
                 {/* Submit Button */}
