@@ -244,7 +244,7 @@ export default function ContactForm() {
                   <ReCAPTCHA
                     ref={recaptchaRef}
                     sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || '6LcSTUwsAAAAAI4gV-eEcCfYqeoHjNcnn3lAFIZX'}
-                    theme="dark"
+                    theme="light"
                     onChange={() => setCaptchaError(false)}
                   />
                 </div>
