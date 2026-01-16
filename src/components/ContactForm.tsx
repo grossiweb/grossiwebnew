@@ -240,7 +240,7 @@ export default function ContactForm() {
                 </div>
 
                 {/* reCAPTCHA */}
-                <div className="mt-6 flex justify-center">
+                <div className="mt-6">
                   <ReCAPTCHA
                     ref={recaptchaRef}
                     sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || '6LcSTUwsAAAAAI4gV-eEcCfYqeoHjNcnn3lAFIZX'}

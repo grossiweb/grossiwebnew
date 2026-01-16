@@ -354,10 +354,11 @@ export default function DolceSummitPage() {
                 )}
 
                 {/* reCAPTCHA */}
-                <div className="mt-8 flex justify-center">
+                <div className="mt-8">
                   <ReCAPTCHA
                     ref={recaptchaRef}
                     sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || '6LcSTUwsAAAAAI4gV-eEcCfYqeoHjNcnn3lAFIZX'}
+                    theme="light"
                     onChange={() => {
                       if (errors.captcha) {
                         setErrors({ ...errors, captcha: '' })
