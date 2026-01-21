@@ -197,13 +197,17 @@ export default function Header() {
           <div className="relative h-full w-full">
             <div className="container mx-auto px-6 py-4">
               <div className="flex items-center justify-between">
-                <img 
-                  src="/images/logos/grossi-logo.png"
-                  alt="Grossiweb"
-                  width={149}
-                  height={34}
-                  className="h-8 w-auto"
-                />
+                <div className="flex items-center">
+                  <Link href="/" className="inline-block" onClick={() => setIsMenuOpen(false)}>
+                    <img
+                      src="/images/logos/grossi-logo.png"
+                      alt="Grossiweb"
+                      width={164}
+                      height={38}
+                      className="h-8 w-auto"
+                    />
+                  </Link>
+                </div>
 
                 {/* Explicit X close button */}
                 <button

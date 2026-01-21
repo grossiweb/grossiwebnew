@@ -49,12 +49,6 @@ export default function DolceSummitPage() {
       newErrors.websiteUrl = 'Website URL is required'
     }
 
-    // Verify reCAPTCHA
-    const captchaToken = recaptchaRef.current?.getValue()
-    if (!captchaToken) {
-      newErrors.captcha = 'Please complete the reCAPTCHA verification'
-    }
-
     setErrors(newErrors)
     return Object.keys(newErrors).length === 0
   }
@@ -66,12 +60,18 @@ export default function DolceSummitPage() {
       return
     }
 
-    const captchaToken = recaptchaRef.current?.getValue()
-
     setIsSubmitting(true)
     setErrors({})
 
     try {
+      // Execute invisible reCAPTCHA
+      const captchaToken = await recaptchaRef.current?.executeAsync()
+      if (!captchaToken) {
+        setErrors({ captcha: 'reCAPTCHA verification failed. Please try again.' })
+        setIsSubmitting(false)
+        return
+      }
+
       const response = await fetch('/api/dolcesummit', {
         method: 'POST',
         headers: {
@@ -94,7 +94,6 @@ export default function DolceSummitPage() {
           businessName: '',
           websiteUrl: ''
         })
-        recaptchaRef.current?.reset()
       } else {
         setErrors({ submit: data.error || 'Failed to submit form. Please try again.' })
       }
@@ -103,6 +102,7 @@ export default function DolceSummitPage() {
       setErrors({ submit: 'An error occurred. Please try again later.' })
     } finally {
       setIsSubmitting(false)
+      recaptchaRef.current?.reset()
     }
   }
 
@@ -353,21 +353,15 @@ export default function DolceSummitPage() {
                   </div>
                 )}
 
-                {/* reCAPTCHA */}
-                <div className="mt-8">
-                  <ReCAPTCHA
-                    ref={recaptchaRef}
-                    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || '6LcSTUwsAAAAAI4gV-eEcCfYqeoHjNcnn3lAFIZX'}
-                    theme="light"
-                    onChange={() => {
-                      if (errors.captcha) {
-                        setErrors({ ...errors, captcha: '' })
-                      }
-                    }}
-                  />
-                </div>
+                {/* Invisible reCAPTCHA */}
+                <ReCAPTCHA
+                  ref={recaptchaRef}
+                  sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || '6LeZ2FEsAAAAABWNggqzQ10lAdcYe8ts_JrlQDd9'}
+                  size="invisible"
+                  badge="bottomright"
+                />
                 {errors.captcha && (
-                  <p className="text-sm text-red-600 text-center" style={{fontFamily: 'Poppins, sans-serif'}}>
+                  <p className="text-sm text-red-600 text-center mt-2" style={{fontFamily: 'Poppins, sans-serif'}}>
                     {errors.captcha}
                   </p>
                 )}

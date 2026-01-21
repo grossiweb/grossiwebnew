@@ -16,18 +16,18 @@ export default function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-
-    // Verify reCAPTCHA
-    const captchaToken = recaptchaRef.current?.getValue()
-    if (!captchaToken) {
-      setCaptchaError(true)
-      return
-    }
-
     setCaptchaError(false)
     setIsSubmitting(true)
 
     try {
+      // Execute invisible reCAPTCHA
+      const captchaToken = await recaptchaRef.current?.executeAsync()
+      if (!captchaToken) {
+        setCaptchaError(true)
+        setIsSubmitting(false)
+        return
+      }
+
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
@@ -42,12 +42,13 @@ export default function ContactForm() {
       if (response.ok) {
         setSubmitted(true)
         setFormData({ name: '', email: '', phone: '', enquiry: '' })
-        recaptchaRef.current?.reset()
       }
     } catch (error) {
       console.error('Error submitting form:', error)
+      setCaptchaError(true)
     } finally {
       setIsSubmitting(false)
+      recaptchaRef.current?.reset()
     }
   }
 
@@ -239,18 +240,16 @@ export default function ContactForm() {
                   />
                 </div>
 
-                {/* reCAPTCHA */}
-                <div className="mt-6">
-                  <ReCAPTCHA
-                    ref={recaptchaRef}
-                    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || '6LcSTUwsAAAAAI4gV-eEcCfYqeoHjNcnn3lAFIZX'}
-                    theme="light"
-                    onChange={() => setCaptchaError(false)}
-                  />
-                </div>
+                {/* Invisible reCAPTCHA */}
+                <ReCAPTCHA
+                  ref={recaptchaRef}
+                  sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || '6LeZ2FEsAAAAABWNggqzQ10lAdcYe8ts_JrlQDd9'}
+                  size="invisible"
+                  badge="bottomright"
+                />
                 {captchaError && (
-                  <p className="text-sm text-red-300 text-center" style={{fontFamily: 'Poppins, sans-serif'}}>
-                    Please complete the reCAPTCHA verification
+                  <p className="text-sm text-red-300 text-center mt-2" style={{fontFamily: 'Poppins, sans-serif'}}>
+                    reCAPTCHA verification failed. Please try again.
                   </p>
                 )}
 
