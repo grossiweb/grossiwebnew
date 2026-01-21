@@ -76,7 +76,7 @@ export default function Services() {
             style={{backgroundColor: index % 2 === 1 ? '#f8f9fa' : '#ffffff'}}
           >
             <div className="container mx-auto px-6 py-10 md:py-12">
-              <div className={`grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-4 items-center max-w-5xl mx-auto ${index % 2 === 1 ? 'lg:grid-flow-dense' : ''}`}>
+              <div className={`grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-4 items-center ${index % 2 === 1 ? 'lg:grid-flow-dense' : ''}`}>
                 {/* Image */}
                 <div className={`${index % 2 === 1 ? 'lg:col-start-2' : ''} flex justify-center ${index % 2 === 1 ? 'lg:justify-end' : 'lg:justify-start'}`}>
                   <Link href={`/services/${service.slug}`} className="cursor-pointer transition-opacity hover:opacity-80">

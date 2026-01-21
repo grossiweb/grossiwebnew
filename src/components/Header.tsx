@@ -13,8 +13,13 @@ type MenuNode = {
   target?: string | null
 }
 
+type MenuItemWithChildren = MenuNode & {
+  children: MenuItemWithChildren[]
+}
+
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [openSubmenu, setOpenSubmenu] = useState<string | null>(null)
   
   const menuLocation = process.env.NEXT_PUBLIC_WP_MENU_LOCATION || 'PRIMARY'
   const menuId = process.env.NEXT_PUBLIC_WP_MENU_ID
@@ -46,7 +51,36 @@ export default function Header() {
 
   const wpMenuItems: MenuNode[] | undefined =
     menuByIdData?.menu?.menuItems?.nodes || menuByLocationData?.menuItems?.nodes
-  const menuItems: MenuNode[] = wpMenuItems?.length ? wpMenuItems : fallbackMenuItems
+  const flatMenuItems: MenuNode[] = wpMenuItems?.length ? wpMenuItems : fallbackMenuItems
+
+  // Build hierarchical menu structure
+  const buildMenuTree = (items: MenuNode[]): MenuItemWithChildren[] => {
+    const itemMap = new Map<string, MenuItemWithChildren>()
+    const roots: MenuItemWithChildren[] = []
+
+    // First pass: create all items with empty children arrays
+    items.forEach((item, index) => {
+      const id = item.id || `item-${index}`
+      itemMap.set(id, { ...item, id, children: [] })
+    })
+
+    // Second pass: build parent-child relationships
+    items.forEach((item, index) => {
+      const id = item.id || `item-${index}`
+      const menuItem = itemMap.get(id)!
+
+      if (item.parentId && itemMap.has(item.parentId)) {
+        const parent = itemMap.get(item.parentId)!
+        parent.children.push(menuItem)
+      } else {
+        roots.push(menuItem)
+      }
+    })
+
+    return roots
+  }
+
+  const menuItems = buildMenuTree(flatMenuItems)
 
   // Log menu source for debugging (only in development)
   useEffect(() => {
@@ -161,7 +195,7 @@ export default function Header() {
           />
 
           <div className="relative h-full w-full">
-            <div className="container mx-auto px-6 py-6">
+            <div className="container mx-auto px-6 py-4">
               <div className="flex items-center justify-between">
                 <img 
                   src="/images/logos/grossi-logo.png"
@@ -185,16 +219,60 @@ export default function Header() {
               </div>
 
               <nav className="mt-12 flex flex-col space-y-7">
-                {menuItems.map((item: MenuNode, index: number) => (
-                  <Link 
-                    key={item.id || `${item.label}-${index}`}
-                    href={normalizeHref(item)}
-                    className="text-white text-3xl md:text-4xl font-semibold hover:text-blue-200 transition-colors"
-                    style={{fontFamily: 'Poppins, sans-serif'}}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {item.label}
-                  </Link>
+                {menuItems.map((item: MenuItemWithChildren, index: number) => (
+                  <div key={item.id || `${item.label}-${index}`} className="relative">
+                    {item.children.length > 0 ? (
+                      <>
+                        <button
+                          type="button"
+                          className="text-white text-3xl md:text-4xl font-semibold hover:text-blue-200 transition-colors flex items-center gap-3"
+                          style={{fontFamily: 'Poppins, sans-serif'}}
+                          onClick={() => setOpenSubmenu(openSubmenu === item.id ? null : item.id || null)}
+                          onMouseEnter={() => setOpenSubmenu(item.id || null)}
+                        >
+                          {item.label}
+                          <svg
+                            className={`w-6 h-6 transition-transform duration-200 ${openSubmenu === item.id ? 'rotate-180' : ''}`}
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                          </svg>
+                        </button>
+                        {openSubmenu === item.id && (
+                          <div
+                            className="mt-4 ml-6 flex flex-col space-y-4"
+                            onMouseLeave={() => setOpenSubmenu(null)}
+                          >
+                            {item.children.map((child: MenuItemWithChildren, childIndex: number) => (
+                              <Link
+                                key={child.id || `${child.label}-${childIndex}`}
+                                href={normalizeHref(child)}
+                                className="text-white text-xl md:text-2xl font-medium hover:text-blue-200 transition-colors"
+                                style={{fontFamily: 'Poppins, sans-serif'}}
+                                onClick={() => {
+                                  setIsMenuOpen(false)
+                                  setOpenSubmenu(null)
+                                }}
+                              >
+                                {child.label}
+                              </Link>
+                            ))}
+                          </div>
+                        )}
+                      </>
+                    ) : (
+                      <Link
+                        href={normalizeHref(item)}
+                        className="text-white text-3xl md:text-4xl font-semibold hover:text-blue-200 transition-colors"
+                        style={{fontFamily: 'Poppins, sans-serif'}}
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        {item.label}
+                      </Link>
+                    )}
+                  </div>
                 ))}
               </nav>
 

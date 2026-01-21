@@ -98,7 +98,7 @@ export default function Hero({ homepageData, loading = false }: HeroProps) {
           
           {/* Right Navigation Panel */}
           <div className="lg:col-span-1">
-            <div className="bg-white bg-opacity-80 rounded-lg shadow-lg overflow-hidden mx-auto" >
+            <div className="bg-white bg-opacity-80 rounded-lg shadow-lg overflow-hidden mx-auto max-w-[344px]" >
               <div className="divide-y-2" style={{borderColor: '#191E4F'}}>
                 <Link href="/interactive-marketing-strategy/" className="flex items-center space-x-4 px-6 py-5 transition-colors group" style={{width: '85%', borderColor: '#191E4F',margin: '0 auto'}}>
                   <div className="w-8 h-8 flex items-center justify-center flex-shrink-0">

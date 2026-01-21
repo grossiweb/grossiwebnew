@@ -124,7 +124,7 @@ export default function Footer() {
                   className="text-white hover:text-blue-300 transition-colors"
                   style={{fontFamily: 'Poppins, sans-serif', fontSize: '16px'}}
                 >
-                  About Us
+                  About
                 </Link>
               </li>
               <li>
@@ -133,7 +133,7 @@ export default function Footer() {
                   className="text-white hover:text-blue-300 transition-colors"
                   style={{fontFamily: 'Poppins, sans-serif', fontSize: '16px'}}
                 >
-                  Contact Us
+                  Contact
                 </Link>
               </li>
               <li>
@@ -173,8 +173,7 @@ export default function Footer() {
               className="text-white hover:text-blue-300 transition-colors text-sm flex items-center"
               style={{fontFamily: 'Poppins, sans-serif', fontSize: '14px'}}
             >
-              <span className="mr-2">•</span>
-              Privacy Policies
+              Privacy Policy
             </Link>
 
             {/* Social Links */}
