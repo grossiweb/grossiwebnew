@@ -21,7 +21,7 @@ export default function Footer() {
               className="text-gray-300 mb-8 leading-relaxed max-w-xl"
               style={{fontFamily: 'Poppins, sans-serif', fontSize: '15px'}}
             >
-              GrossiWeb Consulting delivers emotion driven interactive marketing to maximize your brand online. Successful Internet marketing is a continuous and adaptive process and to achieve maximum results we implement a comprehensive approach with seamless web applications and unforgettable design to produce quantifiable results.
+              We partner with ambitious businesses to create digital experiences that don&apos;t just look good; they drive revenue, build customer loyalty, and create sustainable competitive advantages. Your success is our obsession.
             </p>
 
             <div className="space-y-3">

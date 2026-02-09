@@ -84,7 +84,7 @@ export default function Hero({ homepageData, loading = false }: HeroProps) {
             </div>
 
             <p className="text-base md:text-lg mb-6 max-w-xl" style={{fontFamily: 'Poppins, sans-serif'}}>
-              We have the development aptitude to build exactly what you need.
+              When your online presence directly impacts your bottom line, you need a partner who turns digital strategy into measurable business growth.
             </p>
 
             <Link

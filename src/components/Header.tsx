@@ -115,8 +115,14 @@ export default function Header() {
   useEffect(() => {
     if (!isMenuOpen) return
 
+    // Calculate scrollbar width to prevent layout shift
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
+
     const prevOverflow = document.body.style.overflow
+    const prevPaddingRight = document.body.style.paddingRight
+
     document.body.style.overflow = 'hidden'
+    document.body.style.paddingRight = `${scrollbarWidth}px`
 
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setIsMenuOpen(false)
@@ -126,6 +132,7 @@ export default function Header() {
 
     return () => {
       document.body.style.overflow = prevOverflow
+      document.body.style.paddingRight = prevPaddingRight
       window.removeEventListener('keydown', onKeyDown)
     }
   }, [isMenuOpen])
@@ -180,7 +187,7 @@ export default function Header() {
       {/* Full-screen Menu Overlay */}
       {isMenuOpen && (
         <div
-          className="fixed inset-0 z-[60]"
+          className="fixed top-0 left-0 right-0 bottom-0 z-[60]"
           style={{backgroundColor: '#191E4F'}}
           role="dialog"
           aria-modal="true"

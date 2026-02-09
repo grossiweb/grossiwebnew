@@ -6,28 +6,28 @@ const services = [
   {
     id: '1',
     title: 'Strategy',
-    shortDescription: 'We come up with a master plan to help you grow, create, and reach your dream future with your clients.',
+    shortDescription: 'The roadmap that turns your biggest goals into achievable milestones, giving you clarity, confidence, and a competitive edge.',
     icon: '/images/icons/Strategy.png',
     slug: 'interactive-marketing-strategy'
   },
   {
     id: '2',
     title: 'Design',
-    shortDescription: 'We build awesome and memorable design experiences tailor-made for you and your clients.',
+    shortDescription: 'First impressions that convert browsers into buyers, creating experiences so compelling that your customers can\'t help but engage.',
     icon: '/images/icons/design.png',
     slug: 'atlanta-web-design'
   },
   {
     id: '3',
     title: 'Development',
-    shortDescription: 'Turn your ideas into life! Through coding and development we make sure your project becomes a memorable reality.',
+    shortDescription: 'Flawless execution that transforms strategy into fast, scalable, conversion-optimized digital experiences your customers love.',
     icon: '/images/icons/Development.png',
     slug: 'web-development'
   },
   {
     id: '4',
     title: 'Marketing',
-    shortDescription: 'Winning results for your business is our goal. We help you build your ideal audience through high quality content.',
+    shortDescription: 'Attract your ideal customers, build authority in your market, and create content that turns attention into revenue.',
     icon: '/images/icons/Marketing.png',
     slug: 'digital-marketing'
   }
@@ -51,7 +51,7 @@ export default function Services() {
               className="text-2xl md:text-3xl font-bold text-white border-l-4 border-blue-500 pl-4"
               style={{fontFamily: 'Poppins, sans-serif'}}
             >
-              We focus on growing your business
+              Four Pillars That Drive Exponential Growth
             </h2>
           </div>
         </div>

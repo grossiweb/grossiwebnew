@@ -91,8 +91,8 @@ export default function ContactForm() {
                 className="text-2xl md:text-3xl font-bold border-l-4 border-blue-500 pl-4 leading-tight"
                 style={{fontFamily: 'Poppins, sans-serif', color: '#191e4e'}}
               >
-                What happens after you{' '}
-                <span style={{color: '#287194'}}>contact us?</span>
+                Your Growth Journey{' '}
+                <span style={{color: '#287194'}}>Starts Here</span>
               </h2>
               
               <div className="space-y-6 pl-4">
@@ -108,14 +108,14 @@ export default function ContactForm() {
                         className="text-lg font-bold mb-2"
                         style={{fontFamily: 'Poppins, sans-serif', color: '#14183e'}}
                       >
-                        <span style={{color: '#287194'}}>15 minutes</span> consultation
+                        <span style={{color: '#287194'}}>30 Minute</span> Business Breakthrough Call
                       </p>
                       <div
                         className="border-l-2 pl-3 text-gray-700"
                         style={{borderColor: '#14183e', marginLeft: '-14px'}}
                       >
                         <p className="text-base leading-relaxed" style={{fontFamily: 'Poppins, sans-serif'}}>
-                          We will schedule a quick 15-minute call with you to understand what you need to unlock the full potential of your business.
+                          We&apos;ll identify the biggest opportunities in your business and show you exactly how to capitalize on them.
                         </p>
                       </div>
                     </div>
@@ -134,14 +134,14 @@ export default function ContactForm() {
                         className="text-lg font-bold mb-2"
                         style={{fontFamily: 'Poppins, sans-serif', color: '#14183e'}}
                       >
-                        Project Proposal
+                        Your Custom Growth Blueprint
                       </p>
                       <div
                         className="border-l-2 pl-3 text-gray-700"
                         style={{borderColor: '#14183e', marginLeft: '-14px'}}
                       >
                         <p className="text-base leading-relaxed" style={{fontFamily: 'Poppins, sans-serif'}}>
-                          After we got every output from you, we will prepare a proposal for you. If you agree with our pricing and timeline, we are all set to take off.
+                          You&apos;ll receive a detailed roadmap showing exactly how we&apos;ll drive measurable results for your business, with transparent pricing and clear timelines.
                         </p>
                       </div>
                     </div>
