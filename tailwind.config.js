@@ -34,8 +34,8 @@ module.exports = {
         }
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        heading: ['Poppins', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-poppins)', 'Poppins', 'system-ui', 'sans-serif'],
+        heading: ['var(--font-poppins)', 'Poppins', 'system-ui', 'sans-serif'],
       },
       fontSize: {
         'hero': ['3.5rem', { lineHeight: '1.1', fontWeight: '700' }],

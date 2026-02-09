@@ -20,6 +20,7 @@ type MenuItemWithChildren = MenuNode & {
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null)
+  const [scrollbarWidth, setScrollbarWidth] = useState(0)
   
   const menuLocation = process.env.NEXT_PUBLIC_WP_MENU_LOCATION || 'PRIMARY'
   const menuId = process.env.NEXT_PUBLIC_WP_MENU_ID
@@ -116,13 +117,14 @@ export default function Header() {
     if (!isMenuOpen) return
 
     // Calculate scrollbar width to prevent layout shift
-    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
+    const sbWidth = window.innerWidth - document.documentElement.clientWidth
+    setScrollbarWidth(sbWidth)
 
     const prevOverflow = document.body.style.overflow
     const prevPaddingRight = document.body.style.paddingRight
 
     document.body.style.overflow = 'hidden'
-    document.body.style.paddingRight = `${scrollbarWidth}px`
+    document.body.style.paddingRight = `${sbWidth}px`
 
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setIsMenuOpen(false)
@@ -188,7 +190,7 @@ export default function Header() {
       {isMenuOpen && (
         <div
           className="fixed top-0 left-0 right-0 bottom-0 z-[60]"
-          style={{backgroundColor: '#191E4F'}}
+          style={{backgroundColor: '#191E4F', paddingRight: `${scrollbarWidth}px`}}
           role="dialog"
           aria-modal="true"
           aria-label="Site menu"

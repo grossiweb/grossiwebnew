@@ -100,7 +100,7 @@ export default function Hero({ homepageData, loading = false }: HeroProps) {
           <div className="lg:col-span-1">
             <div className="bg-white bg-opacity-80 rounded-lg shadow-lg overflow-hidden mx-auto max-w-[344px]" >
               <div className="divide-y-2" style={{borderColor: '#191E4F'}}>
-                <Link href="/interactive-marketing-strategy/" className="flex items-center space-x-4 px-6 py-5 transition-colors group" style={{width: '85%', borderColor: '#191E4F',margin: '0 auto'}}>
+                <Link href="/interactive-marketing-strategy/" className="flex items-center space-x-4 py-5 transition-colors group" style={{width: '85%', borderColor: '#191E4F',margin: '0 auto'}}>
                   <div className="w-8 h-8 flex items-center justify-center flex-shrink-0">
                     <img
                       src="/images/icons/Group-1.png"
@@ -111,7 +111,7 @@ export default function Hero({ homepageData, loading = false }: HeroProps) {
                   <span className="text-gray-900 font-semibold text-lg" style={{fontFamily: 'Poppins, sans-serif'}}>Strategy</span>
                 </Link>
 
-                <Link href="/atlanta-web-design/" className="flex items-center space-x-4 px-6 py-5 transition-colors group" style={{width: '85%', borderColor: '#191E4F',margin: '0 auto'}}>
+                <Link href="/atlanta-web-design/" className="flex items-center space-x-4 py-5 transition-colors group" style={{width: '85%', borderColor: '#191E4F',margin: '0 auto'}}>
                   <div className="w-8 h-8 flex items-center justify-center flex-shrink-0">
                     <img
                       src="/images/icons/Frame-1.png"
@@ -122,7 +122,7 @@ export default function Hero({ homepageData, loading = false }: HeroProps) {
                   <span className="text-gray-900 font-semibold text-lg" style={{fontFamily: 'Poppins, sans-serif'}}>Design</span>
                 </Link>
 
-                <Link href="/web-development/" className="flex items-center space-x-4 px-6 py-5 transition-colors group" style={{width: '85%', borderColor: '#191E4F',margin: '0 auto'}}>
+                <Link href="/web-development/" className="flex items-center space-x-4 py-5 transition-colors group" style={{width: '85%', borderColor: '#191E4F',margin: '0 auto'}}>
                   <div className="w-8 h-8 flex items-center justify-center flex-shrink-0">
                     <img
                       src="/images/icons/development-icon.png"
@@ -133,7 +133,7 @@ export default function Hero({ homepageData, loading = false }: HeroProps) {
                   <span className="text-gray-900 font-semibold text-lg" style={{fontFamily: 'Poppins, sans-serif'}}>Development</span>
                 </Link>
 
-                <Link href="/internet-marketing/" className="flex items-center space-x-4 px-6 py-5 transition-colors group" style={{width: '85%', borderColor: '#191E4F',margin: '0 auto'}}>
+                <Link href="/internet-marketing/" className="flex items-center space-x-4 py-5 transition-colors group" style={{width: '85%', borderColor: '#191E4F',margin: '0 auto'}}>
                   <div className="w-8 h-8 flex items-center justify-center flex-shrink-0">
                     <img
                       src="/images/icons/Frame-2.png"

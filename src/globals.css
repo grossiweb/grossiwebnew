@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -113,6 +112,12 @@ html {
   animation: scroll 30s linear infinite;
 }
 
+@media (max-width: 767px) {
+  .animate-scroll {
+    animation-duration: 18s;
+  }
+}
+
 /* Testimonials marquee (infinite loop carousel) */
 .testimonial-marquee {
   animation: scroll 45s linear infinite;
@@ -128,6 +133,12 @@ html {
 .testimonial-mask {
   -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%);
   mask-image: linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%);
+}
+
+@media (max-width: 767px) {
+  .testimonial-marquee {
+    animation-duration: 30s;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

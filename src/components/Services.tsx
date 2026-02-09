@@ -40,7 +40,7 @@ export default function Services() {
       <div
         className="relative mb-12 md:mb-16 bg-cover bg-center flex items-center"
         style={{
-          backgroundImage: 'url(/images/services-bg.webp)',
+          backgroundImage: 'url(/images/services-bg.png)',
           minHeight: '400px'
         }}
       >
@@ -122,7 +122,7 @@ export default function Services() {
                       e.currentTarget.style.color = '#287194';
                     }}
                   >
-                    View more
+                    Explore
                   </Link>
                 </div>
               </div>

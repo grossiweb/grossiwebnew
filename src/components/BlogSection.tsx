@@ -196,7 +196,7 @@ export default function BlogSection() {
                 e.currentTarget.style.color = '#287194';
               }}
             >
-              View more
+              Explore
             </button>
           </Link>
         </div>
