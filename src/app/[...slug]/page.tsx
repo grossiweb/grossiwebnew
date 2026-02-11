@@ -216,8 +216,7 @@ export default function DynamicPage() {
               alt={coverImageAlt || content.featuredImage?.node?.altText || content.title}
               className="absolute inset-0 w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-black/40"></div>
-          </>
+        </>
         )}
 
         <div className="relative z-10 container mx-auto px-6 pt-24 md:pt-28 pb-16 md:pb-24">

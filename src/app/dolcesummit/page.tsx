@@ -137,9 +137,6 @@ export default function DolceSummitPage() {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-black/35"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/35 to-transparent"></div>
-
           <div className="relative z-10 container mx-auto px-6 pt-24 md:pt-28 pb-16 md:pb-24">
             <div className="max-w-3xl">
               <h1
@@ -190,9 +187,6 @@ export default function DolceSummitPage() {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-black/35"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/35 to-transparent"></div>
-
         <div className="relative z-10 container mx-auto px-6 pt-24 md:pt-28 pb-16 md:pb-24">
           <div className="max-w-3xl">
             <h1

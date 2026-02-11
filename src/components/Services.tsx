@@ -29,7 +29,7 @@ const services = [
     title: 'Marketing',
     shortDescription: 'Attract your ideal customers, build authority in your market, and create content that turns attention into revenue.',
     icon: '/images/icons/Marketing.png',
-    slug: 'digital-marketing'
+    slug: 'internet-marketing'
   }
 ]
 
@@ -44,7 +44,6 @@ export default function Services() {
           minHeight: '400px'
         }}
       >
-        <div className="absolute inset-0 bg-black/30"></div>
         <div className="relative z-10 container mx-auto px-6">
           <div className="flex flex-col items-center text-center">
             <h2
