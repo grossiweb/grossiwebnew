@@ -102,6 +102,69 @@
   margin-bottom: 0;
 }
 
+/* ── Full-width Image Banner ── use "gw-banner" on a Cover block */
+.gw-banner {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 1.5rem;
+  /* Break out of parent container to go full-width */
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+}
+.gw-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.30);
+  pointer-events: none;
+}
+
+/* Banner content wrapper — use "gw-banner-content" on a Group inside the Cover */
+.gw-banner-content {
+  position: relative;
+  z-index: 1;
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+/* Banner heading — use "gw-banner-title" on a Heading inside the Cover */
+.gw-banner-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  border-left: 4px solid #3b82f6;
+  padding-left: 1rem;
+  line-height: 1.3;
+  display: inline-block;
+}
+@media (min-width: 768px) {
+  .gw-banner-title {
+    font-size: 1.875rem;
+  }
+}
+
+/* Banner quote — use "gw-banner-quote" on a Paragraph inside the Cover */
+.gw-banner-quote {
+  margin-top: 3.5rem;
+  font-size: 1rem;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 48rem;
+  line-height: 1.75;
+}
+@media (min-width: 768px) {
+  .gw-banner-quote {
+    font-size: 1.125rem;
+  }
+}
+
 /* Box link — use "gw-box-link" on a Paragraph or Button block */
 .gw-box-link {
   font-size: 0.875rem;

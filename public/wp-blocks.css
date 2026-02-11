@@ -124,6 +124,98 @@
   opacity: 0.8;
 }
 
+/* ── Full-width Image Banner ── use "gw-banner" on a Cover block */
+.gw-banner,
+.wp-block-cover.gw-banner {
+  position: relative;
+  background-size: cover !important;
+  background-position: center !important;
+  min-height: 400px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 1.5rem;
+  border-radius: 0;
+  /* Break out of parent container to go full-width */
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  margin-top: 0;
+  margin-bottom: 0;
+}
+/* Make the WP Cover image act as a background (absolute, cover, behind content) */
+.gw-banner img.wp-block-cover__image-background,
+.wp-block-cover.gw-banner img.wp-block-cover__image-background {
+  position: absolute !important;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  z-index: 0;
+}
+/* Dark overlay on top of the image */
+.gw-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.30);
+  pointer-events: none;
+  z-index: 1;
+}
+/* Replace WP Cover block's built-in overlay with our own */
+.wp-block-cover.gw-banner .wp-block-cover__background,
+.wp-block-cover.gw-banner .has-background-dim {
+  display: none;
+}
+/* Ensure inner content sits above the image + overlay */
+.gw-banner .wp-block-cover__inner-container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Banner content wrapper — use "gw-banner-content" on a Group inside the Cover */
+.gw-banner-content,
+.wp-block-group.gw-banner-content {
+  position: relative;
+  z-index: 1;
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 0;
+  background: none;
+}
+
+/* Banner heading — use "gw-banner-title" on a Heading inside the Cover */
+.gw-banner-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff !important;
+  border-left: 4px solid #3b82f6;
+  padding-left: 1rem;
+  line-height: 1.3;
+  display: inline-block;
+}
+@media (min-width: 768px) {
+  .gw-banner-title {
+    font-size: 1.875rem;
+  }
+}
+
+/* Banner quote — use "gw-banner-quote" on a Paragraph inside the Cover */
+.gw-banner-quote {
+  margin-top: 3.5rem;
+  font-size: 1rem;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.9) !important;
+  max-width: 48rem;
+  line-height: 1.75;
+}
+@media (min-width: 768px) {
+  .gw-banner-quote {
+    font-size: 1.125rem;
+  }
+}
+
 /* WordPress Block Editor CSS - Layout and Media Only */
 
 /* Main Content Container */

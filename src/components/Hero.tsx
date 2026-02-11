@@ -17,16 +17,12 @@ export default function Hero({ homepageData, loading = false }: HeroProps) {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      // Fade out
       setFadeClass('opacity-0')
-
-      // Change word after fade out
       setTimeout(() => {
         setCurrentWord(prev => {
           const currentIndex = words.indexOf(prev)
           return words[(currentIndex + 1) % words.length]
         })
-        // Fade in
         setFadeClass('opacity-100')
       }, 1000)
     }, 7000)
