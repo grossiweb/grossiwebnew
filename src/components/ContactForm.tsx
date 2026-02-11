@@ -218,7 +218,7 @@ export default function ContactForm() {
                     htmlFor="enquiry" 
                     className="block text-sm font-medium text-white mb-2"
                   >
-                    Your Enquiry<span className="required">*</span>
+                    Your Inquiry<span className="required">*</span>
                   </label>
                   <textarea
                     id="enquiry"
@@ -228,7 +228,7 @@ export default function ContactForm() {
                     value={formData.enquiry}
                     onChange={handleChange}
                     className="w-full px-0 py-3 bg-transparent border-0 border-b border-white text-white placeholder-white/70 focus:ring-0 focus:border-white transition-colors resize-none"
-                    placeholder="Type the reason for your enquiry"
+                    placeholder="Type the reason for your inquiry"
                   />
                 </div>
 
