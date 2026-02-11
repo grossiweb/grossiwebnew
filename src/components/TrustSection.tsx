@@ -101,7 +101,7 @@ export default function TrustSection() {
                 className="h-14 w-auto mb-4 object-contain"
               />
               <h5
-                className="text-lg font-bold mb-3"
+                className="text-2xl font-bold mb-3"
                 style={{fontFamily: 'Poppins, sans-serif', color: '#191e4f'}}
               >
                 {renderTitle(feature.title, feature.highlightWords)}

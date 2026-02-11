@@ -46,13 +46,19 @@ export default function Services() {
       >
         <div className="absolute inset-0 bg-black/30"></div>
         <div className="relative z-10 container mx-auto px-6">
-          <div className="flex justify-center">
+          <div className="flex flex-col items-center text-center">
             <h2
               className="text-2xl md:text-3xl font-bold text-white border-l-4 border-blue-500 pl-4"
               style={{fontFamily: 'Poppins, sans-serif'}}
             >
               Four Pillars That Drive Exponential Growth
             </h2>
+            <p
+              className="mt-14 text-base md:text-lg text-white/90 italic max-w-3xl"
+              style={{fontFamily: 'Poppins, sans-serif'}}
+            >
+              &ldquo;Great businesses don&apos;t grow by accident. They grow from intentional strategy, seamless execution, and continuous optimization.&rdquo;
+            </p>
           </div>
         </div>
       </div>
@@ -67,68 +73,42 @@ export default function Services() {
         </h2>
       </div>
 
-      {/* Services List */}
-      <div className="space-y-0">
-        {services.map((service, index) => (
-          <div
-            key={service.id}
-            className={`${index % 2 === 1 ? 'bg-gray-100' : 'bg-white'}`}
-            style={{backgroundColor: index % 2 === 1 ? '#f8f9fa' : '#ffffff'}}
-          >
-            <div className="container mx-auto px-6 py-10 md:py-12">
-              <div className={`grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-4 items-center ${index % 2 === 1 ? 'lg:grid-flow-dense' : ''}`}>
-                {/* Image */}
-                <div className={`${index % 2 === 1 ? 'lg:col-start-2' : ''} flex justify-center ${index % 2 === 1 ? 'lg:justify-end' : 'lg:justify-start'}`}>
-                  <Link href={`/services/${service.slug}`} className="cursor-pointer transition-opacity hover:opacity-80">
-                    <img
-                      src={service.icon}
-                      alt={service.title}
-                      className="max-w-full h-auto"
-                      style={{maxWidth: '220px'}}
-                    />
-                  </Link>
-                </div>
-
-                {/* Content */}
-                <div className={`${index % 2 === 1 ? 'lg:col-start-1' : ''} text-center lg:text-left`}>
-                  <h3
-                    className="text-xl md:text-2xl font-bold mb-4"
-                    style={{fontFamily: 'Poppins, sans-serif', color: '#191e4f'}}
-                  >
-                    {service.title}
-                  </h3>
-
-                  <p
-                    className="text-sm md:text-base mb-5 leading-relaxed text-gray-700"
-                    style={{fontFamily: 'Poppins, sans-serif'}}
-                  >
-                    {service.shortDescription}
-                  </p>
-
-                  <Link
-                    href={`/services/${service.slug}`}
-                    className="inline-block border-2 px-6 py-2 rounded-md transition-all duration-300 font-semibold"
-                    style={{
-                      fontFamily: 'Poppins, sans-serif',
-                      borderColor: '#287194',
-                      color: '#287194'
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = '#287194';
-                      e.currentTarget.style.color = 'white';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = 'transparent';
-                      e.currentTarget.style.color = '#287194';
-                    }}
-                  >
-                    Explore
-                  </Link>
-                </div>
-              </div>
+      {/* Services Grid */}
+      <div className="container mx-auto px-6 pb-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {services.map((service) => (
+            <div
+              key={service.id}
+              className="bg-gray-50 rounded-lg p-6 md:p-8"
+              style={{backgroundColor: '#f8f9fa'}}
+            >
+              <img
+                src={service.icon}
+                alt={service.title}
+                className="h-14 w-auto mb-4 object-contain"
+              />
+              <h3
+                className="text-2xl font-bold mb-3"
+                style={{fontFamily: 'Poppins, sans-serif', color: '#191e4e'}}
+              >
+                {service.title}
+              </h3>
+              <p
+                className="text-base leading-relaxed text-gray-700 mb-4"
+                style={{fontFamily: 'Poppins, sans-serif'}}
+              >
+                {service.shortDescription}
+              </p>
+              <Link
+                href={`/${service.slug}/`}
+                className="inline-flex items-center text-sm font-semibold transition-colors duration-200 hover:opacity-80"
+                style={{fontFamily: 'Poppins, sans-serif', color: '#287194'}}
+              >
+                Explore &raquo;
+              </Link>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   )
