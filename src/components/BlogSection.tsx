@@ -45,19 +45,19 @@ const fallbackPosts: BlogCardPost[] = [
   {
     title: 'Grossi Web opens its new offices across from Piedmont Park',
     image: '/images/blog/blog-1.webp',
-    slug: 'new-offices-piedmont-park',
+    slug: 'grossi-web-opens-its-new-offices-across-from-piedmont-park',
     date: 'Dec 15, 2024',
   },
   {
     title: 'The Future is Digital Distribution',
     image: '/images/blog/blog-2.webp',
-    slug: 'future-digital-distribution',
+    slug: 'the-future-is-digital-distribution',
     date: 'Dec 10, 2024',
   },
   {
     title: 'The Organ of Sight',
     image: '/images/blog/blog-3.webp',
-    slug: 'organ-of-sight',
+    slug: 'the-organ-of-sight',
     date: 'Dec 5, 2024',
   },
   {
