@@ -143,20 +143,20 @@ export default function Hero({ homepageData, loading = false }: HeroProps) {
       
       {/* Content */}
       <div className="relative z-20 container mx-auto px-6 text-white">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center min-h-[80vh]">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center min-h-[80vh] pt-28 md:pt-0">
           {/* Left Content */}
           <div className="lg:col-span-2">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-2 leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-1 md:mb-2 leading-[1.1] md:leading-tight">
               We are
             </h1>
 
-            <div className="flex items-baseline mb-6">
+            <div className="flex items-baseline mb-4 md:mb-6">
               <h1
-                className={`text-4xl md:text-5xl lg:text-6xl font-bold leading-tight transition-opacity duration-500 ${fadeClass}`}
+                className={`text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] md:leading-tight transition-opacity duration-500 ${fadeClass}`}
               >
                 {currentWord}
               </h1>
-              <span className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight ml-4">
+              <span className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] md:leading-tight ml-3 md:ml-4">
                 Driven
               </span>
             </div>
