@@ -167,7 +167,7 @@ export default function Hero({ homepageData, loading = false }: HeroProps) {
 
             <Link
               href="#services"
-              className="inline-block text-white text-sm font-medium hover:text-blue-300 transition-colors"
+              className="hidden md:inline-block text-white text-sm font-medium hover:text-blue-300 transition-colors"
             >
               | SCROLL TO EXPLORE
             </Link>
