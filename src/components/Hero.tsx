@@ -143,7 +143,7 @@ export default function Hero({ homepageData, loading = false }: HeroProps) {
       
       {/* Content */}
       <div className="relative z-20 container mx-auto px-6 text-white">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center min-h-[80vh] pt-28 md:pt-0">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center min-h-[80vh] pt-20 md:pt-0">
           {/* Left Content */}
           <div className="lg:col-span-2">
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-1 md:mb-2 leading-[1.1] md:leading-tight">
