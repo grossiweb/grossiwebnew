@@ -86,13 +86,13 @@ export default function NotFound() {
                   Strategy
                 </Link>
                 <Link
-                  href="/atlanta-web-design/"
+                  href="/design/"
                   className="text-gray-600 hover:text-blue-600 transition-colors"
                 >
                   Design
                 </Link>
                 <Link
-                  href="/web-development/"
+                  href="/development/"
                   className="text-gray-600 hover:text-blue-600 transition-colors"
                 >
                   Development

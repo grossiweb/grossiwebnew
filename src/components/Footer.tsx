@@ -68,7 +68,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/atlanta-web-design/"
+                  href="/design/"
                   className="text-white hover:text-blue-300 transition-colors"
                   style={{fontSize: '16px'}}
                 >
@@ -77,7 +77,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/web-development/"
+                  href="/development/"
                   className="text-white hover:text-blue-300 transition-colors"
                   style={{fontSize: '16px'}}
                 >

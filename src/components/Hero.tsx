@@ -9,9 +9,9 @@ interface HeroProps {
 }
 
 export default function Hero({ homepageData, loading = false }: HeroProps) {
-  const [currentWord, setCurrentWord] = useState('Development')
+  const [currentWord, setCurrentWord] = useState('Strategy')
   const [fadeClass, setFadeClass] = useState('opacity-100')
-  const words = ['Development', 'Design', 'Strategy', 'Results']
+  const words = ['Strategy','Design','Development','Results']
   const videoARef = useRef<HTMLVideoElement>(null)
   const videoBRef = useRef<HTMLVideoElement>(null)
 
@@ -28,8 +28,8 @@ export default function Hero({ homepageData, loading = false }: HeroProps) {
         })
         // Fade in
         setFadeClass('opacity-100')
-      }, 500)
-    }, 3000)
+      }, 1000)
+    }, 7000)
 
     return () => clearInterval(interval)
   }, [])
@@ -192,7 +192,7 @@ export default function Hero({ homepageData, loading = false }: HeroProps) {
                   <span className="text-gray-900 font-semibold text-lg">Strategy</span>
                 </Link>
 
-                <Link href="/atlanta-web-design/" className="flex items-center space-x-4 py-5 transition-colors group" style={{width: '85%', borderColor: '#191E4F',margin: '0 auto'}}>
+                <Link href="/design/" className="flex items-center space-x-4 py-5 transition-colors group" style={{width: '85%', borderColor: '#191E4F',margin: '0 auto'}}>
                   <div className="w-8 h-8 flex items-center justify-center flex-shrink-0">
                     <img
                       src="/images/icons/Frame-1.png"
@@ -203,7 +203,7 @@ export default function Hero({ homepageData, loading = false }: HeroProps) {
                   <span className="text-gray-900 font-semibold text-lg">Design</span>
                 </Link>
 
-                <Link href="/web-development/" className="flex items-center space-x-4 py-5 transition-colors group" style={{width: '85%', borderColor: '#191E4F',margin: '0 auto'}}>
+                <Link href="/development/" className="flex items-center space-x-4 py-5 transition-colors group" style={{width: '85%', borderColor: '#191E4F',margin: '0 auto'}}>
                   <div className="w-8 h-8 flex items-center justify-center flex-shrink-0">
                     <img
                       src="/images/icons/development-icon.png"

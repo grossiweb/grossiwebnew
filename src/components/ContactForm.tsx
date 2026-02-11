@@ -61,7 +61,7 @@ export default function ContactForm() {
 
   if (submitted) {
     return (
-      <section className="py-20 bg-white">
+      <section className="py-8 md:py-12 bg-white">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
             <div className="bg-green-50 border border-green-200 rounded-lg p-8 text-center">
@@ -80,7 +80,7 @@ export default function ContactForm() {
   }
 
   return (
-    <section id="contact" className="py-12 md:py-16 bg-white">
+    <section id="contact" className="py-8 md:py-12 bg-white">
       <div className="container mx-auto px-6">
         <div className="w-full mx-auto">
           {/* Two Column Layout */}

@@ -41,39 +41,6 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Contact details */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">📧</span>
-              </div>
-              <h3 className="text-lg font-bold mb-2">Email Us</h3>
-              <p className="text-gray-600">contact@grossiweb.com</p>
-            </div>
-            <div className="text-center">
-              <div className="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">📞</span>
-              </div>
-              <h3 className="text-lg font-bold mb-2">Call Us</h3>
-              <p className="text-gray-600">
-                404-228-8694
-                <br />
-                888-476-7741
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">📍</span>
-              </div>
-              <h3 className="text-lg font-bold mb-2">Visit Us</h3>
-              <p className="text-gray-600">Atlanta, Georgia</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <ContactForm />
     </div>
   )

@@ -15,14 +15,14 @@ const services = [
     title: 'Design',
     shortDescription: 'First impressions that convert browsers into buyers, creating experiences so compelling that your customers can\'t help but engage.',
     icon: '/images/icons/design.png',
-    slug: 'atlanta-web-design'
+    slug: 'design'
   },
   {
     id: '3',
     title: 'Development',
     shortDescription: 'Flawless execution that transforms strategy into fast, scalable, conversion-optimized digital experiences your customers love.',
     icon: '/images/icons/Development.png',
-    slug: 'web-development'
+    slug: 'development'
   },
   {
     id: '4',
@@ -35,7 +35,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="py-12">
+    <section id="services" className="py-8 md:py-12">
       {/* Hero Background with Cover */}
       <div
         className="relative mb-12 md:mb-16 bg-cover bg-center flex items-center"

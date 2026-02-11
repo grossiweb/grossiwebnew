@@ -47,7 +47,7 @@ export default function ClientsSection() {
   ).filter(Boolean) || fallbackLogos;
 
   return (
-    <section className="py-12 md:py-16 bg-white">
+    <section className="py-8 md:py-12 bg-white">
       <div className="container mx-auto px-6 text-center">
         <h2
           className="text-2xl md:text-3xl font-bold mb-2 border-l-4 border-blue-500 pl-4 inline-block"
@@ -62,7 +62,7 @@ export default function ClientsSection() {
         {/* Client Logos */}
         <div className="bg-white py-10 md:py-12">
           <div className="overflow-hidden">
-            <div className="flex animate-scroll space-x-16 items-center justify-center">
+            <div className="flex animate-scroll space-x-8 md:space-x-16 items-center">
               {clientLogos.concat(clientLogos).map((logo: string, index: number) => (
                 <div key={index} className="flex-shrink-0 flex items-center justify-center h-24">
                   <img 
