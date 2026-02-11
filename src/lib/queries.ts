@@ -78,25 +78,15 @@ export const GET_SERVICES = gql`
   }
 `;
 
-// Testimonials query - using category-based approach (works immediately)
+// Testimonials query - fetches posts in the "testimonials" category
 export const GET_TESTIMONIALS = gql`
   query GetTestimonials {
-    testimonials {
+    posts(where: { categoryName: "testimonials", orderby: { field: DATE, order: DESC } }, first: 5) {
       nodes {
         id
         title
         content
         excerpt
-        customFields {
-          clientName
-          clientPosition
-          clientCompany
-          rating
-          clientImage {
-            sourceUrl
-            altText
-          }
-        }
       }
     }
   }
