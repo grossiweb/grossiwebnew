@@ -225,14 +225,12 @@ export default function DynamicPage() {
           <div className="max-w-3xl">
             <h1
               className="text-[42px] font-bold text-white leading-[1.05]"
-              style={{ fontFamily: 'Poppins, sans-serif' }}
               dangerouslySetInnerHTML={{ __html: coverTitleHtml || content.title }}
             />
 
             {coverSubtitleLines?.length ? (
               <div
                 className="mt-6 md:mt-8 text-lg md:text-2xl text-white/90 leading-relaxed"
-                style={{ fontFamily: 'Poppins, sans-serif' }}
               >
                 {coverSubtitleLines.map((line, idx) => (
                   <div key={idx} className={idx === 0 ? '' : 'mt-4'}>
@@ -244,7 +242,6 @@ export default function DynamicPage() {
               pageDescription && (
                 <p
                   className="mt-6 md:mt-8 text-lg md:text-2xl text-white/90 max-w-xl leading-relaxed"
-                  style={{ fontFamily: 'Poppins, sans-serif' }}
                 >
                   {pageDescription}
                 </p>
@@ -290,7 +287,6 @@ export default function DynamicPage() {
                          prose-strong:text-[#6c6c6c] prose-strong:font-semibold
                          prose-ul:mb-6 prose-ol:mb-6
                          prose-li:mb-2"
-              style={{fontFamily: 'Poppins, sans-serif'}}
               dangerouslySetInnerHTML={{ __html: contentHtmlWithoutCover }}
             />
           </div>

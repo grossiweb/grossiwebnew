@@ -29,13 +29,11 @@ export default function ContactPage() {
           <div className="max-w-3xl">
             <h1
               className="text-[42px] font-bold text-white leading-[1.05]"
-              style={{ fontFamily: 'Poppins, sans-serif' }}
             >
               Contact Us
             </h1>
             <p
               className="mt-6 md:mt-8 text-lg md:text-2xl text-white/90 max-w-xl leading-relaxed"
-              style={{ fontFamily: 'Poppins, sans-serif' }}
             >
               Ready to take your business to the next level? Let&apos;s discuss how we can help you achieve your goals.
             </p>

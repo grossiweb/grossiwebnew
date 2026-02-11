@@ -19,7 +19,7 @@
 
 body {
   color: #6c6c6c;
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
   font-size: 16px; /* Base size - matches md:text-base in Tailwind */
   line-height: 1.6;
 }
@@ -30,7 +30,7 @@ body * {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
   font-weight: 700;
   line-height: 1.2;
 }
@@ -56,7 +56,7 @@ h5 {
 }
 
 p {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
   font-size: 16px; /* Consistent base text size */
   font-weight: 400;
 }
@@ -183,13 +183,13 @@ html {
 .gfield_label,
 input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]):not([type="button"]):not([type="image"]):not([type="file"]),
 textarea {
-  font-family: 'Poppins', sans-serif !important;
+  font-family: var(--font-poppins), 'Poppins', sans-serif !important;
 }
 
 input::placeholder,
 textarea::placeholder {
   opacity: 0.5;
-  font-family: 'Poppins', sans-serif !important;
+  font-family: var(--font-poppins), 'Poppins', sans-serif !important;
   color: #fff;
 }
 
@@ -236,7 +236,7 @@ textarea::placeholder {
   border-radius: 5px;
   padding: 20px 12px;
   border: none;
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
 }
 
 /* Testimonial styles */

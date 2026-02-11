@@ -90,13 +90,11 @@ export default async function BlogPage() {
           <div className="max-w-3xl">
             <h1
               className="text-[42px] md:text-[56px] font-bold text-white leading-[1.05]"
-              style={{ fontFamily: 'Poppins, sans-serif' }}
             >
               Blog
             </h1>
             <p
               className="mt-6 md:mt-8 text-lg md:text-2xl text-white/90 max-w-2xl leading-relaxed"
-              style={{ fontFamily: 'Poppins, sans-serif' }}
             >
               Stay updated with the latest insights, trends, and news from the world of digital marketing and web development.
             </p>

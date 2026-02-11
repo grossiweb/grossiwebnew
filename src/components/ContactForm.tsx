@@ -66,10 +66,10 @@ export default function ContactForm() {
           <div className="max-w-4xl mx-auto text-center">
             <div className="bg-green-50 border border-green-200 rounded-lg p-8 text-center">
               <div className="text-green-600 text-4xl mb-4">✓</div>
-              <h3 className="text-2xl font-bold text-green-800 mb-2" style={{fontFamily: 'Poppins, sans-serif'}}>
+              <h3 className="text-2xl font-bold text-green-800 mb-2">
                 Thank You!
               </h3>
-              <p className="text-green-700" style={{fontFamily: 'Poppins, sans-serif'}}>
+              <p className="text-green-700">
                 We&apos;ve received your message and will get back to you within 24 hours.
               </p>
             </div>
@@ -89,7 +89,7 @@ export default function ContactForm() {
             <div className="lg:col-span-3 space-y-6">
               <h2
                 className="text-2xl md:text-3xl font-bold border-l-4 border-blue-500 pl-4 leading-tight"
-                style={{fontFamily: 'Poppins, sans-serif', color: '#191e4e'}}
+                style={{color: '#191e4e'}}
               >
                 Your Growth Journey{' '}
                 <span style={{color: '#287194'}}>Starts Here</span>
@@ -106,7 +106,7 @@ export default function ContactForm() {
                     <div className="flex-1">
                       <p
                         className="text-lg font-bold mb-2"
-                        style={{fontFamily: 'Poppins, sans-serif', color: '#14183e'}}
+                        style={{color: '#14183e'}}
                       >
                         <span style={{color: '#287194'}}>30 Minute</span> Business Breakthrough Call
                       </p>
@@ -114,7 +114,7 @@ export default function ContactForm() {
                         className="border-l-2 pl-3 text-gray-700"
                         style={{borderColor: '#14183e', marginLeft: '-14px'}}
                       >
-                        <p className="text-base leading-relaxed" style={{fontFamily: 'Poppins, sans-serif'}}>
+                        <p className="text-base leading-relaxed">
                           We&apos;ll identify the biggest opportunities in your business and show you exactly how to capitalize on them.
                         </p>
                       </div>
@@ -132,7 +132,7 @@ export default function ContactForm() {
                     <div className="flex-1">
                       <p
                         className="text-lg font-bold mb-2"
-                        style={{fontFamily: 'Poppins, sans-serif', color: '#14183e'}}
+                        style={{color: '#14183e'}}
                       >
                         Your Custom Growth Blueprint
                       </p>
@@ -140,7 +140,7 @@ export default function ContactForm() {
                         className="border-l-2 pl-3 text-gray-700"
                         style={{borderColor: '#14183e', marginLeft: '-14px'}}
                       >
-                        <p className="text-base leading-relaxed" style={{fontFamily: 'Poppins, sans-serif'}}>
+                        <p className="text-base leading-relaxed">
                           You&apos;ll receive a detailed roadmap showing exactly how we&apos;ll drive measurable results for your business, with transparent pricing and clear timelines.
                         </p>
                       </div>
@@ -160,7 +160,6 @@ export default function ContactForm() {
                   <label 
                     htmlFor="name" 
                     className="block text-sm font-medium text-white mb-2"
-                    style={{fontFamily: 'Poppins, sans-serif'}}
                   >
                     Your Name<span className="required">*</span>
                   </label>
@@ -172,7 +171,6 @@ export default function ContactForm() {
                     value={formData.name}
                     onChange={handleChange}
                     className="w-full px-0 py-3 bg-transparent border-0 border-b border-white text-white placeholder-white/70 focus:ring-0 focus:border-white transition-colors"
-                    style={{fontFamily: 'Poppins, sans-serif'}}
                     placeholder="Type your full name"
                   />
                 </div>
@@ -181,7 +179,6 @@ export default function ContactForm() {
                   <label 
                     htmlFor="email" 
                     className="block text-sm font-medium text-white mb-2"
-                    style={{fontFamily: 'Poppins, sans-serif'}}
                   >
                     Email<span className="required">*</span>
                   </label>
@@ -193,7 +190,6 @@ export default function ContactForm() {
                     value={formData.email}
                     onChange={handleChange}
                     className="w-full px-0 py-3 bg-transparent border-0 border-b border-white text-white placeholder-white/70 focus:ring-0 focus:border-white transition-colors"
-                    style={{fontFamily: 'Poppins, sans-serif'}}
                     placeholder="Type your email address"
                   />
                 </div>
@@ -202,7 +198,6 @@ export default function ContactForm() {
                   <label 
                     htmlFor="phone" 
                     className="block text-sm font-medium text-white mb-2"
-                    style={{fontFamily: 'Poppins, sans-serif'}}
                   >
                     Phone Number<span className="required">*</span>
                   </label>
@@ -214,7 +209,6 @@ export default function ContactForm() {
                     value={formData.phone}
                     onChange={handleChange}
                     className="w-full px-0 py-3 bg-transparent border-0 border-b border-white text-white placeholder-white/70 focus:ring-0 focus:border-white transition-colors"
-                    style={{fontFamily: 'Poppins, sans-serif'}}
                     placeholder="Type your phone number"
                   />
                 </div>
@@ -223,7 +217,6 @@ export default function ContactForm() {
                   <label 
                     htmlFor="enquiry" 
                     className="block text-sm font-medium text-white mb-2"
-                    style={{fontFamily: 'Poppins, sans-serif'}}
                   >
                     Your Enquiry<span className="required">*</span>
                   </label>
@@ -235,7 +228,6 @@ export default function ContactForm() {
                     value={formData.enquiry}
                     onChange={handleChange}
                     className="w-full px-0 py-3 bg-transparent border-0 border-b border-white text-white placeholder-white/70 focus:ring-0 focus:border-white transition-colors resize-none"
-                    style={{fontFamily: 'Poppins, sans-serif'}}
                     placeholder="Type the reason for your enquiry"
                   />
                 </div>
@@ -248,7 +240,7 @@ export default function ContactForm() {
                   badge="bottomright"
                 />
                 {captchaError && (
-                  <p className="text-sm text-red-300 text-center mt-2" style={{fontFamily: 'Poppins, sans-serif'}}>
+                  <p className="text-sm text-red-300 text-center mt-2">
                     reCAPTCHA verification failed. Please try again.
                   </p>
                 )}
@@ -258,7 +250,6 @@ export default function ContactForm() {
                     type="submit"
                     disabled={isSubmitting}
                     className="w-full border-2 border-white text-white px-8 py-3 rounded-md hover:bg-white hover:text-blue-900 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 font-semibold"
-                    style={{fontFamily: 'Poppins, sans-serif'}}
                   >
                     {isSubmitting ? 'Sending...' : 'Submit'}
                   </button>

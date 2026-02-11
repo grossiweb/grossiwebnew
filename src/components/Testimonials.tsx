@@ -75,7 +75,6 @@ export default function Testimonials() {
         <div className="pt-16 md:pt-20">
           <h2
             className="max-w-5xl border-l-4 border-[#287194] pl-4 text-left text-2xl md:text-3xl font-bold leading-tight text-white"
-            style={{ fontFamily: 'Poppins, sans-serif' }}
           >
             <span className="block">Real Businesses. Real Growth. Real Results.</span>
           </h2>
@@ -100,12 +99,11 @@ export default function Testimonials() {
                     <div className="text-center">
                       <h3
                         className="text-xl font-semibold text-[#191e4e]"
-                        style={{ fontFamily: 'Poppins, sans-serif' }}
                       >
                         {name}
                       </h3>
                       {position ? (
-                        <p className="mt-3 text-sm font-medium text-gray-600" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                        <p className="mt-3 text-sm font-medium text-gray-600">
                           {position}
                         </p>
                       ) : null}

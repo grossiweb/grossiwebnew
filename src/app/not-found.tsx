@@ -24,13 +24,11 @@ export default function NotFound() {
           <div className="max-w-3xl">
             <h1
               className="text-[42px] font-bold text-white leading-[1.05] mb-4"
-              style={{ fontFamily: 'Poppins, sans-serif' }}
             >
               404
             </h1>
             <p
               className="text-lg md:text-2xl text-white/90 max-w-xl leading-relaxed"
-              style={{ fontFamily: 'Poppins, sans-serif' }}
             >
               Page not found
             </p>
@@ -44,13 +42,11 @@ export default function NotFound() {
           <div className="max-w-3xl mx-auto text-center">
             <h2
               className="text-3xl md:text-4xl font-bold text-gray-900 mb-6"
-              style={{ fontFamily: 'Poppins, sans-serif' }}
             >
               Oops! We couldn&apos;t find that page
             </h2>
             <p
               className="text-lg text-gray-600 mb-8 leading-relaxed"
-              style={{ fontFamily: 'Poppins, sans-serif' }}
             >
               The page you&apos;re looking for doesn&apos;t exist or has been moved.
               Let&apos;s get you back on track.
@@ -60,7 +56,7 @@ export default function NotFound() {
               <Link
                 href="/"
                 className="inline-flex items-center justify-center px-8 py-3 text-white rounded-md transition-all duration-300 font-semibold"
-                style={{ fontFamily: 'Poppins, sans-serif', backgroundColor: '#287194' }}
+                style={{ backgroundColor: '#287194' }}
                 onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#1e5a75'}
                 onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#287194'}
               >
@@ -69,7 +65,7 @@ export default function NotFound() {
               <Link
                 href="/contact"
                 className="inline-flex items-center justify-center px-8 py-3 border-2 text-gray-700 rounded-md hover:bg-gray-50 transition-all duration-300 font-semibold"
-                style={{ fontFamily: 'Poppins, sans-serif', borderColor: '#287194', color: '#287194' }}
+                style={{ borderColor: '#287194', color: '#287194' }}
               >
                 Contact Us
               </Link>
@@ -79,7 +75,6 @@ export default function NotFound() {
             <div className="mt-12 pt-12 border-t border-gray-200">
               <h3
                 className="text-xl font-bold text-gray-900 mb-6"
-                style={{ fontFamily: 'Poppins, sans-serif' }}
               >
                 Quick Links
               </h3>
@@ -87,56 +82,48 @@ export default function NotFound() {
                 <Link
                   href="/interactive-marketing-strategy/"
                   className="text-gray-600 hover:text-blue-600 transition-colors"
-                  style={{ fontFamily: 'Poppins, sans-serif' }}
                 >
                   Strategy
                 </Link>
                 <Link
                   href="/atlanta-web-design/"
                   className="text-gray-600 hover:text-blue-600 transition-colors"
-                  style={{ fontFamily: 'Poppins, sans-serif' }}
                 >
                   Design
                 </Link>
                 <Link
                   href="/web-development/"
                   className="text-gray-600 hover:text-blue-600 transition-colors"
-                  style={{ fontFamily: 'Poppins, sans-serif' }}
                 >
                   Development
                 </Link>
                 <Link
                   href="/internet-marketing/"
                   className="text-gray-600 hover:text-blue-600 transition-colors"
-                  style={{ fontFamily: 'Poppins, sans-serif' }}
                 >
                   Marketing
                 </Link>
                 <Link
                   href="/about"
                   className="text-gray-600 hover:text-blue-600 transition-colors"
-                  style={{ fontFamily: 'Poppins, sans-serif' }}
                 >
                   About Us
                 </Link>
                 <Link
                   href="/services"
                   className="text-gray-600 hover:text-blue-600 transition-colors"
-                  style={{ fontFamily: 'Poppins, sans-serif' }}
                 >
                   Services
                 </Link>
                 <Link
                   href="/blog"
                   className="text-gray-600 hover:text-blue-600 transition-colors"
-                  style={{ fontFamily: 'Poppins, sans-serif' }}
                 >
                   Blog
                 </Link>
                 <Link
                   href="/contact"
                   className="text-gray-600 hover:text-blue-600 transition-colors"
-                  style={{ fontFamily: 'Poppins, sans-serif' }}
                 >
                   Contact
                 </Link>

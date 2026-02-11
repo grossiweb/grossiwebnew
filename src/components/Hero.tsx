@@ -12,7 +12,8 @@ export default function Hero({ homepageData, loading = false }: HeroProps) {
   const [currentWord, setCurrentWord] = useState('Development')
   const [fadeClass, setFadeClass] = useState('opacity-100')
   const words = ['Development', 'Design', 'Strategy', 'Results']
-  const videoRef = useRef<HTMLVideoElement>(null)
+  const videoARef = useRef<HTMLVideoElement>(null)
+  const videoBRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -33,28 +34,110 @@ export default function Hero({ homepageData, loading = false }: HeroProps) {
     return () => clearInterval(interval)
   }, [])
 
-  // Force video to play on mount (Safari fix)
+  // Seamless loop: two videos crossfade so the restart is invisible
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.play().catch(error => {
-        console.log('Video autoplay failed:', error)
-      })
+    const a = videoARef.current
+    const b = videoBRef.current
+    if (!a || !b) return
+
+    // Start video A playing, B paused at 0
+    a.play().catch(() => {})
+    b.currentTime = 0
+
+    let rafId: number
+    const CROSSFADE = 0.8 // seconds to crossfade
+    let bPlaying = false
+
+    const tick = () => {
+      if (a.duration && !a.paused) {
+        const timeLeft = a.duration - a.currentTime
+
+        // When A is about to end, start B underneath and fade A out
+        if (timeLeft <= CROSSFADE) {
+          if (!bPlaying) {
+            b.currentTime = 0
+            b.play().catch(() => {})
+            bPlaying = true
+          }
+          a.style.opacity = `${timeLeft / CROSSFADE}`
+        } else {
+          a.style.opacity = '1'
+        }
+      }
+
+      // When A ends, swap: B becomes the active layer, A resets underneath
+      if (a.ended || (a.duration && a.currentTime >= a.duration - 0.05)) {
+        if (bPlaying) {
+          // Swap z-index: bring B to front, reset A behind
+          b.style.zIndex = '2'
+          a.style.zIndex = '1'
+          a.style.opacity = '1'
+          a.currentTime = 0
+          a.pause()
+
+          // Now monitor B for its loop
+          bPlaying = false
+          // Swap refs role by restarting with B as active
+          const monitor = () => {
+            if (b.duration && !b.paused) {
+              const tl = b.duration - b.currentTime
+              if (tl <= CROSSFADE) {
+                if (!bPlaying) {
+                  a.currentTime = 0
+                  a.play().catch(() => {})
+                  bPlaying = true
+                }
+                b.style.opacity = `${tl / CROSSFADE}`
+              } else {
+                b.style.opacity = '1'
+              }
+            }
+
+            if (b.ended || (b.duration && b.currentTime >= b.duration - 0.05)) {
+              if (bPlaying) {
+                a.style.zIndex = '2'
+                b.style.zIndex = '1'
+                b.style.opacity = '1'
+                b.currentTime = 0
+                b.pause()
+                bPlaying = false
+              }
+            }
+
+            rafId = requestAnimationFrame(monitor)
+          }
+          rafId = requestAnimationFrame(monitor)
+          return
+        }
+      }
+
+      rafId = requestAnimationFrame(tick)
     }
+
+    rafId = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(rafId)
   }, [])
 
   return (
     <section className="relative w-full min-h-screen flex items-center overflow-hidden">
-      {/* Video Background */}
+      {/* Dual Video Background for seamless loop */}
       <video
-        ref={videoRef}
-        className="absolute top-0 left-0 w-full h-full object-cover z-0"
-        autoPlay
+        ref={videoBRef}
+        className="absolute top-0 left-0 w-full h-full object-cover"
+        style={{ zIndex: 1 }}
         muted
-        loop
         playsInline
         preload="auto"
-        webkit-playsinline="true"
-        x-webkit-airplay="allow"
+      >
+        <source src="/hero-video.mp4" type="video/mp4" />
+      </video>
+      <video
+        ref={videoARef}
+        className="absolute top-0 left-0 w-full h-full object-cover"
+        style={{ zIndex: 2 }}
+        muted
+        playsInline
+        preload="auto"
       >
         <source src="/hero-video.mp4" type="video/mp4" />
       </video>
@@ -67,30 +150,28 @@ export default function Hero({ homepageData, loading = false }: HeroProps) {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center min-h-[80vh]">
           {/* Left Content */}
           <div className="lg:col-span-2">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-2 leading-tight" style={{fontFamily: 'Poppins, sans-serif'}}>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-2 leading-tight">
               We are
             </h1>
 
             <div className="flex items-baseline mb-6">
               <h1
                 className={`text-4xl md:text-5xl lg:text-6xl font-bold leading-tight transition-opacity duration-500 ${fadeClass}`}
-                style={{fontFamily: 'Poppins, sans-serif'}}
               >
                 {currentWord}
               </h1>
-              <span className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight ml-4" style={{fontFamily: 'Poppins, sans-serif'}}>
+              <span className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight ml-4">
                 Driven
               </span>
             </div>
 
-            <p className="text-base md:text-lg mb-6 max-w-xl" style={{fontFamily: 'Poppins, sans-serif'}}>
+            <p className="text-base md:text-lg mb-6 max-w-xl">
               When your online presence directly impacts your bottom line, you need a partner who turns digital strategy into measurable business growth.
             </p>
 
             <Link
               href="#services"
               className="inline-block text-white text-sm font-medium hover:text-blue-300 transition-colors"
-              style={{fontFamily: 'Poppins, sans-serif'}}
             >
               | SCROLL TO EXPLORE
             </Link>
@@ -108,7 +189,7 @@ export default function Hero({ homepageData, loading = false }: HeroProps) {
                       className="w-full h-full object-contain"
                     />
                   </div>
-                  <span className="text-gray-900 font-semibold text-lg" style={{fontFamily: 'Poppins, sans-serif'}}>Strategy</span>
+                  <span className="text-gray-900 font-semibold text-lg">Strategy</span>
                 </Link>
 
                 <Link href="/atlanta-web-design/" className="flex items-center space-x-4 py-5 transition-colors group" style={{width: '85%', borderColor: '#191E4F',margin: '0 auto'}}>
@@ -119,7 +200,7 @@ export default function Hero({ homepageData, loading = false }: HeroProps) {
                       className="w-full h-full object-contain"
                     />
                   </div>
-                  <span className="text-gray-900 font-semibold text-lg" style={{fontFamily: 'Poppins, sans-serif'}}>Design</span>
+                  <span className="text-gray-900 font-semibold text-lg">Design</span>
                 </Link>
 
                 <Link href="/web-development/" className="flex items-center space-x-4 py-5 transition-colors group" style={{width: '85%', borderColor: '#191E4F',margin: '0 auto'}}>
@@ -130,7 +211,7 @@ export default function Hero({ homepageData, loading = false }: HeroProps) {
                       className="w-full h-full object-contain"
                     />
                   </div>
-                  <span className="text-gray-900 font-semibold text-lg" style={{fontFamily: 'Poppins, sans-serif'}}>Development</span>
+                  <span className="text-gray-900 font-semibold text-lg">Development</span>
                 </Link>
 
                 <Link href="/internet-marketing/" className="flex items-center space-x-4 py-5 transition-colors group" style={{width: '85%', borderColor: '#191E4F',margin: '0 auto'}}>
@@ -141,7 +222,7 @@ export default function Hero({ homepageData, loading = false }: HeroProps) {
                       className="w-full h-full object-contain"
                     />
                   </div>
-                  <span className="text-gray-900 font-semibold text-lg" style={{fontFamily: 'Poppins, sans-serif'}}>Marketing</span>
+                  <span className="text-gray-900 font-semibold text-lg">Marketing</span>
                 </Link>
               </div>
             </div>

@@ -49,13 +49,11 @@ export default function Services() {
           <div className="flex flex-col items-center text-center">
             <h2
               className="text-2xl md:text-3xl font-bold text-white border-l-4 border-blue-500 pl-4"
-              style={{fontFamily: 'Poppins, sans-serif'}}
             >
               Four Pillars That Drive Exponential Growth
             </h2>
             <p
               className="mt-14 text-base md:text-lg text-white/90 italic max-w-3xl"
-              style={{fontFamily: 'Poppins, sans-serif'}}
             >
               &ldquo;Great businesses don&apos;t grow by accident. They grow from intentional strategy, seamless execution, and continuous optimization.&rdquo;
             </p>
@@ -67,7 +65,7 @@ export default function Services() {
       <div className="container mx-auto px-6 text-center mb-8 md:mb-10">
         <h2
           className="text-2xl md:text-3xl font-bold border-l-4 border-blue-500 pl-4 inline-block"
-          style={{fontFamily: 'Poppins, sans-serif', color: '#191e4e'}}
+          style={{color: '#191e4e'}}
         >
           Our Services
         </h2>
@@ -89,20 +87,19 @@ export default function Services() {
               />
               <h3
                 className="text-2xl font-bold mb-3"
-                style={{fontFamily: 'Poppins, sans-serif', color: '#191e4e'}}
+                style={{color: '#191e4e'}}
               >
                 {service.title}
               </h3>
               <p
                 className="text-base leading-relaxed text-gray-700 mb-4"
-                style={{fontFamily: 'Poppins, sans-serif'}}
               >
                 {service.shortDescription}
               </p>
               <Link
                 href={`/${service.slug}/`}
                 className="inline-flex items-center text-sm font-semibold transition-colors duration-200 hover:opacity-80"
-                style={{fontFamily: 'Poppins, sans-serif', color: '#287194'}}
+                style={{color: '#287194'}}
               >
                 Explore &raquo;
               </Link>

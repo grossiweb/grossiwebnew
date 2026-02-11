@@ -82,7 +82,7 @@ export default function TrustSection() {
         <div className="text-center mb-8 md:mb-10">
           <h2
             className="text-2xl md:text-3xl font-bold border-l-4 border-blue-500 pl-4 inline-block"
-            style={{fontFamily: 'Poppins, sans-serif', color: '#191e4e'}}
+            style={{color: '#191e4e'}}
           >
             Your Success Is Our Only Metric
           </h2>
@@ -102,11 +102,11 @@ export default function TrustSection() {
               />
               <h5
                 className="text-2xl font-bold mb-3"
-                style={{fontFamily: 'Poppins, sans-serif', color: '#191e4f'}}
+                style={{color: '#191e4f'}}
               >
                 {renderTitle(feature.title, feature.highlightWords)}
               </h5>
-              <p className="text-base leading-relaxed text-gray-700" style={{fontFamily: 'Poppins, sans-serif'}}>
+              <p className="text-base leading-relaxed text-gray-700">
                 {feature.description}
               </p>
             </div>

@@ -19,7 +19,7 @@ export default function Footer() {
             </div>
             <p
               className="text-gray-300 mb-8 leading-relaxed max-w-xl"
-              style={{fontFamily: 'Poppins, sans-serif', fontSize: '15px'}}
+              style={{fontSize: '15px'}}
             >
               We partner with ambitious businesses to create digital experiences that don&apos;t just look good; they drive revenue, build customer loyalty, and create sustainable competitive advantages. Your success is our obsession.
             </p>
@@ -27,19 +27,19 @@ export default function Footer() {
             <div className="space-y-3">
               <p
                 className="text-white"
-                style={{fontFamily: 'Poppins, sans-serif', fontSize: '15px'}}
+                style={{fontSize: '15px'}}
               >
                 404-228-8694
               </p>
               <p
                 className="text-white"
-                style={{fontFamily: 'Poppins, sans-serif', fontSize: '15px'}}
+                style={{fontSize: '15px'}}
               >
                 888-476-7741
               </p>
               <p
                 className="text-white mt-4"
-                style={{fontFamily: 'Poppins, sans-serif', fontSize: '15px'}}
+                style={{fontSize: '15px'}}
               >
                 support@grossiweb.com
               </p>
@@ -52,7 +52,6 @@ export default function Footer() {
               <div className="w-1 h-6 bg-blue-400 mr-3"></div>
               <h4
                 className="text-lg font-bold uppercase"
-                style={{fontFamily: 'Poppins, sans-serif'}}
               >
                 SERVICES
               </h4>
@@ -62,7 +61,7 @@ export default function Footer() {
                 <Link
                   href="/interactive-marketing-strategy/"
                   className="text-white hover:text-blue-300 transition-colors"
-                  style={{fontFamily: 'Poppins, sans-serif', fontSize: '16px'}}
+                  style={{fontSize: '16px'}}
                 >
                   Strategy
                 </Link>
@@ -71,7 +70,7 @@ export default function Footer() {
                 <Link
                   href="/atlanta-web-design/"
                   className="text-white hover:text-blue-300 transition-colors"
-                  style={{fontFamily: 'Poppins, sans-serif', fontSize: '16px'}}
+                  style={{fontSize: '16px'}}
                 >
                   Design
                 </Link>
@@ -80,7 +79,7 @@ export default function Footer() {
                 <Link
                   href="/web-development/"
                   className="text-white hover:text-blue-300 transition-colors"
-                  style={{fontFamily: 'Poppins, sans-serif', fontSize: '16px'}}
+                  style={{fontSize: '16px'}}
                 >
                   Development
                 </Link>
@@ -89,7 +88,7 @@ export default function Footer() {
                 <Link
                   href="/internet-marketing/"
                   className="text-white hover:text-blue-300 transition-colors"
-                  style={{fontFamily: 'Poppins, sans-serif', fontSize: '16px'}}
+                  style={{fontSize: '16px'}}
                 >
                   Marketing
                 </Link>
@@ -103,7 +102,6 @@ export default function Footer() {
               <div className="w-1 h-6 bg-blue-400 mr-3"></div>
               <h4
                 className="text-lg font-bold uppercase"
-                style={{fontFamily: 'Poppins, sans-serif'}}
               >
                 OTHER LINKS
               </h4>
@@ -113,7 +111,7 @@ export default function Footer() {
                 <Link
                   href="/"
                   className="text-white hover:text-blue-300 transition-colors"
-                  style={{fontFamily: 'Poppins, sans-serif', fontSize: '16px'}}
+                  style={{fontSize: '16px'}}
                 >
                   Home
                 </Link>
@@ -122,7 +120,7 @@ export default function Footer() {
                 <Link
                   href="/about"
                   className="text-white hover:text-blue-300 transition-colors"
-                  style={{fontFamily: 'Poppins, sans-serif', fontSize: '16px'}}
+                  style={{fontSize: '16px'}}
                 >
                   About
                 </Link>
@@ -131,7 +129,7 @@ export default function Footer() {
                 <Link
                   href="/contact"
                   className="text-white hover:text-blue-300 transition-colors"
-                  style={{fontFamily: 'Poppins, sans-serif', fontSize: '16px'}}
+                  style={{fontSize: '16px'}}
                 >
                   Contact
                 </Link>
@@ -140,7 +138,7 @@ export default function Footer() {
                 <Link
                   href="/blog"
                   className="text-white hover:text-blue-300 transition-colors"
-                  style={{fontFamily: 'Poppins, sans-serif', fontSize: '16px'}}
+                  style={{fontSize: '16px'}}
                 >
                   Blog
                 </Link>
@@ -149,7 +147,7 @@ export default function Footer() {
                 <Link
                   href="/careers"
                   className="text-white hover:text-blue-300 transition-colors"
-                  style={{fontFamily: 'Poppins, sans-serif', fontSize: '16px'}}
+                  style={{fontSize: '16px'}}
                 >
                   Careers
                 </Link>
@@ -163,7 +161,7 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p
               className="text-white text-sm"
-              style={{fontFamily: 'Poppins, sans-serif', fontSize: '14px'}}
+              style={{fontSize: '14px'}}
             >
               © {new Date().getFullYear()} Grossi Consulting LLC. All rights reserved
             </p>
@@ -171,7 +169,7 @@ export default function Footer() {
             <Link
               href="/privacy-policy/"
               className="text-white hover:text-blue-300 transition-colors text-sm flex items-center"
-              style={{fontFamily: 'Poppins, sans-serif', fontSize: '14px'}}
+              style={{fontSize: '14px'}}
             >
               Privacy Policy
             </Link>

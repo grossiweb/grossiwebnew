@@ -25,7 +25,6 @@ export default function BlogPostContent({ content }: BlogPostContentProps) {
   return (
     <article
       className="wp-content prose prose-lg max-w-none"
-      style={{ fontFamily: 'Poppins, sans-serif' }}
       dangerouslySetInnerHTML={{ __html: content }}
     />
   )

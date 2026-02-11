@@ -51,11 +51,11 @@ export default function ClientsSection() {
       <div className="container mx-auto px-6 text-center">
         <h2
           className="text-2xl md:text-3xl font-bold mb-2 border-l-4 border-blue-500 pl-4 inline-block"
-          style={{fontFamily: 'Poppins, sans-serif', color: '#191e4e'}}
+          style={{color: '#191e4e'}}
         >
           Our Clients
         </h2>
-        <p className="text-sm md:text-base mb-8 text-gray-600" style={{fontFamily: 'Poppins, sans-serif'}}>
+        <p className="text-sm md:text-base mb-8 text-gray-600">
           From world leading brands to local super stars.
         </p>
         
@@ -74,28 +74,6 @@ export default function ClientsSection() {
               ))}
             </div>
           </div>
-        </div>
-        
-        <div className="mt-4">
-          <button
-            className="border-2 px-6 py-2 rounded-md transition-all duration-300 font-semibold"
-            style={{
-              fontFamily: 'Poppins, sans-serif',
-              borderColor: '#287194',
-              color: '#287194',
-              backgroundColor: 'transparent'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#287194';
-              e.currentTarget.style.color = 'white';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = 'transparent';
-              e.currentTarget.style.color = '#287194';
-            }}
-          >
-            Explore our work
-          </button>
         </div>
       </div>
     </section>

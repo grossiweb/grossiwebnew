@@ -163,7 +163,6 @@ export default function Header() {
             <Link 
               href="#contact"
               className="hidden lg:inline-flex border-2 border-white text-white px-6 py-2 rounded-md hover:bg-white hover:text-blue-900 transition-all duration-300 font-semibold"
-              style={{fontFamily: 'Poppins, sans-serif'}}
             >
               Schedule a call →
             </Link>
@@ -239,7 +238,6 @@ export default function Header() {
                         <button
                           type="button"
                           className="text-white text-3xl md:text-4xl font-semibold hover:text-blue-200 transition-colors flex items-center gap-3"
-                          style={{fontFamily: 'Poppins, sans-serif'}}
                           onClick={() => setOpenSubmenu(openSubmenu === item.id ? null : item.id || null)}
                           onMouseEnter={() => setOpenSubmenu(item.id || null)}
                         >
@@ -263,7 +261,6 @@ export default function Header() {
                                 key={child.id || `${child.label}-${childIndex}`}
                                 href={normalizeHref(child)}
                                 className="text-white text-xl md:text-2xl font-medium hover:text-blue-200 transition-colors"
-                                style={{fontFamily: 'Poppins, sans-serif'}}
                                 onClick={() => {
                                   setIsMenuOpen(false)
                                   setOpenSubmenu(null)
@@ -279,7 +276,6 @@ export default function Header() {
                       <Link
                         href={normalizeHref(item)}
                         className="text-white text-3xl md:text-4xl font-semibold hover:text-blue-200 transition-colors"
-                        style={{fontFamily: 'Poppins, sans-serif'}}
                         onClick={() => setIsMenuOpen(false)}
                       >
                         {item.label}
@@ -293,7 +289,6 @@ export default function Header() {
                 <Link
                   href="#contact"
                   className="inline-flex border-2 border-white text-white px-7 py-3 rounded-md hover:bg-white hover:text-blue-900 transition-all duration-300 font-semibold"
-                  style={{ fontFamily: 'Poppins, sans-serif' }}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Schedule a call →

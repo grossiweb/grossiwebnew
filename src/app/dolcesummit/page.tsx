@@ -144,13 +144,11 @@ export default function DolceSummitPage() {
             <div className="max-w-3xl">
               <h1
                 className="text-[42px] font-bold text-white leading-[1.05]"
-                style={{ fontFamily: 'Poppins, sans-serif' }}
               >
                 Thank You!
               </h1>
               <p
                 className="mt-6 md:mt-8 text-lg md:text-2xl text-white/90 max-w-xl leading-relaxed"
-                style={{ fontFamily: 'Poppins, sans-serif' }}
               >
                 Your request has been received.
               </p>
@@ -164,13 +162,13 @@ export default function DolceSummitPage() {
             <div className="max-w-4xl mx-auto">
               <div className="bg-green-50 border border-green-200 rounded-lg p-8 text-center">
                 <div className="text-green-600 text-4xl mb-4">✓</div>
-                <h3 className="text-2xl font-bold text-green-800 mb-4" style={{fontFamily: 'Poppins, sans-serif'}}>
+                <h3 className="text-2xl font-bold text-green-800 mb-4">
                   Request Submitted Successfully!
                 </h3>
-                <p className="text-green-700 text-lg mb-2" style={{fontFamily: 'Poppins, sans-serif'}}>
+                <p className="text-green-700 text-lg mb-2">
                   Thank you for requesting your complimentary Visibility & Accessibility Review.
                 </p>
-                <p className="text-green-700" style={{fontFamily: 'Poppins, sans-serif'}}>
+                <p className="text-green-700">
                   Our team will analyze your website and reach out to you within 2-3 business days with valuable insights.
                 </p>
               </div>
@@ -199,13 +197,11 @@ export default function DolceSummitPage() {
           <div className="max-w-3xl">
             <h1
               className="text-[42px] font-bold text-white leading-[1.05]"
-              style={{ fontFamily: 'Poppins, sans-serif' }}
             >
               Request Your Visibility & Accessibility Review
             </h1>
             <p
               className="mt-6 md:mt-8 text-lg md:text-2xl text-white/90 max-w-xl leading-relaxed"
-              style={{ fontFamily: 'Poppins, sans-serif' }}
             >
               Discover what&apos;s helping (and hurting) your online conversions.
             </p>
@@ -224,7 +220,6 @@ export default function DolceSummitPage() {
                   <label
                     htmlFor="name"
                     className="block text-sm font-semibold text-gray-700 mb-2"
-                    style={{fontFamily: 'Poppins, sans-serif'}}
                   >
                     Name<span className="text-red-600">*</span>
                   </label>
@@ -235,11 +230,10 @@ export default function DolceSummitPage() {
                     value={formData.name}
                     onChange={handleChange}
                     className={`w-full px-4 py-3 border ${errors.name ? 'border-red-500' : 'border-gray-300'} rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors`}
-                    style={{fontFamily: 'Poppins, sans-serif'}}
                     placeholder="Enter your full name"
                   />
                   {errors.name && (
-                    <p className="mt-1 text-sm text-red-600" style={{fontFamily: 'Poppins, sans-serif'}}>
+                    <p className="mt-1 text-sm text-red-600">
                       {errors.name}
                     </p>
                   )}
@@ -250,7 +244,6 @@ export default function DolceSummitPage() {
                   <label
                     htmlFor="email"
                     className="block text-sm font-semibold text-gray-700 mb-2"
-                    style={{fontFamily: 'Poppins, sans-serif'}}
                   >
                     Email<span className="text-red-600">*</span>
                   </label>
@@ -261,11 +254,10 @@ export default function DolceSummitPage() {
                     value={formData.email}
                     onChange={handleChange}
                     className={`w-full px-4 py-3 border ${errors.email ? 'border-red-500' : 'border-gray-300'} rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors`}
-                    style={{fontFamily: 'Poppins, sans-serif'}}
                     placeholder="your.email@example.com"
                   />
                   {errors.email && (
-                    <p className="mt-1 text-sm text-red-600" style={{fontFamily: 'Poppins, sans-serif'}}>
+                    <p className="mt-1 text-sm text-red-600">
                       {errors.email}
                     </p>
                   )}
@@ -276,7 +268,6 @@ export default function DolceSummitPage() {
                   <label
                     htmlFor="phone"
                     className="block text-sm font-semibold text-gray-700 mb-2"
-                    style={{fontFamily: 'Poppins, sans-serif'}}
                   >
                     Phone <span className="text-gray-500 text-xs">(optional)</span>
                   </label>
@@ -287,7 +278,6 @@ export default function DolceSummitPage() {
                     value={formData.phone}
                     onChange={handleChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-                    style={{fontFamily: 'Poppins, sans-serif'}}
                     placeholder="(555) 123-4567"
                   />
                 </div>
@@ -297,7 +287,6 @@ export default function DolceSummitPage() {
                   <label
                     htmlFor="businessName"
                     className="block text-sm font-semibold text-gray-700 mb-2"
-                    style={{fontFamily: 'Poppins, sans-serif'}}
                   >
                     Business Name<span className="text-red-600">*</span>
                   </label>
@@ -308,11 +297,10 @@ export default function DolceSummitPage() {
                     value={formData.businessName}
                     onChange={handleChange}
                     className={`w-full px-4 py-3 border ${errors.businessName ? 'border-red-500' : 'border-gray-300'} rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors`}
-                    style={{fontFamily: 'Poppins, sans-serif'}}
                     placeholder="Enter your business name"
                   />
                   {errors.businessName && (
-                    <p className="mt-1 text-sm text-red-600" style={{fontFamily: 'Poppins, sans-serif'}}>
+                    <p className="mt-1 text-sm text-red-600">
                       {errors.businessName}
                     </p>
                   )}
@@ -323,7 +311,6 @@ export default function DolceSummitPage() {
                   <label
                     htmlFor="websiteUrl"
                     className="block text-sm font-semibold text-gray-700 mb-2"
-                    style={{fontFamily: 'Poppins, sans-serif'}}
                   >
                     Website URL<span className="text-red-600">*</span>
                   </label>
@@ -334,11 +321,10 @@ export default function DolceSummitPage() {
                     value={formData.websiteUrl}
                     onChange={handleChange}
                     className={`w-full px-4 py-3 border ${errors.websiteUrl ? 'border-red-500' : 'border-gray-300'} rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors`}
-                    style={{fontFamily: 'Poppins, sans-serif'}}
                     placeholder="https://www.yourwebsite.com"
                   />
                   {errors.websiteUrl && (
-                    <p className="mt-1 text-sm text-red-600" style={{fontFamily: 'Poppins, sans-serif'}}>
+                    <p className="mt-1 text-sm text-red-600">
                       {errors.websiteUrl}
                     </p>
                   )}
@@ -347,7 +333,7 @@ export default function DolceSummitPage() {
                 {/* Submit Error */}
                 {errors.submit && (
                   <div className="bg-red-50 border border-red-200 rounded-md p-4">
-                    <p className="text-sm text-red-600" style={{fontFamily: 'Poppins, sans-serif'}}>
+                    <p className="text-sm text-red-600">
                       {errors.submit}
                     </p>
                   </div>
@@ -361,7 +347,7 @@ export default function DolceSummitPage() {
                   badge="bottomright"
                 />
                 {errors.captcha && (
-                  <p className="text-sm text-red-600 text-center mt-2" style={{fontFamily: 'Poppins, sans-serif'}}>
+                  <p className="text-sm text-red-600 text-center mt-2">
                     {errors.captcha}
                   </p>
                 )}
@@ -372,7 +358,7 @@ export default function DolceSummitPage() {
                     type="submit"
                     disabled={isSubmitting}
                     className="w-full text-white px-8 py-4 rounded-md disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 font-semibold text-lg"
-                    style={{fontFamily: 'Poppins, sans-serif', backgroundColor: '#287194'}}
+                    style={{backgroundColor: '#287194'}}
                     onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#1e5a75'}
                     onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#287194'}
                   >
@@ -380,7 +366,7 @@ export default function DolceSummitPage() {
                   </button>
                 </div>
 
-                <p className="text-sm text-gray-600 text-center mt-4" style={{fontFamily: 'Poppins, sans-serif'}}>
+                <p className="text-sm text-gray-600 text-center mt-4">
                   <span className="text-red-600">*</span> Required fields
                 </p>
               </form>

@@ -31,13 +31,11 @@ export default function AboutPage() {
           <div className="max-w-3xl">
             <h1
               className="text-[42px] font-bold text-white leading-[1.05]"
-              style={{ fontFamily: 'Poppins, sans-serif' }}
             >
               About Us
             </h1>
             <p
               className="mt-6 md:mt-8 text-lg md:text-2xl text-white/90 max-w-xl leading-relaxed"
-              style={{ fontFamily: 'Poppins, sans-serif' }}
             >
               Elevating standards through building relationships.
             </p>
@@ -49,14 +47,14 @@ export default function AboutPage() {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
           <div className="w-full mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 text-center mb-4" style={{fontFamily: 'Poppins, sans-serif'}}>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 text-center mb-4">
               The Grossi Web Team
             </h2>
-            <p className="text-lg text-gray-600 text-center mb-16 max-w-3xl mx-auto" style={{fontFamily: 'Poppins, sans-serif'}}>
+            <p className="text-lg text-gray-600 text-center mb-16 max-w-3xl mx-auto">
               Grossi Web is a diverse and talented group of graphic designers, programmers, and marketing strategists. 
               Our small size allows us to really invest our time and passion into our clients.
             </p>
-            <p className="text-lg text-gray-600 text-center mb-16 max-w-3xl mx-auto" style={{fontFamily: 'Poppins, sans-serif'}}>
+            <p className="text-lg text-gray-600 text-center mb-16 max-w-3xl mx-auto">
               We all love coming to work and helping our clients become more successful.
             </p>
 
@@ -71,10 +69,10 @@ export default function AboutPage() {
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <h3 className="font-bold text-lg text-gray-900 mb-1" style={{fontFamily: 'Poppins, sans-serif'}}>
+                  <h3 className="font-bold text-lg text-gray-900 mb-1">
                     {member.name}
                   </h3>
-                  <p className="text-sm text-gray-600" style={{fontFamily: 'Poppins, sans-serif'}}>
+                  <p className="text-sm text-gray-600">
                     {member.role}
                   </p>
                 </div>
@@ -83,10 +81,10 @@ export default function AboutPage() {
 
             {/* Office Description */}
             <div className="bg-gray-50 rounded-lg p-8 mb-16">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4" style={{fontFamily: 'Poppins, sans-serif'}}>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">
                 Get to know our ultra modern &quot;tropical jungle&quot;
               </h3>
-              <p className="text-gray-600 leading-relaxed" style={{fontFamily: 'Poppins, sans-serif'}}>
+              <p className="text-gray-600 leading-relaxed">
                 Our office loft is an environment conducive for creativity and diligent work ethic. However, when we aren&apos;t 
                 creating beautiful money making empires for our select clients we can be found sailing paper airplanes off 
                 the balcony towards Piedmont park and wrestling Xiaolei away from the espresso machine.

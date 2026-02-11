@@ -236,19 +236,16 @@ export default function AccessibilityPage() {
           <div className="max-w-3xl">
             <span
               className="text-blue-300 uppercase tracking-widest text-xs font-bold mb-3 block"
-              style={{ fontFamily: 'Poppins, sans-serif' }}
             >
               Development &middot; Website Accessibility
             </span>
             <h1
               className="text-[36px] md:text-[48px] font-bold text-white leading-[1.1]"
-              style={{ fontFamily: 'Poppins, sans-serif' }}
             >
               Website Accessibility That Protects Your Business
             </h1>
             <p
               className="mt-6 md:mt-8 text-lg md:text-xl text-white/90 max-w-xl leading-relaxed"
-              style={{ fontFamily: 'Poppins, sans-serif' }}
             >
               We audit your site, fix what&apos;s blocking real users, and verify the improvements—so you reduce risk,
               improve usability, and strengthen SEO.
@@ -258,7 +255,7 @@ export default function AccessibilityPage() {
               <button
                 onClick={() => scrollToSection('request')}
                 className="px-6 py-3 rounded-full font-semibold transition-all duration-300"
-                style={{ fontFamily: 'Poppins, sans-serif', backgroundColor: '#287194', color: 'white' }}
+                style={{ backgroundColor: '#287194', color: 'white' }}
                 onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#1e5a75'}
                 onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#287194'}
               >
@@ -267,7 +264,6 @@ export default function AccessibilityPage() {
               <button
                 onClick={() => scrollToSection('scan')}
                 className="text-white/90 font-semibold underline underline-offset-4 hover:text-white transition-colors"
-                style={{ fontFamily: 'Poppins, sans-serif' }}
               >
                 Try the quick risk scan
               </button>
@@ -275,7 +271,7 @@ export default function AccessibilityPage() {
 
             <div
               className="mt-8 border-l-4 pl-4 text-white/85 text-sm max-w-2xl"
-              style={{ fontFamily: 'Poppins, sans-serif', borderColor: '#287194' }}
+              style={{ borderColor: '#287194' }}
             >
               Familiar, client-first delivery. Clear priorities. Practical fixes that protect your money and your brand.
             </div>
@@ -294,13 +290,12 @@ export default function AccessibilityPage() {
               >
                 <h3
                   className="text-lg font-bold mb-3"
-                  style={{ fontFamily: 'Poppins, sans-serif', color: '#287194' }}
+                  style={{ color: '#287194' }}
                 >
                   {item.title}
                 </h3>
                 <p
                   className="text-gray-600 text-sm leading-relaxed"
-                  style={{ fontFamily: 'Poppins, sans-serif' }}
                 >
                   {item.description}
                 </p>
@@ -315,13 +310,12 @@ export default function AccessibilityPage() {
         <div className="container mx-auto px-6">
           <h2
             className="text-3xl md:text-4xl font-bold mb-4"
-            style={{ fontFamily: 'Poppins, sans-serif', color: '#191e4e' }}
+            style={{ color: '#191e4e' }}
           >
             What you get
           </h2>
           <p
             className="text-gray-600 mb-10 max-w-3xl"
-            style={{ fontFamily: 'Poppins, sans-serif' }}
           >
             Clear deliverables, not guesswork. We identify what matters, fix what matters, and verify it works—without overcomplicating the process.
           </p>
@@ -339,13 +333,11 @@ export default function AccessibilityPage() {
                 <div>
                   <h3
                     className="font-bold text-gray-900 mb-1"
-                    style={{ fontFamily: 'Poppins, sans-serif' }}
                   >
                     {item.title}
                   </h3>
                   <p
                     className="text-gray-600 text-sm"
-                    style={{ fontFamily: 'Poppins, sans-serif' }}
                   >
                     {item.description}
                   </p>
@@ -363,13 +355,12 @@ export default function AccessibilityPage() {
             <div>
               <h2
                 className="text-3xl md:text-4xl font-bold mb-4"
-                style={{ fontFamily: 'Poppins, sans-serif', color: '#191e4e' }}
+                style={{ color: '#191e4e' }}
               >
                 Quick risk scan
               </h2>
               <p
                 className="text-gray-600 mb-8"
-                style={{ fontFamily: 'Poppins, sans-serif' }}
               >
                 Check what applies. This creates an estimated &quot;risk &amp; friction signal&quot; so you can decide whether a full audit is worth it.
               </p>
@@ -387,10 +378,10 @@ export default function AccessibilityPage() {
                       className="mt-1 accent-blue-600"
                     />
                     <div>
-                      <span className="font-bold text-gray-900" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                      <span className="font-bold text-gray-900">
                         {item.title}
                       </span>
-                      <span className="block text-gray-500 text-sm mt-1" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                      <span className="block text-gray-500 text-sm mt-1">
                         {item.description}
                       </span>
                     </div>
@@ -400,10 +391,10 @@ export default function AccessibilityPage() {
             </div>
 
             <div className="bg-white rounded-xl p-6 shadow-lg border border-blue-100 h-fit">
-              <div className="text-sm font-bold text-gray-600 mb-2" style={{ fontFamily: 'Poppins, sans-serif' }}>
+              <div className="text-sm font-bold text-gray-600 mb-2">
                 Estimated risk &amp; friction signal
               </div>
-              <div className="text-4xl font-bold mb-4" style={{ fontFamily: 'Poppins, sans-serif', color: '#191e4e' }}>
+              <div className="text-4xl font-bold mb-4" style={{ color: '#191e4e' }}>
                 {score}/100
               </div>
               <div className="h-3 bg-gray-100 rounded-full overflow-hidden mb-4">
@@ -428,7 +419,7 @@ export default function AccessibilityPage() {
                 </span>
               </div>
 
-              <p className="text-gray-600 text-sm mb-6" style={{ fontFamily: 'Poppins, sans-serif' }}>
+              <p className="text-gray-600 text-sm mb-6">
                 This is a quick signal—not a compliance verdict. If the score is high, you&apos;re likely losing leads and inviting unnecessary risk.
               </p>
 
@@ -437,7 +428,7 @@ export default function AccessibilityPage() {
               <button
                 onClick={() => scrollToSection('request')}
                 className="w-full px-6 py-3 rounded-lg font-semibold transition-all duration-300 text-white"
-                style={{ fontFamily: 'Poppins, sans-serif', backgroundColor: '#287194' }}
+                style={{ backgroundColor: '#287194' }}
                 onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#1e5a75'}
                 onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#287194'}
               >
@@ -453,13 +444,12 @@ export default function AccessibilityPage() {
         <div className="container mx-auto px-6">
           <h2
             className="text-3xl md:text-4xl font-bold mb-4"
-            style={{ fontFamily: 'Poppins, sans-serif', color: '#191e4e' }}
+            style={{ color: '#191e4e' }}
           >
             FAQs
           </h2>
           <p
             className="text-gray-600 mb-10"
-            style={{ fontFamily: 'Poppins, sans-serif' }}
           >
             Quick answers to the questions we hear most often.
           </p>
@@ -471,7 +461,7 @@ export default function AccessibilityPage() {
                   onClick={() => setOpenFaq(openFaq === index ? null : index)}
                   className="w-full flex justify-between items-center p-5 text-left bg-white hover:bg-gray-50 transition-colors"
                 >
-                  <span className="font-bold text-gray-900" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                  <span className="font-bold text-gray-900">
                     {faq.question}
                   </span>
                   <span className="text-2xl text-gray-400 ml-4">
@@ -479,7 +469,7 @@ export default function AccessibilityPage() {
                   </span>
                 </button>
                 {openFaq === index && (
-                  <div className="px-5 pb-5 text-gray-600" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                  <div className="px-5 pb-5 text-gray-600">
                     {faq.answer}
                   </div>
                 )}
@@ -498,11 +488,10 @@ export default function AccessibilityPage() {
                 <div className="text-green-600 text-5xl mb-4">✓</div>
                 <h3
                   className="text-2xl font-bold text-green-800 mb-4"
-                  style={{ fontFamily: 'Poppins, sans-serif' }}
                 >
                   Request Submitted Successfully!
                 </h3>
-                <p className="text-green-700" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                <p className="text-green-700">
                   Thank you for your interest in our accessibility services. We&apos;ll review your information and get back to you with next steps.
                 </p>
               </div>
@@ -510,13 +499,12 @@ export default function AccessibilityPage() {
               <>
                 <h2
                   className="text-2xl md:text-3xl font-bold mb-2"
-                  style={{ fontFamily: 'Poppins, sans-serif', color: '#191e4e' }}
+                  style={{ color: '#191e4e' }}
                 >
                   Request an Accessibility Audit
                 </h2>
                 <p
                   className="text-gray-600 mb-8"
-                  style={{ fontFamily: 'Poppins, sans-serif' }}
                 >
                   Send the basics. We&apos;ll reply with next steps and a clear recommendation.
                 </p>
@@ -527,7 +515,6 @@ export default function AccessibilityPage() {
                     <label
                       htmlFor="name"
                       className="block text-sm font-semibold text-gray-700 mb-2"
-                      style={{fontFamily: 'Poppins, sans-serif'}}
                     >
                       Name<span className="text-red-600">*</span>
                     </label>
@@ -538,11 +525,10 @@ export default function AccessibilityPage() {
                       value={formData.name}
                       onChange={handleChange}
                       className={`w-full px-4 py-3 border ${errors.name ? 'border-red-500' : 'border-gray-300'} rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors`}
-                      style={{fontFamily: 'Poppins, sans-serif'}}
                       placeholder="Enter your full name"
                     />
                     {errors.name && (
-                      <p className="mt-1 text-sm text-red-600" style={{fontFamily: 'Poppins, sans-serif'}}>
+                      <p className="mt-1 text-sm text-red-600">
                         {errors.name}
                       </p>
                     )}
@@ -553,7 +539,6 @@ export default function AccessibilityPage() {
                     <label
                       htmlFor="email"
                       className="block text-sm font-semibold text-gray-700 mb-2"
-                      style={{fontFamily: 'Poppins, sans-serif'}}
                     >
                       Email<span className="text-red-600">*</span>
                     </label>
@@ -564,11 +549,10 @@ export default function AccessibilityPage() {
                       value={formData.email}
                       onChange={handleChange}
                       className={`w-full px-4 py-3 border ${errors.email ? 'border-red-500' : 'border-gray-300'} rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors`}
-                      style={{fontFamily: 'Poppins, sans-serif'}}
                       placeholder="your.email@example.com"
                     />
                     {errors.email && (
-                      <p className="mt-1 text-sm text-red-600" style={{fontFamily: 'Poppins, sans-serif'}}>
+                      <p className="mt-1 text-sm text-red-600">
                         {errors.email}
                       </p>
                     )}
@@ -579,7 +563,6 @@ export default function AccessibilityPage() {
                     <label
                       htmlFor="phone"
                       className="block text-sm font-semibold text-gray-700 mb-2"
-                      style={{fontFamily: 'Poppins, sans-serif'}}
                     >
                       Phone <span className="text-gray-500 text-xs">(optional)</span>
                     </label>
@@ -590,7 +573,6 @@ export default function AccessibilityPage() {
                       value={formData.phone}
                       onChange={handleChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-                      style={{fontFamily: 'Poppins, sans-serif'}}
                       placeholder="(555) 123-4567"
                     />
                   </div>
@@ -600,7 +582,6 @@ export default function AccessibilityPage() {
                     <label
                       htmlFor="businessName"
                       className="block text-sm font-semibold text-gray-700 mb-2"
-                      style={{fontFamily: 'Poppins, sans-serif'}}
                     >
                       Business Name<span className="text-red-600">*</span>
                     </label>
@@ -611,11 +592,10 @@ export default function AccessibilityPage() {
                       value={formData.businessName}
                       onChange={handleChange}
                       className={`w-full px-4 py-3 border ${errors.businessName ? 'border-red-500' : 'border-gray-300'} rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors`}
-                      style={{fontFamily: 'Poppins, sans-serif'}}
                       placeholder="Enter your business name"
                     />
                     {errors.businessName && (
-                      <p className="mt-1 text-sm text-red-600" style={{fontFamily: 'Poppins, sans-serif'}}>
+                      <p className="mt-1 text-sm text-red-600">
                         {errors.businessName}
                       </p>
                     )}
@@ -626,7 +606,6 @@ export default function AccessibilityPage() {
                     <label
                       htmlFor="websiteUrl"
                       className="block text-sm font-semibold text-gray-700 mb-2"
-                      style={{fontFamily: 'Poppins, sans-serif'}}
                     >
                       Website URL<span className="text-red-600">*</span>
                     </label>
@@ -637,11 +616,10 @@ export default function AccessibilityPage() {
                       value={formData.websiteUrl}
                       onChange={handleChange}
                       className={`w-full px-4 py-3 border ${errors.websiteUrl ? 'border-red-500' : 'border-gray-300'} rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors`}
-                      style={{fontFamily: 'Poppins, sans-serif'}}
                       placeholder="https://www.yourwebsite.com"
                     />
                     {errors.websiteUrl && (
-                      <p className="mt-1 text-sm text-red-600" style={{fontFamily: 'Poppins, sans-serif'}}>
+                      <p className="mt-1 text-sm text-red-600">
                         {errors.websiteUrl}
                       </p>
                     )}
@@ -650,7 +628,7 @@ export default function AccessibilityPage() {
                   {/* Submit Error */}
                   {errors.submit && (
                     <div className="bg-red-50 border border-red-200 rounded-md p-4">
-                      <p className="text-sm text-red-600" style={{fontFamily: 'Poppins, sans-serif'}}>
+                      <p className="text-sm text-red-600">
                         {errors.submit}
                       </p>
                     </div>
@@ -670,7 +648,7 @@ export default function AccessibilityPage() {
                     />
                   </div>
                   {errors.captcha && (
-                    <p className="text-sm text-red-600 text-center" style={{fontFamily: 'Poppins, sans-serif'}}>
+                    <p className="text-sm text-red-600 text-center">
                       {errors.captcha}
                     </p>
                   )}
@@ -681,7 +659,7 @@ export default function AccessibilityPage() {
                       type="submit"
                       disabled={isSubmitting}
                       className="w-full text-white px-8 py-4 rounded-md disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 font-semibold text-lg"
-                      style={{fontFamily: 'Poppins, sans-serif', backgroundColor: '#287194'}}
+                      style={{backgroundColor: '#287194'}}
                       onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#1e5a75'}
                       onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#287194'}
                     >
@@ -689,7 +667,7 @@ export default function AccessibilityPage() {
                     </button>
                   </div>
 
-                  <p className="text-sm text-gray-600 text-center mt-4" style={{fontFamily: 'Poppins, sans-serif'}}>
+                  <p className="text-sm text-gray-600 text-center mt-4">
                     <span className="text-red-600">*</span> Required fields
                   </p>
                 </form>

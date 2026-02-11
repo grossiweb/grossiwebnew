@@ -124,7 +124,6 @@ export default async function BlogPost({ params }: Props) {
             <div className="max-w-4xl">
               <h1
                 className="text-[36px] md:text-[54px] font-bold text-white leading-[1.05]"
-                style={{ fontFamily: 'Poppins, sans-serif' }}
               >
                 {post.title}
               </h1>

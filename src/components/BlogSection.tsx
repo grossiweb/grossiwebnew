@@ -106,7 +106,7 @@ export default function BlogSection() {
         <div className="text-center mb-8 md:mb-10">
           <h2
             className="text-2xl md:text-3xl font-bold border-l-4 border-blue-500 pl-4 inline-block"
-            style={{fontFamily: 'Poppins, sans-serif', color: '#191e4e'}}
+            style={{color: '#191e4e'}}
           >
             Blog
           </h2>
@@ -127,15 +127,9 @@ export default function BlogSection() {
                 >
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                   <div className="absolute bottom-0 left-0 right-0 bg-black/45 backdrop-blur-[2px] px-6 py-4 rounded-b-md">
-                    <div
-                      className="text-white/90 text-sm mb-1"
-                      style={{ fontFamily: 'Poppins, sans-serif' }}
-                    >
-                      {post.date ? formatDate(post.date) : ''}
-                    </div>
-                    <h5 
+                    <h5
                       className="text-white font-semibold text-lg leading-tight"
-                      style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '600' }}
+                      style={{ fontWeight: '600' }}
                     >
                       {post.title}
                     </h5>
@@ -144,12 +138,12 @@ export default function BlogSection() {
               </Link>
             ))}
           </div>
-          
+
           {/* Second Row */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {displayPosts.slice(2).map((post: BlogCardPost, index: number) => (
               <Link key={index + 2} href={`/blog/${post.slug}`}>
-                <div 
+                <div
                   className="relative bg-cover bg-center rounded-md overflow-hidden cursor-pointer shadow-[0_18px_50px_rgba(0,0,0,0.12)]"
                   style={{
                     backgroundImage: `url(${post.image})`,
@@ -158,15 +152,9 @@ export default function BlogSection() {
                 >
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                   <div className="absolute bottom-0 left-0 right-0 bg-black/45 backdrop-blur-[2px] px-6 py-4 rounded-b-md">
-                    <div
-                      className="text-white/90 text-sm mb-1"
-                      style={{ fontFamily: 'Poppins, sans-serif' }}
-                    >
-                      {post.date ? formatDate(post.date) : ''}
-                    </div>
-                    <h5 
+                    <h5
                       className="text-white font-semibold text-lg leading-tight"
-                      style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '600' }}
+                      style={{ fontWeight: '600' }}
                     >
                       {post.title}
                     </h5>
@@ -182,7 +170,6 @@ export default function BlogSection() {
             <button
               className="border-2 px-6 py-2 rounded-md transition-all duration-300 font-semibold"
               style={{
-                fontFamily: 'Poppins, sans-serif',
                 borderColor: '#287194',
                 color: '#287194',
                 backgroundColor: 'transparent'
