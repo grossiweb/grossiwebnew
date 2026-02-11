@@ -216,8 +216,7 @@ export default function DynamicPage() {
               alt={coverImageAlt || content.featuredImage?.node?.altText || content.title}
               className="absolute inset-0 w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-black/35"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/35 to-transparent"></div>
+            <div className="absolute inset-0 bg-black/40"></div>
           </>
         )}
 
@@ -228,7 +227,13 @@ export default function DynamicPage() {
               dangerouslySetInnerHTML={{ __html: coverTitleHtml || content.title }}
             />
 
-            {coverSubtitleLines?.length ? (
+            {excerptHtml ? (
+              <p
+                className="mt-6 md:mt-8 text-lg md:text-2xl text-white/90 max-w-xl leading-relaxed"
+              >
+                {excerptHtml.replace(/<[^>]*>/g, '').trim()}
+              </p>
+            ) : coverSubtitleLines?.length ? (
               <div
                 className="mt-6 md:mt-8 text-lg md:text-2xl text-white/90 leading-relaxed"
               >

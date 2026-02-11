@@ -2,6 +2,114 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Reusable section title with left accent border — use in CMS via class "section-title" */
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #191e4e;
+  border-left: 4px solid #3b82f6;
+  padding-left: 1rem;
+  line-height: 1.3;
+  display: inline-block;
+}
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 1.875rem;
+  }
+}
+
+/* White variant for dark backgrounds */
+.section-title-light {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  border-left: 4px solid #3b82f6;
+  padding-left: 1rem;
+  line-height: 1.3;
+  display: inline-block;
+}
+@media (min-width: 768px) {
+  .section-title-light {
+    font-size: 1.875rem;
+  }
+}
+
+/* Center-aligned — combine with section-title: "section-title section-title-center" */
+.section-title-center {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ── Feature Box Grid ── use "gw-grid" on a Columns block (2-col) */
+.gw-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+@media (min-width: 768px) {
+  .gw-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Feature Box card — use "gw-box" on a Group block */
+.gw-box {
+  background-color: #f8f9fa;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+}
+@media (min-width: 768px) {
+  .gw-box {
+    padding: 2rem;
+  }
+}
+
+/* Box icon — use "gw-box-icon" on an Image block */
+.gw-box-icon,
+.gw-box-icon img {
+  height: 3.5rem;
+  width: auto;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+/* Box title — use "gw-box-title" on a Heading block */
+.gw-box-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #191e4f;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+/* Highlight a word in teal — wrap word in <mark> or <span> with "gw-highlight" */
+.gw-highlight {
+  color: #287194;
+  background: none;
+}
+
+/* Box description — use "gw-box-text" on a Paragraph block */
+.gw-box-text {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #374151;
+  margin-bottom: 0;
+}
+
+/* Box link — use "gw-box-link" on a Paragraph or Button block */
+.gw-box-link {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #287194;
+  text-decoration: none;
+  margin-top: 1rem;
+  display: inline-block;
+  transition: opacity 0.2s;
+}
+.gw-box-link:hover {
+  opacity: 0.8;
+}
 
 :root {
   --foreground-rgb: 0, 0, 0;
