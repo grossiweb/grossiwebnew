@@ -52,10 +52,18 @@ export default function ContactForm() {
     }
   }
 
+  const formatPhone = (value: string) => {
+    const digits = value.replace(/\D/g, '').slice(0, 10)
+    if (digits.length <= 3) return digits.length ? `(${digits}` : ''
+    if (digits.length <= 6) return `(${digits.slice(0, 3)}) ${digits.slice(3)}`
+    return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`
+  }
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [name]: name === 'phone' ? formatPhone(value) : value
     })
   }
 
@@ -209,7 +217,7 @@ export default function ContactForm() {
                     value={formData.phone}
                     onChange={handleChange}
                     className="w-full px-0 py-3 bg-transparent border-0 border-b border-white text-white placeholder-white/70 focus:ring-0 focus:border-white transition-colors"
-                    placeholder="Type your phone number"
+                    placeholder="(123) 456-7890"
                   />
                 </div>
                 

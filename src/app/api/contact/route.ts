@@ -73,13 +73,21 @@ export async function POST(request: NextRequest) {
     const endpoint = `${wpBaseUrl.replace(/\/+$/, '')}/wp-json/gf/v2/forms/${formId}/submissions`
     const auth = Buffer.from(`${gfUsername}:${gfPassword}`).toString('base64')
 
+    // Format phone to (###) ###-#### as required by GF "standard" phone format
+    const digits = String(phone || '').replace(/\D/g, '')
+    const formattedPhone = digits.length === 10
+      ? `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`
+      : digits.length === 11 && digits[0] === '1'
+        ? `(${digits.slice(1, 4)}) ${digits.slice(4, 7)}-${digits.slice(7)}`
+        : String(phone || '')
+
     // Per Gravity Forms REST API v2 documentation:
     // https://docs.gravityforms.com/submitting-forms-with-rest-api-v2/
     // Payload should contain flat input_X keys (e.g. input_1, input_3, etc.)
     const gfPayload: Record<string, string> = {
       [`input_${fieldName}`]: String(name),
       [`input_${fieldEmail}`]: String(email),
-      [`input_${fieldPhone}`]: String(phone || ''),
+      [`input_${fieldPhone}`]: formattedPhone,
       [`input_${fieldEnquiry}`]: String(enquiry),
     }
 
