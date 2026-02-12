@@ -22,6 +22,7 @@ export async function POST(request: NextRequest) {
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
         'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+        'Cache-Control': 's-maxage=60, stale-while-revalidate=300',
       },
     })
   } catch (error) {

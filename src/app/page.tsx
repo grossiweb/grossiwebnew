@@ -1,7 +1,4 @@
-'use client';
-
 import React from 'react'
-import { useQuery } from '@apollo/client'
 import Hero from '@/components/Hero'
 import Services from '@/components/Services'
 import Testimonials from '@/components/Testimonials'
@@ -10,18 +7,23 @@ import BlogSection from '@/components/BlogSection'
 import ClientsSection from '@/components/ClientsSection'
 import TrustSection from '@/components/TrustSection'
 import { GET_HOMEPAGE } from '@/lib/queries'
+import { getWordPressData } from '@/lib/wordpress'
 
-export default function HomePage() {
-  // Fetch WordPress data but don't block rendering on errors
-  const { data, loading, error } = useQuery(GET_HOMEPAGE, {
-    errorPolicy: 'ignore', // Ignore GraphQL errors and use fallback data
-    fetchPolicy: 'cache-first', // Use cache if available
-  });
+// Revalidate every 60 seconds — Vercel caches the page at the edge
+export const revalidate = 60
 
-  // Always render the page - components will handle their own fallbacks
+export default async function HomePage() {
+  let homepageData = null
+  try {
+    const data = await getWordPressData(GET_HOMEPAGE)
+    homepageData = data?.page || null
+  } catch {
+    // Fallback: components handle missing data gracefully
+  }
+
   return (
     <div className="min-h-screen">
-      <Hero homepageData={data?.page} loading={loading} />
+      <Hero homepageData={homepageData} loading={false} />
       <ClientsSection />
       <TrustSection />
       <Services />

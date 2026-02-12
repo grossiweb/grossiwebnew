@@ -5,6 +5,9 @@ import { getWordPressData } from '@/lib/wordpress'
 import FocusSection from '@/components/FocusSection'
 import ContactForm from '@/components/ContactForm'
 
+// Revalidate every 60 seconds — Vercel caches the page at the edge
+export const revalidate = 60
+
 const GET_BLOG_INDEX = gql`
   query GetBlogIndex($first: Int = 24) {
     posts(

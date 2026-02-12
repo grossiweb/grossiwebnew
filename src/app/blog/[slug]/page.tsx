@@ -6,6 +6,9 @@ import FocusSection from '@/components/FocusSection';
 import ContactForm from '@/components/ContactForm';
 import BlogPostContent from '@/components/BlogPostContent';
 
+// Revalidate every 60 seconds — Vercel caches the page at the edge
+export const revalidate = 60
+
 const GET_POST_BY_SLUG = gql`
   query GetPostBySlug($slug: ID!) {
     post(id: $slug, idType: SLUG) {
