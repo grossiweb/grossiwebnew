@@ -118,7 +118,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/about"
+                  href="/about-us"
                   className="text-white hover:text-blue-300 transition-colors"
                   style={{fontSize: '16px'}}
                 >
