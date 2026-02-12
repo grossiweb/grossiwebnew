@@ -39,8 +39,7 @@ export default function FocusSection() {
           <h2
             className="max-w-5xl border-l-4 border-[#287194] pl-4 text-left text-2xl md:text-3xl font-bold leading-tight text-white"
           >
-            <span className="block">We focus on aspects that matter to your business</span>
-            <span className="block">That&apos;s what makes our clients happy</span>
+            <span className="block">Real Businesses. Real Growth. Real Results.</span>
           </h2>
         </div>
 
