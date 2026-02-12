@@ -368,10 +368,110 @@
   min-width: 0;
 }
 
-/* Buttons */
-.entry-content .wp-block-button,
-.wp-content .wp-block-button {
+/* Buttons container (alignment wrapper) */
+.wp-block-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
   margin: 1.5em 0;
+}
+
+/* Horizontal alignment */
+.wp-block-buttons.is-content-justification-left {
+  justify-content: flex-start;
+}
+
+.wp-block-buttons.is-content-justification-center {
+  justify-content: center;
+}
+
+.wp-block-buttons.is-content-justification-right {
+  justify-content: flex-end;
+}
+
+.wp-block-buttons.is-content-justification-space-between {
+  justify-content: space-between;
+}
+
+/* Vertical layout */
+.wp-block-buttons.is-vertical {
+  flex-direction: column;
+}
+
+.wp-block-buttons.is-vertical.is-content-justification-left {
+  align-items: flex-start;
+}
+
+.wp-block-buttons.is-vertical.is-content-justification-center {
+  align-items: center;
+}
+
+.wp-block-buttons.is-vertical.is-content-justification-right {
+  align-items: flex-end;
+}
+
+/* Vertical alignment (for horizontal layout) */
+.wp-block-buttons.is-vertically-aligned-top {
+  align-items: flex-start;
+}
+
+.wp-block-buttons.is-vertically-aligned-center {
+  align-items: center;
+}
+
+.wp-block-buttons.is-vertically-aligned-bottom {
+  align-items: flex-end;
+}
+
+/* Individual button inside the container */
+.wp-block-buttons > .wp-block-button {
+  margin: 0;
+}
+
+/* Standalone button (not inside .wp-block-buttons) */
+.entry-content > .wp-block-button,
+.wp-content > .wp-block-button {
+  margin: 1.5em 0;
+}
+
+/* Button width variants */
+.wp-block-button.is-style-fill .wp-block-button__link {
+  /* default fill style - already styled below */
+}
+
+.wp-block-button.is-style-outline .wp-block-button__link {
+  background-color: transparent;
+  border: 2px solid currentColor;
+  color: #0066cc;
+}
+
+.wp-block-button.is-style-outline .wp-block-button__link:hover {
+  background-color: #0066cc;
+  color: #fff;
+  border-color: #0066cc;
+}
+
+/* Full-width button */
+.wp-block-button.alignfull,
+.wp-block-button.has-custom-width.wp-block-button__width-100 {
+  width: 100%;
+}
+
+.wp-block-button.has-custom-width.wp-block-button__width-100 .wp-block-button__link {
+  width: 100%;
+  text-align: center;
+}
+
+.wp-block-button.has-custom-width.wp-block-button__width-75 .wp-block-button__link {
+  width: 75%;
+}
+
+.wp-block-button.has-custom-width.wp-block-button__width-50 .wp-block-button__link {
+  width: 50%;
+}
+
+.wp-block-button.has-custom-width.wp-block-button__width-25 .wp-block-button__link {
+  width: 25%;
 }
 
 .wp-block-button__link {
