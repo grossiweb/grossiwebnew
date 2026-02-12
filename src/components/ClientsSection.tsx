@@ -50,17 +50,17 @@ export default function ClientsSection() {
     <section className="py-8 md:py-12 bg-white">
       <div className="container mx-auto px-6 text-center">
         <h2
-          className="text-2xl md:text-3xl font-bold mb-2 border-l-4 border-blue-500 pl-4 inline-block"
+          className="text-2xl md:text-3xl font-bold mb-6 border-l-4 border-blue-500 pl-4 inline-block"
           style={{color: '#191e4e'}}
         >
           Our Clients
         </h2>
-        <p className="text-sm md:text-base mb-8 text-gray-600">
+        <p className="text-sm md:text-base mb-12 text-gray-600">
           From world leading brands to local super stars.
         </p>
         
         {/* Client Logos */}
-        <div className="bg-white py-10 md:py-12">
+        <div className="bg-white">
           <div className="overflow-hidden">
             <div className="flex animate-scroll space-x-8 md:space-x-16 items-center">
               {clientLogos.concat(clientLogos).map((logo: string, index: number) => (
