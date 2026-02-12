@@ -284,16 +284,6 @@ html {
   animation: slideUp 0.6s ease-out;
 }
 
-.animate-scroll {
-  animation: scroll 30s linear infinite;
-}
-
-@media (max-width: 767px) {
-  .animate-scroll {
-    animation-duration: 8s;
-  }
-}
-
 /* Testimonials marquee (infinite loop carousel) */
 .testimonial-marquee {
   animation: scroll 45s linear infinite;

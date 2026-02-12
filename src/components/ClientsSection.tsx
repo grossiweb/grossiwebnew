@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import { gql } from '@apollo/client';
 
@@ -36,15 +36,38 @@ const fallbackLogos = [
   '/images/logos/ultramet.png'
 ];
 
-export default function ClientsSection() {
-  const { data, loading, error } = useQuery(GET_CLIENTS, {
-    errorPolicy: 'ignore', // Gracefully ignore errors and use fallback data
-  });
+const SCROLL_SPEED = 0.5; // pixels per frame (~30px/s at 60fps)
 
-  // Use WordPress data if available, otherwise fallback to hardcoded logos
-  const clientLogos: string[] = data?.clients?.nodes?.map((client: any) => 
+export default function ClientsSection() {
+  const { data } = useQuery(GET_CLIENTS, {
+    errorPolicy: 'ignore',
+  });
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const offsetRef = useRef(0);
+
+  const clientLogos: string[] = data?.clients?.nodes?.map((client: any) =>
     client.customFields?.clientLogo || client.featuredImage?.node?.sourceUrl
   ).filter(Boolean) || fallbackLogos;
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    let rafId: number;
+
+    const step = () => {
+      const halfWidth = el.scrollWidth / 2;
+      offsetRef.current += SCROLL_SPEED;
+      if (offsetRef.current >= halfWidth) {
+        offsetRef.current -= halfWidth;
+      }
+      el.style.transform = `translateX(-${offsetRef.current}px)`;
+      rafId = requestAnimationFrame(step);
+    };
+
+    rafId = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(rafId);
+  }, [clientLogos]);
 
   return (
     <section className="py-8 md:py-12 bg-white">
@@ -58,14 +81,17 @@ export default function ClientsSection() {
         <p className="text-sm md:text-base mb-12 text-gray-600">
           From world leading brands to local super stars.
         </p>
-        
+
         {/* Client Logos */}
         <div className="bg-white">
           <div className="overflow-hidden">
-            <div className="flex animate-scroll space-x-8 md:space-x-16 items-center">
+            <div
+              ref={scrollRef}
+              className="flex space-x-8 md:space-x-16 items-center will-change-transform"
+            >
               {clientLogos.concat(clientLogos).map((logo: string, index: number) => (
                 <div key={index} className="flex-shrink-0 flex items-center justify-center h-24">
-                  <img 
+                  <img
                     src={logo}
                     alt={`Client ${index + 1}`}
                     className="max-h-20 w-auto opacity-100"
