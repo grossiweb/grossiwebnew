@@ -215,18 +215,9 @@ export default function DynamicPageContent({ content, isPost, slug }: DynamicPag
 
           <div className="w-full mx-auto">
             <article
-              className="wp-content prose max-w-none text-[18px]
-                         prose-headings:font-bold prose-headings:text-[#6c6c6c]
-                         prose-h1:text-4xl prose-h1:mb-6 prose-h1:mt-12
-                         prose-h2:text-3xl prose-h2:mb-4 prose-h2:mt-10
-                         prose-h3:text-2xl prose-h3:mb-3 prose-h3:mt-8
-                         prose-h4:text-xl prose-h4:mb-2 prose-h4:mt-6
-                         prose-p:text-[#6c6c6c] prose-p:text-[18px] prose-p:leading-relaxed prose-p:mb-6
-                         prose-li:text-[#6c6c6c] prose-li:text-[18px]
+              className="wp-content prose max-w-none
                          prose-a:text-[#287194] prose-a:no-underline hover:prose-a:underline
-                         prose-strong:text-[#6c6c6c] prose-strong:font-semibold
-                         prose-ul:mb-6 prose-ol:mb-6
-                         prose-li:mb-2"
+                         prose-strong:font-semibold"
               dangerouslySetInnerHTML={{ __html: contentHtmlWithoutCover }}
             />
           </div>

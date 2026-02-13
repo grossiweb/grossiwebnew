@@ -216,9 +216,181 @@
   }
 }
 
-/* WordPress Block Editor CSS - Layout and Media Only */
+/* ═══════════════════════════════════════════════════════════════════
+   GLOBAL TYPOGRAPHY — Headings, Paragraphs, Spacing
+   These styles apply automatically to ALL WordPress content.
+   No manual adjustment needed in the block editor.
+   ═══════════════════════════════════════════════════════════════════ */
 
-/* Main Content Container */
+/* ── Headings (H1–H6) ── */
+.wp-content h1,
+.wp-content h2,
+.wp-content h3,
+.wp-content h4,
+.wp-content h5,
+.wp-content h6,
+.entry-content h1,
+.entry-content h2,
+.entry-content h3,
+.entry-content h4,
+.entry-content h5,
+.entry-content h6 {
+  color: #191e4e;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* H1 — Page title / main heading */
+.wp-content h1,
+.entry-content h1 {
+  font-size: 2.5rem;        /* 40px */
+  margin-top: 2.5rem;       /* 40px */
+  margin-bottom: 1.25rem;   /* 20px */
+  line-height: 1.15;
+}
+
+/* H2 — Section heading */
+.wp-content h2,
+.entry-content h2 {
+  font-size: 2rem;           /* 32px */
+  margin-top: 2.25rem;       /* 36px */
+  margin-bottom: 1rem;       /* 16px */
+}
+
+/* H3 — Sub-section heading */
+.wp-content h3,
+.entry-content h3 {
+  font-size: 1.625rem;       /* 26px */
+  margin-top: 2rem;          /* 32px */
+  margin-bottom: 0.875rem;   /* 14px */
+}
+
+/* H4 — Group / card heading */
+.wp-content h4,
+.entry-content h4 {
+  font-size: 1.375rem;       /* 22px */
+  margin-top: 1.75rem;       /* 28px */
+  margin-bottom: 0.75rem;    /* 12px */
+}
+
+/* H5 — Small heading / label */
+.wp-content h5,
+.entry-content h5 {
+  font-size: 1.125rem;       /* 18px */
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-top: 1.5rem;        /* 24px */
+  margin-bottom: 0.625rem;   /* 10px */
+}
+
+/* H6 — Smallest heading / overline */
+.wp-content h6,
+.entry-content h6 {
+  font-size: 0.9375rem;      /* 15px */
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #287194;            /* teal accent for visual distinction */
+  margin-top: 1.25rem;       /* 20px */
+  margin-bottom: 0.5rem;     /* 8px */
+}
+
+/* First element after hero — no extra top margin */
+.wp-content > *:first-child,
+.entry-content > *:first-child {
+  margin-top: 0;
+}
+
+/* Heading followed by heading — tighten spacing */
+.wp-content h1 + h2,
+.wp-content h2 + h3,
+.wp-content h3 + h4,
+.wp-content h4 + h5,
+.wp-content h5 + h6,
+.entry-content h1 + h2,
+.entry-content h2 + h3,
+.entry-content h3 + h4,
+.entry-content h4 + h5,
+.entry-content h5 + h6 {
+  margin-top: 0.5rem;
+}
+
+/* ── Paragraphs ── */
+.wp-content p,
+.entry-content p {
+  font-size: 1.125rem;       /* 18px */
+  line-height: 1.75;
+  color: #6c6c6c;
+  margin-top: 0;
+  margin-bottom: 1.5rem;     /* 24px — consistent gap after every paragraph */
+}
+
+/* ── Heading alignment — works from the block editor toolbar ── */
+.wp-content .has-text-align-left,
+.entry-content .has-text-align-left,
+.wp-content h1.has-text-align-left,
+.wp-content h2.has-text-align-left,
+.wp-content h3.has-text-align-left,
+.wp-content h4.has-text-align-left,
+.wp-content h5.has-text-align-left,
+.wp-content h6.has-text-align-left {
+  text-align: left !important;
+}
+
+.wp-content .has-text-align-center,
+.entry-content .has-text-align-center,
+.wp-content h1.has-text-align-center,
+.wp-content h2.has-text-align-center,
+.wp-content h3.has-text-align-center,
+.wp-content h4.has-text-align-center,
+.wp-content h5.has-text-align-center,
+.wp-content h6.has-text-align-center {
+  text-align: center !important;
+}
+
+.wp-content .has-text-align-right,
+.entry-content .has-text-align-right,
+.wp-content h1.has-text-align-right,
+.wp-content h2.has-text-align-right,
+.wp-content h3.has-text-align-right,
+.wp-content h4.has-text-align-right,
+.wp-content h5.has-text-align-right,
+.wp-content h6.has-text-align-right {
+  text-align: right !important;
+}
+
+/* ── WordPress Color Palette ── set in block editor sidebar */
+.has-white-color { color: #ffffff !important; }
+.has-black-color { color: #000000 !important; }
+.has-navy-color { color: #191e4e !important; }
+.has-teal-color { color: #287194 !important; }
+.has-blue-color { color: #0066cc !important; }
+.has-gray-color { color: #6c6c6c !important; }
+.has-light-gray-color { color: #94a3b8 !important; }
+
+.has-white-background-color { background-color: #ffffff !important; }
+.has-black-background-color { background-color: #000000 !important; }
+.has-navy-background-color { background-color: #191e4e !important; }
+.has-teal-background-color { background-color: #287194 !important; }
+.has-blue-background-color { background-color: #0066cc !important; }
+.has-gray-background-color { background-color: #f8f9fa !important; }
+.has-light-gray-background-color { background-color: #f1f5f9 !important; }
+
+/* ── Responsive heading sizes ── */
+@media (min-width: 768px) {
+  .wp-content h1, .entry-content h1 { font-size: 3rem; }        /* 48px on desktop */
+  .wp-content h2, .entry-content h2 { font-size: 2.25rem; }     /* 36px */
+  .wp-content h3, .entry-content h3 { font-size: 1.875rem; }    /* 30px */
+  .wp-content h4, .entry-content h4 { font-size: 1.5rem; }      /* 24px */
+  .wp-content h5, .entry-content h5 { font-size: 1.25rem; }     /* 20px */
+  .wp-content h6, .entry-content h6 { font-size: 1rem; }        /* 16px */
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   END GLOBAL TYPOGRAPHY
+   ═══════════════════════════════════════════════════════════════════ */
+
 /* Lists */
 .entry-content ul,
 .wp-content ul,

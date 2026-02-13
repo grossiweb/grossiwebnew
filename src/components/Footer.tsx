@@ -160,7 +160,7 @@ export default function Footer() {
         <div className="border-t border-gray-600 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p
-              className="text-white text-sm"
+              className="text-white text-sm md:flex-1"
               style={{fontSize: '14px'}}
             >
               © {new Date().getFullYear()} Grossi Consulting LLC. All rights reserved
@@ -168,14 +168,14 @@ export default function Footer() {
 
             <Link
               href="/privacy-policy/"
-              className="text-white hover:text-blue-300 transition-colors text-sm flex items-center"
+              className="text-white hover:text-blue-300 transition-colors text-sm flex items-center md:flex-1 md:justify-center"
               style={{fontSize: '14px'}}
             >
               Privacy Policy
             </Link>
 
             {/* Social Links */}
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-4 md:flex-1 md:justify-end">
               <Link href="https://www.facebook.com/people/GrossiWeb/100063803895706/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-blue-300 transition-colors">
                 <span className="sr-only">Facebook</span>
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">

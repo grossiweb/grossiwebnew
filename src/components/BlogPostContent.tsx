@@ -24,7 +24,7 @@ export default function BlogPostContent({ content }: BlogPostContentProps) {
 
   return (
     <article
-      className="wp-content prose prose-lg max-w-none"
+      className="wp-content prose max-w-none prose-a:text-[#287194] prose-a:no-underline hover:prose-a:underline prose-strong:font-semibold"
       dangerouslySetInnerHTML={{ __html: content }}
     />
   )
