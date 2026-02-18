@@ -13,6 +13,9 @@
     font-size: 1.875rem;
   }
 }
+.row-2-about{
+  margin: 0 auto !important;
+}
 
 /* White variant for dark backgrounds */
 .section-title-light {
@@ -604,11 +607,6 @@
 .entry-content > .wp-block-button,
 .wp-content > .wp-block-button {
   margin: 1.5em 0;
-}
-
-/* Button width variants */
-.wp-block-button.is-style-fill .wp-block-button__link {
-  /* default fill style - already styled below */
 }
 
 .wp-block-button.is-style-outline .wp-block-button__link {
